@@ -77,7 +77,7 @@ function App() {
           >
             <div className="flex items-center justify-center gap-8">
               <motion.p
-                className="md:text-5xl text-2xl"
+                className="md:text-5xl text-xl"
                 initial={{ y: -300 }}
                 animate={{ y: 0 }}
                 transition={{ duration: 1.2, stiffness: 50, delay: 1.5 }}
@@ -189,7 +189,7 @@ function App() {
           </motion.section>
 
           <motion.section
-            className="w-full min-h-screen flex flex-col justify-center items-center p-8 gap-4"
+            className="w-full min-h-screen flex flex-col justify-center items-center p-2 gap-4"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ amount: 0.8 }}
@@ -202,7 +202,7 @@ function App() {
               whileInView={{ opacity: 1 }}
               transition={{ duration: 1 }}
               viewport={{ amount: 0.8 }}
-              className="bg-black/30 backdrop-blur-md z-10 w-full border-2 border-indigo-500 rounded-lg md:h-full h-1/2 flex flex-col p-4 text-xs md:text-sm"
+              className="bg-black/30 backdrop-blur-md z-10 w-full border-2 border-indigo-500 rounded-lg md:h-full font-thin h-1/2 flex flex-col gap-4  py-2 justify-between text-xs md:text-sm"
             >
               <img
                 src="/img/me.jpg"
@@ -211,7 +211,7 @@ function App() {
               />
               <div className="absolute z-10 inset-0 w-full h-full bg-black/80"></div>
 
-              <div className="z-20 w-full h-1/4 text-xs md:text-base p-2 md:p-8 flex flex-col md:gap-4 gap-2">
+              <div className="z-20 w-full h-1/4 md:text-sm text-xs p-2 md:p-8 flex flex-col md:gap-4 gap-2">
                 <p className="text-slate-200">
                   {"["}
                   <span className="text-yellow-400">user@</span>
@@ -219,7 +219,7 @@ function App() {
                   <span className="text-red-500">~/skills</span>
                   {"]"}$ ls /Web/Frontend
                 </p>
-                <div className="w-full flex gap-2 md:gap-8">
+                <div className="w-full flex gap-2 md:gap-8 ">
                   <motion.p
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
@@ -262,7 +262,7 @@ function App() {
                   </motion.p>
                 </div>
               </div>
-              <div className="z-20 w-full h-1/4 text-xs md:text-base p-2 md:p-8 flex flex-col md:gap-4 gap-2">
+              <div className="z-20 w-full h-1/4 md:text-sm text-xs p-2 md:p-8 flex flex-col md:gap-4 gap-2">
                 <p className="text-slate-200">
                   {"["}
                   <span className="text-yellow-400">user@</span>
@@ -297,7 +297,7 @@ function App() {
                   </motion.p>
                 </div>
               </div>
-              <div className="z-20 w-full h-1/4 text-xs md:text-base p-2 md:p-8 flex flex-col md:gap-4 gap-2">
+              <div className="z-20 w-full h-1/4 md:text-sm text-xs p-2 md:p-8 flex flex-col md:gap-4 gap-2">
                 <p className="text-slate-200">
                   {"["}
                   <span className="text-yellow-400">user@</span>
@@ -459,16 +459,7 @@ function App() {
               >
                 CodeWars
               </motion.a>
-              <motion.a
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                transition={{ duration: 1, delay: 0.8 }}
-                className="p-4 w-1/2 rounded-sm flex items-center justify-center md:w-32 h-10 bg-slate-100 text-slate-900"
-                href="https://www.hackerrank.com/profile/AwikwokBas"
-                target="_blank"
-              >
-                HackerRank
-              </motion.a>
+
               <motion.a
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
@@ -479,16 +470,7 @@ function App() {
               >
                 TryHackMe
               </motion.a>
-              <motion.a
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                transition={{ duration: 1, delay: 1 }}
-                className="p-4 w-1/2 rounded-sm flex items-center justify-center md:w-32 h-10 bg-slate-100 text-slate-900"
-                href="https://play.picoctf.org/users/deSebasers"
-                target="_blank"
-              >
-                PicoCTF
-              </motion.a>
+
               <motion.a
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
