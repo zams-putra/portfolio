@@ -77,7 +77,7 @@ function App() {
           >
             <div className="flex items-center justify-center gap-8">
               <motion.p
-                className="md:text-5xl text-xl"
+                className="md:text-5xl text-sm"
                 initial={{ y: -300 }}
                 animate={{ y: 0 }}
                 transition={{ duration: 1.2, stiffness: 50, delay: 1.5 }}
