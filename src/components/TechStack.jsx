@@ -16,14 +16,16 @@ export default function TechStack() {
         whileInView={{ opacity: 1 }}
         transition={{ duration: 1 }}
         viewport={{ amount: 0.8 }}
-        className="bg-black/30 backdrop-blur-md z-10 w-full border-2 border-indigo-500 rounded-lg md:h-full font-thin h-1/2 flex flex-col gap-4  py-2 justify-between text-xs md:text-sm"
+        whileTap={{ scaleX: 0 }}
+        whileHover={{ filter: "contrast(200%)" }}
+        className="bg-black/30 cursor-pointer backdrop-blur-md z-10 w-full border-2 border-indigo-500 rounded-lg md:h-full font-thin h-1/2 flex flex-col gap-4  py-2 justify-between text-xs md:text-sm"
       >
         <img
           src="/img/me.jpg"
           alt="me"
-          className="absolute w-full h-full z-0 object-cover inset-0"
+          className="absolute rounded-lg w-full h-full z-0 object-cover inset-0"
         />
-        <div className="absolute z-10 inset-0 w-full h-full bg-black/80"></div>
+        <div className="absolute z-10 rounded-lg inset-0 w-full h-full bg-black/80"></div>
 
         <div className="z-20 w-full h-1/4 md:text-sm text-xs p-2 md:p-8 flex flex-col md:gap-4 gap-2">
           <p className="text-slate-200">

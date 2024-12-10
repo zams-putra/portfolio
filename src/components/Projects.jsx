@@ -34,6 +34,7 @@ export default function Projects() {
             initial={{ scaleX: 0 }}
             whileInView={{ scaleX: 1 }}
             transition={{ duration: 1, delay: 0.6 }}
+            whileHover={{ scale: [1, 1.1, 1] }}
             className="w-full relative my-12 md:my-0 md:w-1/4 min-h-48 md:h-72 bg-white rounded-md flex flex-col justify-between content-between gap-2"
           >
             <img
