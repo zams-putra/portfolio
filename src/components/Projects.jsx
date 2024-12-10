@@ -8,7 +8,7 @@ export default function Projects() {
       techStack: ["MongoDB", "Express", "React", "NodeJS"],
       link: "https://zingy-medovik-3d7c83.netlify.app/",
       repo: "https://github.com/zams-putra/quizmaker-app",
-      img: "/img/me.jpg",
+      img: "/img/quizapp.png",
     },
   ];
 
@@ -37,7 +37,7 @@ export default function Projects() {
             className="w-full relative my-12 md:my-0 md:w-1/4 min-h-48 md:h-72 bg-white rounded-md flex flex-col justify-between content-between gap-2"
           >
             <img
-              className="top-0 w-full rounded-md h-24 object-cover z-0"
+              className="top-0 w-full rounded-md h-24  object-fill object-left-bottom z-0"
               src={project.img}
               alt={project.title}
             />
