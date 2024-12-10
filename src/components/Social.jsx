@@ -14,8 +14,9 @@ export default function Social() {
       <div className="w-full gap-8 items-center md:items-start min-h-screen flex p-8 flex-col md:flex-row flex-wrap">
         <motion.a
           initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
+          whileInView={{ opacity: 1, rotate: [30, -30, 0] }}
           transition={{ duration: 1, delay: 0.5 }}
+          viewport={{ once: true }}
           className="p-4 w-1/2 rounded-sm flex items-center justify-center md:w-32 h-10 bg-slate-100 text-slate-900"
           href="https://github.com/zams-putra"
           target="_blank"
@@ -24,8 +25,9 @@ export default function Social() {
         </motion.a>
         <motion.a
           initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
+          whileInView={{ opacity: 1, rotate: [30, -30, 0] }}
           transition={{ duration: 1, delay: 0.6 }}
+          viewport={{ once: true }}
           className="p-4 w-1/2 rounded-sm flex items-center justify-center md:w-32 h-10 bg-slate-100 text-slate-900"
           href="https://leetcode.com/u/Sebasers/"
           target="_blank"
@@ -34,8 +36,9 @@ export default function Social() {
         </motion.a>
         <motion.a
           initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
+          whileInView={{ opacity: 1, rotate: [30, -30, 0] }}
           transition={{ duration: 1, delay: 0.7 }}
+          viewport={{ once: true }}
           className="p-4 w-1/2 rounded-sm flex items-center justify-center md:w-32 h-10 bg-slate-100 text-slate-900"
           href="https://www.codewars.com/users/AwikwokBas"
           target="_blank"
@@ -45,8 +48,9 @@ export default function Social() {
 
         <motion.a
           initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
+          whileInView={{ opacity: 1, rotate: [30, -30, 0] }}
           transition={{ duration: 1, delay: 0.9 }}
+          viewport={{ once: true }}
           className="p-4 w-1/2 rounded-sm flex items-center justify-center md:w-32 h-10 bg-slate-100 text-slate-900"
           href="https://tryhackme.com/r/p/TombaHK"
           target="_blank"
@@ -56,8 +60,9 @@ export default function Social() {
 
         <motion.a
           initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
+          whileInView={{ opacity: 1, rotate: [30, -30, 0] }}
           transition={{ duration: 1, delay: 1.1 }}
+          viewport={{ once: true }}
           className="p-4 w-1/2 rounded-sm flex items-center justify-center md:w-32 h-10 bg-slate-100 text-slate-900"
           href="https://medium.com/@sirsebasers"
           target="_blank"
@@ -66,8 +71,9 @@ export default function Social() {
         </motion.a>
         <motion.a
           initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
+          whileInView={{ opacity: 1, rotate: [30, -30, 0] }}
           transition={{ duration: 1, delay: 1.1 }}
+          viewport={{ once: true }}
           className="p-4 w-1/2 rounded-sm flex items-center justify-center md:w-32 h-10 bg-slate-100 text-slate-900"
           href="https://instagram.com/username.gw.itu.jir"
           target="_blank"

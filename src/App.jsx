@@ -8,6 +8,7 @@ import TechStack from "./components/TechStack";
 import Projects from "./components/Projects";
 import Experience from "./components/Experience";
 import axios from "axios";
+import Social from "./components/Social";
 
 function App() {
   const [notSplash, setNotSplash] = useState(false);
@@ -49,6 +50,7 @@ function App() {
           <TechStack />
           <Projects />
           <Experience />
+          <Social />
 
           <section className="w-full h-screen flex  flex-col justify-center items-center">
             <motion.div

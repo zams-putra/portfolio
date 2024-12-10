@@ -22,11 +22,8 @@ export default function Hero() {
           className="w-14 h-14 cursor-pointer md:w-24 md:h-24 rounded-full border-2 border-yellow-400"
           src="/img/me.jpg"
           alt="me.jpg"
-          initial={{ x: 300 }}
-          animate={{ x: 0 }}
-          whileHover={{ scale: 0.7 }}
-          whileTap={{ scale: 0 }}
-          transition={{ duration: 0.9, stiffness: 50 }}
+          animate={{ y: [-30, 30, -30] }}
+          transition={{ duration: 3, stiffness: 50, repeat: Infinity }}
         />
       </div>
       <div className="flex justify-center items-center gap-4">
