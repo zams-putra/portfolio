@@ -14,7 +14,11 @@ export default function AboutMe() {
       <h1 className="md:text-4xl bg-gradient-to-r from-slate-500 to-slate-200 bg-clip-text text-transparent md:-rotate-90">
         About me
       </h1>
-      <motion.div className="bg-black w-full md:w-1/4 border-2 border-green-400 rounded-lg h-1/3 md:h-1/2 flex flex-col gap-4 p-8 text-xs md:text-sm">
+      <motion.div
+        whileTap={{ scaleY: 2 }}
+        whileHover={{ scaleX: 1.1 }}
+        className="bg-black cursor-pointer w-full md:w-1/4 border-2 border-green-400 rounded-lg h-1/3 md:h-1/2 flex flex-col gap-4 p-8 text-xs md:text-sm"
+      >
         <p>
           <span className="text-green-400">{`user@portfolio>`}</span> cat
           me.json
@@ -37,7 +41,11 @@ hobbies: ['Game', 'Music', 'Gym']
           />
         </pre>
       </motion.div>
-      <motion.div className="bg-black w-full md:w-1/4 border-2 border-red-500 rounded-lg md:h-1/2 h-1/3 flex flex-col gap-4 p-8 text-xs md:text-sm">
+      <motion.div
+        whileTap={{ scaleY: 2 }}
+        whileHover={{ scaleX: 1.1 }}
+        className="bg-black cursor-pointer w-full md:w-1/4 border-2 border-red-500 rounded-lg md:h-1/2 h-1/3 flex flex-col gap-4 p-8 text-xs md:text-sm"
+      >
         <p>I{"'"}am happy with :</p>
         <motion.p
           initial={{ opacity: 0 }}
