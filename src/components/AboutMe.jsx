@@ -75,7 +75,7 @@ hobbies: ['Game', 'Music', 'Gym']
           transition={{ duration: 2, delay: 1 }}
         >
           <span className="text-red-500">{`>`}</span> Blue team{" "}
-          {"[Log analyst, SIEM]"}
+          {"[Log analysis]"}
         </motion.p>
       </motion.div>
     </motion.section>
