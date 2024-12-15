@@ -93,7 +93,7 @@ function App() {
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ duration: 1, delay: 0.2 }}
-              className="text-2xl h-1/2 md:text-4xl bg-gradient-to-r from-slate-500 to-slate-200 bg-clip-text text-transparent"
+              className="text-2xl mt-20 h-1/2 md:text-4xl bg-gradient-to-r from-slate-500 to-slate-200 bg-clip-text text-transparent"
             >
               Thank you :)
             </motion.h1>
