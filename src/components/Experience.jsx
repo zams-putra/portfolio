@@ -2,7 +2,7 @@ import { motion } from "motion/react";
 
 export default function Experience() {
   return (
-    <section className="w-full min-h-screen overflow-y-hidden flex flex-col items-center gap-8 pt-8">
+    <section className="w-full min-h-screen overflow-y-hidden flex flex-col items-center gap-8 p-16">
       <motion.h1
         initial={{ scale: 0 }}
         whileInView={{ scale: 1 }}
