@@ -2,7 +2,7 @@ import { motion } from "motion/react";
 
 export default function Social() {
   return (
-    <section className="w-full min-h-screen justify-center overflow-y-hidden flex flex-col items-center gap-8 p-16">
+    <section className="w-full min-h-screen justify-center overflow-y-hidden flex flex-col items-center gap-8 py-16">
       <motion.h1
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

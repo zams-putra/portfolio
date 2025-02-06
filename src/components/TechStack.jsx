@@ -3,7 +3,7 @@ import { motion } from "motion/react";
 export default function TechStack() {
   return (
     <motion.section
-      className="w-full min-h-screen flex flex-col justify-center items-center p-2 gap-4"
+      className="w-full min-h-screen flex flex-col justify-center items-center py-7 gap-4"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ amount: 0.8 }}
@@ -18,7 +18,7 @@ export default function TechStack() {
         viewport={{ amount: 0.8 }}
         whileTap={{ scaleX: 0 }}
         whileHover={{ filter: "contrast(200%)" }}
-        className="bg-black/30 cursor-pointer backdrop-blur-md z-10 w-full border-2 border-indigo-500 rounded-lg md:h-full font-thin h-1/2 flex flex-col gap-4  py-2 justify-between text-xs md:text-sm"
+        className="bg-black/30 cursor-pointer backdrop-blur-md z-10 w-full border-2 border-indigo-500 rounded-lg md:h-full font-thin min-h-[40vh] flex flex-col gap-4  py-2 justify-between text-xs md:text-sm"
       >
         <img
           src="/img/me.jpg"

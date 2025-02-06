@@ -91,7 +91,7 @@ function App() {
             transition={{ duration: 2 }}
 
           >
-            <section className="py-8 justify-center items-center flex flex-col">
+            <section className="py-8 justify-center w-full items-center flex flex-col">
               <motion.div
                 initial={{ y: -200 }}
                 animate={{ y: 0 }}

@@ -14,7 +14,7 @@ export default function Projects() {
 
   return (
     <motion.section
-      className="w-full min-h-screen justify-center overflow-y-hidden flex flex-col  items-center gap-8 p-16"
+      className="w-screen min-h-screen justify-center overflow-y-hidden flex flex-col  items-center gap-8 py-16"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
