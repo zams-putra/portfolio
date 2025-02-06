@@ -18,7 +18,7 @@ function App() {
 
   const [page, setPage] = useState(0)
   const [isScroll, setIsScroll] = useState(false)
-  const [touchStartY, setTouchStartY] = useState(null)
+
 
   const handleScroll = (e) => {
     if (isScroll) return
@@ -36,38 +36,25 @@ function App() {
 
   }
 
-
-  const handleTouchStartY = (e) => {
-    setTouchStartY(e.touches[0].clientY)
-  }
-
-  const handleTouchEnd = (e) => {
-    if (isScroll || touchStartY === null) return
-    setIsScroll(true)
-
-    let touchEndY = e.changedTouches[0].clientY
-    let deltaY = touchStartY - touchEndY
-
-    if (deltaY > 50 && page < sesi.length - 1) {
+  const handleDown = () => {
+    if (page < sesi.length - 1) {
       setPage((bef) => bef + 1)
-    } else if (deltaY < -50 && page > 0) {
+    }
+  }
+  const handleUp = () => {
+    if (page > 0) {
       setPage((bef) => bef - 1)
     }
-
-    setTimeout(() => {
-      setIsScroll(false)
-    }, 800)
   }
+
 
 
   useEffect(() => {
     window.addEventListener("wheel", handleScroll)
-    window.addEventListener("touchstart", handleTouchStartY)
-    window.addEventListener("touchend", handleTouchEnd)
+
     return () => {
       window.removeEventListener("wheel", handleScroll)
-      window.removeEventListener("touchstart", handleTouchStartY)
-      window.removeEventListener("touchend", handleTouchEnd)
+
     }
   })
 
@@ -95,6 +82,8 @@ function App() {
       {notSplash && (
         <>
 
+
+
           <AnimatePresence mode="wait" key={page}
             initial={{ opacity: 0, y: 100 }}
             animate={{ opacity: 1, y: 0 }}
@@ -102,9 +91,20 @@ function App() {
             transition={{ duration: 2 }}
 
           >
-
-            <Curr />
+            <section className="py-8 justify-center items-center flex flex-col">
+              <motion.div
+                initial={{ y: -200 }}
+                animate={{ y: 0 }}
+                transition={{ duration: 1 }}
+                className="lg:hidden p-4 gap-4 flex">
+                <button onClick={handleUp} className="px-5 bg-slate-700 text-slate-100 rounded-md">Up</button>
+                <button onClick={handleDown} className="px-5 bg-slate-700 text-slate-100 rounded-md">Down</button>
+              </motion.div>
+              <Curr />
+            </section>
           </AnimatePresence>
+
+
 
 
 
