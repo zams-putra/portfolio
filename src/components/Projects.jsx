@@ -14,14 +14,14 @@ export default function Projects() {
 
   return (
     <motion.section
-      className="w-full min-h-screen overflow-y-hidden flex flex-col  items-center gap-8"
-      initial={{ y: 150 }}
-      whileInView={{ y: 0 }}
+      className="w-full min-h-screen justify-center overflow-y-hidden flex flex-col  items-center gap-8 p-16"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
     >
       <motion.h1
-        initial={{ y: 300, scale: 0 }}
-        whileInView={{ y: 0, scale: 1 }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 0.2 }}
         className="text-2xl md:text-4xl bg-gradient-to-r from-slate-500 to-slate-200 bg-clip-text text-transparent"
       >

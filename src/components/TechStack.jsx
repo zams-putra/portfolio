@@ -39,38 +39,6 @@ export default function TechStack() {
             <motion.p
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 1, ease: "easeIn" }}
-              className="text-orange-400"
-            >
-              HTML
-            </motion.p>
-            <motion.p
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 1, delay: 1, ease: "easeIn" }}
-              className="text-blue-600"
-            >
-              CSS
-            </motion.p>
-            <motion.p
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 1.5, delay: 1, ease: "easeIn" }}
-              className="text-yellow-400"
-            >
-              Javascript
-            </motion.p>
-            <motion.p
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 2, delay: 1, ease: "easeIn" }}
-              className="text-sky-300"
-            >
-              TailwindCSS
-            </motion.p>
-            <motion.p
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
               transition={{ duration: 2.5, delay: 1, ease: "easeIn" }}
               className="text-sky-600"
             >
@@ -87,14 +55,7 @@ export default function TechStack() {
             {"]"}$ ls /Web/Backend
           </p>
           <div className="w-full flex gap-2 md:gap-8">
-            <motion.p
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 1.2, ease: "easeIn" }}
-              className="text-green-600"
-            >
-              NodeJS
-            </motion.p>
+
             <motion.p
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
@@ -122,14 +83,7 @@ export default function TechStack() {
             {"]"}$ ls /Web/Others
           </p>
           <div className="w-full flex gap-2 md:gap-8">
-            <motion.p
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 1.4, ease: "easeIn" }}
-              className="text-red-600"
-            >
-              Git
-            </motion.p>
+
             <motion.p
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}

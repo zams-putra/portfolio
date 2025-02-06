@@ -1,4 +1,4 @@
-import { AnimatePresence, motion, useScroll } from "motion/react";
+import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useState } from "react";
 
 import SplashScreen from "./components/SplashScreen";
@@ -7,13 +7,52 @@ import AboutMe from "./components/AboutMe";
 import TechStack from "./components/TechStack";
 import Projects from "./components/Projects";
 import Experience from "./components/Experience";
-import axios from "axios";
+
 import Social from "./components/Social";
+import End from "./components/End";
+
+
+const sesi = [Hero, AboutMe, TechStack, Projects, Experience, Social, End]
 
 function App() {
+
+  const [page, setPage] = useState(0)
+  const [isScroll, setIsScroll] = useState(false)
+
+  const handleScroll = (e) => {
+    if (isScroll) return
+    setIsScroll(true)
+
+    if (e.deltaY > 0 && page < sesi.length - 1) {
+      setPage((bef) => bef + 1)
+    } else if (e.deltaY < 0 && page > 0) {
+      setPage((bef) => bef - 1)
+    }
+
+    setTimeout(() => {
+      setIsScroll(false)
+    }, 800)
+
+  }
+
+
+
+  useEffect(() => {
+    window.addEventListener("wheel", handleScroll)
+    return () => {
+      window.removeEventListener("wheel", handleScroll)
+    }
+  })
+
+  const Curr = sesi[page]
+
+
+
+
   const [notSplash, setNotSplash] = useState(false);
-  const { scrollYProgress } = useScroll();
-  const [lagu, setLagu] = useState({});
+
+
+
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -22,82 +61,33 @@ function App() {
     return () => clearTimeout(timer);
   }, []);
 
-  useEffect(() => {
-    const getLagu = async () => {
-      try {
-        const res = await axios.get(
-          "https://quizmaker-app-api.vercel.app/api/lagu_spotify"
-        );
-
-        const data = await res.data;
-        setLagu(data);
-      } catch (err) {
-        console.log(err);
-      }
-    };
-
-    getLagu();
-  }, []);
-
   return (
     <div className="bg-gradient-to-r from-slate-900 via-black to-slate-900 text-slate-100 min-h-screen flex flex-col items-center gap-20 overflow-hidden">
       <AnimatePresence>{!notSplash && <SplashScreen />}</AnimatePresence>
 
       {notSplash && (
         <>
-          <Hero />
-          <AboutMe />
-          <TechStack />
-          <Projects />
-          <Experience />
-          <Social />
 
-          <section className="w-full h-screen flex  flex-col justify-center items-center">
-            <motion.div
-              style={{
-                scaleX: scrollYProgress,
-              }}
-              className="fixed top-0 w-full h-1 bg-green-400"
-            ></motion.div>
+          <AnimatePresence mode="wait" key={page}
+            initial={{ opacity: 0, y: 100 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -50 }}
+            transition={{ duration: 2 }}
 
-            {lagu.artist ? (
-              <motion.div
-                initial={{ x: 300 }}
-                whileInView={{ x: 0 }}
-                transition={{ duration: 1 }}
-                className="w-full h-1/2 p-4 flex flex-col items-center gap-4"
-              >
-                <p className="text-xs md:text-xl bg-gradient-to-r from-slate-500 to-slate-200 bg-clip-text text-transparent">
-                  Putro sedang mendengarkan ini sekarang
-                </p>
-                <p className="text-xs md:text-xl bg-gradient-to-r from-slate-500 to-slate-200 bg-clip-text text-transparent">
-                  {lagu.judul} - {lagu.artist}
-                </p>
-                <img
-                  className="w-32 h-32 rounded-md border-green-400 border-2"
-                  src={lagu.imgLagu}
-                  alt={lagu.judul}
-                />
-              </motion.div>
-            ) : (
-              <motion.p
-                className="text-xs md:text-xl bg-gradient-to-r from-slate-500 to-slate-200 bg-clip-text text-transparent"
-                initial={{ x: 300 }}
-                whileInView={{ x: 0 }}
-                transition={{ duration: 1 }}
-              >
-                {lagu.message}
-              </motion.p>
-            )}
-            <motion.h1
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 1, delay: 0.2 }}
-              className="text-2xl mt-20 h-1/2 md:text-4xl bg-gradient-to-r from-slate-500 to-slate-200 bg-clip-text text-transparent"
-            >
-              Thank you :)
-            </motion.h1>
-          </section>
+          >
+
+            <Curr />
+          </AnimatePresence>
+
+
+
+          <motion.div
+            style={{
+              scaleX: `${(page + 1) / sesi.length * 100}%`,
+            }}
+            className="fixed top-0 w-full h-1 bg-green-400"
+          ></motion.div>
+
         </>
       )}
     </div>
