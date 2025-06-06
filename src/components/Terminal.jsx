@@ -11,6 +11,7 @@ const output = {
 - fav_song: my favorite song
 - echo: print something in terminal
 - clear: clear your terminal
+- exit: exit terminal
     `,
     "about": "Hello im putra, currently interest in a CySec especially CTF i was created some CTF lab also interesting in WebDev",
     "projects": "Not available in terminal feature hehe hehe",
