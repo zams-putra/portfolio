@@ -116,8 +116,6 @@ function App() {
               onClick={() => setIsTerminal(true)}
               whileHover={{ scale: 1.05, boxShadow: "0px 0px 8px rgb(34,197,94)" }}
               whileTap={{ scale: 0.95 }}
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
               className="mb-12 mr-4 self-end bg-green-400 hover:bg-green-500 text-black px-4 py-2 rounded-lg font-semibold shadow-md"
             >
