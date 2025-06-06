@@ -1,5 +1,6 @@
 
-import { useRef, useState } from "react"
+import axios from "axios"
+import { useEffect, useRef, useState } from "react"
 
 const output = {
     "help": `
@@ -9,6 +10,7 @@ const output = {
 - contacts: my social media
 - fav_song: my favorite song
 - echo: print something in terminal
+- clear: clear your terminal
     `,
     "about": "Hello im putra, currently interest in a CySec especially CTF i was created some CTF lab also interesting in WebDev",
     "projects": "Not available in terminal feature hehe hehe",
@@ -29,12 +31,31 @@ const output = {
 export default function Terminal({ setIsTerminal }) {
 
 
+    const [song, setSong] = useState({})
+
+
     const inputRef = useRef(null)
 
     const [commands, setCommand] = useState([])
     const [inputCmd, setInputCmd] = useState("")
 
+    useEffect(() => {
 
+        const getSong = async () => {
+            try {
+                const res = await axios.get('https://quizmaker-app-api.vercel.app/api/fav_song')
+                console.log(res)
+                const data = await res.data
+                console.log(data)
+                setSong(data)
+            } catch (err) {
+                console.log(err)
+            }
+        }
+
+
+        getSong()
+    }, [])
 
     const commandHandler = (e, cmd) => {
 
@@ -60,6 +81,14 @@ export default function Terminal({ setIsTerminal }) {
             setCommand([])
             setInputCmd("")
             return
+        } else if (arr[0] == "fav_song") {
+            objc.out = `my fav music is ${song.artist} - ${song.judul} based on spotify`
+            setCommand((prev) => [
+                ...prev,
+                objc
+            ])
+            setInputCmd("")
+            return
         }
 
         const outCmd = output[arr[0]]
@@ -81,7 +110,7 @@ export default function Terminal({ setIsTerminal }) {
 
 
     return (
-        <main onClick={() => inputRef.current?.focus()} className="w-screen min-h-screen bg-black text-white">
+        <main onClick={() => inputRef.current?.focus()} className="w-screen text-xs min-h-screen bg-black text-white">
             <header className="w-full h-8 justify-center flex gap-3 p-8">
                 <h1 className="self-center text-lg text-slate-400">mY Terminal</h1>
             </header>
@@ -100,7 +129,7 @@ export default function Terminal({ setIsTerminal }) {
                 }
             </section>
 
-            <form onSubmit={(e) => commandHandler(e, inputCmd)} className="px-4 m-4">
+            <form onSubmit={(e) => commandHandler(e, inputCmd)} className="p-4">
                 <span className="text-green-500">
                     <span className="text-yellow-400">user</span>
                     <span className="text-purple-400">@</span>
