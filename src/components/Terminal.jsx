@@ -2,6 +2,20 @@
 import axios from "axios"
 import { useEffect, useRef, useState } from "react"
 
+const sidi = [
+    ",_     _",
+    " |\\_,-~/",
+    " / _  _ |    ,--.",
+    "(  @  @ )   / ,-\\'",
+    " \\  _T_/-._( (",
+    " /         `.\\",
+    "| _  \\ |",
+    "\\ \\ ,  /      |",
+    "|| | -_\\__ /",
+    "((_ / `(____,-\\'",
+    "    "
+]
+
 const output = {
     "help": `
 - help: for your help
@@ -10,6 +24,7 @@ const output = {
 - contacts: my social media
 - fav_song: my favorite song
 - echo: print something in terminal
+- sidi: meow cukurukuk
 - clear: clear your terminal
 - exit: exit terminal
     `,
@@ -24,7 +39,9 @@ const output = {
             - <a href="https://instagram.com/username.gw.itu.jir" target="_blank" className="text-green-500">instagram</a>
         </>
     ),
-    "fav_song": ""
+    "fav_song": "",
+    "sidi": sidi.join('\n')
+
 }
 
 
@@ -111,10 +128,12 @@ export default function Terminal({ setIsTerminal }) {
 
 
     return (
-        <main onClick={() => inputRef.current?.focus()} className="w-screen text-xs min-h-screen bg-black text-white">
+        <main onClick={() => inputRef.current?.focus()} className="w-screen text-xs min-h-screen bg-black text-slate-200">
             <header className="w-full h-8 justify-center flex gap-3 p-8">
                 <h1 className="self-center text-lg text-slate-400">mY Terminal</h1>
             </header>
+
+            <p className="p-4">Sup buddy, type {`'help'`} for command list.</p>
 
 
             <section className="w-full flex p-4 flex-col gap-8">
