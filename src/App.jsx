@@ -39,6 +39,15 @@ function App() {
 
   const [notSplash, setNotSplash] = useState(false);
   const [isTerminal, setIsTerminal] = useState(false)
+  const [showBtnTerminal, setShowBtnTerminal] = useState(false)
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowBtnTerminal(true)
+    }, 9000)
+
+    return () => clearTimeout(timer)
+  }, [])
 
 
 
@@ -110,27 +119,30 @@ function App() {
               </>
             )}
 
+            {showBtnTerminal && (
+              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }}>
+                <motion.button
+                  onClick={() => setIsTerminal(true)}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  initial={{ boxShadow: "0 0 0px #efb100" }}
+                  animate={{
 
-
-            <motion.button
-              onClick={() => setIsTerminal(true)}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              initial={{ boxShadow: "0 0 0px #efb100" }}
-              animate={{
-                boxShadow: [
-                  "0 0 0px #efb100",
-                  "0 0 16px #efb100",
-                  "0 0 32px #efb100",
-                  "0 0 16px #efb100",
-                  "0 0 0px #efb100"
-                ]
-              }}
-              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-              className="mb-12 mr-4 md:static fixed right-2 bottom-2 self-end bg-green-400 hover:bg-green-500 text-black px-4 py-2 rounded-lg font-semibold"
-            >
-              Launch Terminal
-            </motion.button>
+                    boxShadow: [
+                      "0 0 0px #efb100",
+                      "0 0 16px #efb100",
+                      "0 0 32px #efb100",
+                      "0 0 16px #efb100",
+                      "0 0 0px #efb100"
+                    ]
+                  }}
+                  transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                  className="mb-12 mr-4 md:static fixed right-2 bottom-2 self-end bg-green-400 hover:bg-green-500 text-black px-4 py-2 rounded-lg font-semibold"
+                >
+                  Launch Terminal
+                </motion.button>
+              </motion.div>
+            )}
 
           </motion.div>
         ) : (
