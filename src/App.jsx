@@ -114,10 +114,20 @@ function App() {
 
             <motion.button
               onClick={() => setIsTerminal(true)}
-              whileHover={{ scale: 1.05, boxShadow: "0px 0px 8px rgb(34,197,94)" }}
+              whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="mb-12 mr-4 self-end bg-green-400 hover:bg-green-500 text-black px-4 py-2 rounded-lg font-semibold shadow-md"
+              initial={{ boxShadow: "0 0 0px #efb100" }}
+              animate={{
+                boxShadow: [
+                  "0 0 0px #efb100",
+                  "0 0 16px #efb100",
+                  "0 0 32px #efb100",
+                  "0 0 16px #efb100",
+                  "0 0 0px #efb100"
+                ]
+              }}
+              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+              className="mb-12 mr-4 md:static fixed right-2 bottom-2 self-end bg-green-400 hover:bg-green-500 text-black px-4 py-2 rounded-lg font-semibold"
             >
               Launch Terminal
             </motion.button>
