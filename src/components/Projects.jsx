@@ -10,6 +10,14 @@ export default function Projects() {
       repo: "https://github.com/zams-putra/quizmaker-app",
       img: "/img/quizapp.png",
     },
+    {
+      title: "mY Nasgor",
+      description: "CTF Room on TryHackMe, boot2root machine",
+      techStack: ["React", "Go", "TailwindCSS"],
+      link: "https://tryhackme.com/jr/mynasgor",
+      repo: "https://tryhackme.com/jr/mynasgor",
+      img: "https://tryhackme-images.s3.amazonaws.com/room-icons/63cde864013c24004999383d-1742438201376",
+    },
   ];
 
   return (
@@ -27,7 +35,7 @@ export default function Projects() {
       >
         My Project
       </motion.h1>
-      <div className="w-full min-h-screen px-12 md:p-12  flex flex-col md:flex-row items-center flex-wrap gap-8 justify-between">
+      <div className="w-full min-h-screen px-12 md:p-12  flex flex-col md:flex-row items-center flex-wrap gap-8 justify-evenly">
         {projects.map((project, index) => (
           <motion.div
             key={index}
