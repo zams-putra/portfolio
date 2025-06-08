@@ -18,6 +18,14 @@ export default function Projects() {
       repo: "https://tryhackme.com/jr/mynasgor",
       img: "https://tryhackme-images.s3.amazonaws.com/room-icons/63cde864013c24004999383d-1742438201376",
     },
+    {
+      title: "Other CTF Lab",
+      description: "My simple Docker CTF lab, small version CTF lab with so many vuln",
+      techStack: ["Docker", "Etc"],
+      link: "https://github.com/zams-putra/ctf-vuln-lab",
+      repo: "https://github.com/zams-putra/ctf-vuln-lab",
+      img: "https://miro.medium.com/v2/resize:fit:1100/format:webp/1*5zGYbY_1DqXWcEb1wHD4Yg.png",
+    },
   ];
 
   return (
