@@ -48,14 +48,14 @@ const socials = [
   {
     id: 7,
     link: 'https://hackerrank.com/profile/AwikwokBas',
-    lay: 1.8,
+    lay: 1.7,
     name: 'HackerRank',
     icon: <SiHackerrank />
   },
   {
     id: 8,
     link: 'https://linkedin.com/in/zams-putro-49466527a/',
-    lay: 2.1,
+    lay: 1.9,
     name: 'LinkedIn',
     icon: <SiLinkedin />
   },
