@@ -38,7 +38,7 @@ export default function End() {
                     className="w-full h-1/2 p-4 flex flex-col items-center gap-4"
                 >
                     <p className="text-xs md:text-xl bg-gradient-to-r from-slate-500 to-slate-200 bg-clip-text text-transparent">
-                        Putro sedang mendengarkan ini sekarang
+                        Putro sedang mendengarkan ini
                     </p>
                     <p className="text-xs md:text-xl bg-gradient-to-r from-slate-500 to-slate-200 bg-clip-text text-transparent">
                         {lagu.judul} - {lagu.artist}

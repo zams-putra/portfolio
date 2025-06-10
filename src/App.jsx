@@ -12,6 +12,8 @@ import Social from "./components/Social";
 import End from "./components/End";
 import Terminal from "./components/Terminal";
 
+import { SiGnometerminal } from "react-icons/si";
+
 
 
 
@@ -137,9 +139,9 @@ function App() {
                     ]
                   }}
                   transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                  className="mb-12 mr-4 md:static fixed right-2 bottom-2 self-end bg-green-400 hover:bg-green-500 text-black px-4 py-2 rounded-lg font-semibold"
+                  className="mb-12 mr-4 md:right-3 md:bottom-3 fixed right-2 bottom-2 self-end bg-green-400 hover:bg-green-500 text-black px-4 py-2 rounded-lg font-semibold flex gap-1 justify-center items-center"
                 >
-                  Launch Terminal
+                  <span> <SiGnometerminal /> </span> <span>Launch Terminal</span>
                 </motion.button>
               </motion.div>
             )}
