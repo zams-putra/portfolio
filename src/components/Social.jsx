@@ -1,4 +1,5 @@
 import { motion } from "motion/react";
+import { SiInstagram, SiGithub, SiLeetcode, SiTryhackme, SiMedium, SiCodewars, SiHackerrank, SiLinkedin } from "react-icons/si";
 
 
 const socials = [
@@ -6,37 +7,57 @@ const socials = [
     id: 1,
     link: 'https://github.com/zams-putra',
     lay: 0.5,
-    name: 'Github'
+    name: 'Github',
+    icon: <SiGithub />
   },
   {
     id: 2,
     link: 'https://leetcode.com/u/Sebasers',
     lay: 0.7,
-    name: 'Leetcode'
+    name: 'Leetcode',
+    icon: <SiLeetcode />
   },
   {
     id: 3,
     link: 'https://www.codewars.com/users/AwikwokBas',
     lay: 0.9,
-    name: 'CodeWars'
+    name: 'CodeWars',
+    icon: <SiCodewars />
   },
   {
     id: 4,
     link: 'https://tryhackme.com/r/p/TombaHK',
     lay: 1.1,
-    name: 'Tryhackme'
+    name: 'Tryhackme',
+    icon: <SiTryhackme />
   },
   {
     id: 5,
     link: 'https://medium.com/@sirsebasers',
     lay: 1.3,
-    name: 'Medium'
+    name: 'Medium',
+    icon: <SiMedium />
   },
   {
     id: 6,
     link: 'https://instagram.com/username.gw.itu.jir',
     lay: 1.5,
-    name: 'Instagram'
+    name: 'Instagram',
+    icon: <SiInstagram />
+  },
+  {
+    id: 7,
+    link: 'https://hackerrank.com/profile/AwikwokBas',
+    lay: 1.8,
+    name: 'HackerRank',
+    icon: <SiHackerrank />
+  },
+  {
+    id: 8,
+    link: 'https://linkedin.com/in/zams-putro-49466527a/',
+    lay: 2.1,
+    name: 'LinkedIn',
+    icon: <SiLinkedin />
   },
 ]
 
@@ -51,7 +72,7 @@ export default function Social() {
       >
         We can be friends
       </motion.h1>
-      <div className="w-full gap-8 items-center md:items-start min-h-screen flex p-8 flex-col md:flex-row flex-wrap">
+      <div className="w-full gap-10 items-center md:items-start min-h-screen flex p-8 flex-col md:flex-row flex-wrap">
 
         {socials.map((social) => (
 
@@ -60,11 +81,11 @@ export default function Social() {
             whileInView={{ opacity: 1, rotate: [30, -30, 0] }}
             transition={{ duration: 1, delay: social.lay }}
             viewport={{ once: true }}
-            className="p-4 px-8 w-48 duration-300 hover:bg-slate-900 hover:text-slate-200 rounded-sm flex items-center justify-center md:w-32 h-10 bg-slate-100 text-slate-900"
+            className="p-4 px-8 w-48 duration-300 hover:bg-slate-900 hover:text-slate-200 rounded-md flex items-center justify-center md:w-32 h-10 gap-2 bg-slate-100 text-slate-900"
             href={social.link}
             target="_blank"
           >
-            {social.name}
+            <span className="font-medium">{social.icon}</span> <span>{social.name}</span>
           </motion.a>
 
         ))}
