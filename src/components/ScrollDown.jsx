@@ -20,8 +20,8 @@ export default function ScrollDown({ onDown }) {
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: 200, opacity: 0 }}
             transition={{ duration: 0.5, ease: "easeInOut" }}
-            whileTap={{ translateY: 100, backgroundColor: '#4ade80', width: '100vw' }}
-            className="flex flex-col items-center justify-center rounded-lg w-1/2 pb-6 p-2 text-center text-slate-200">
+            whileTap={{ translateY: -40, backgroundColor: '#4ade80' }}
+            className="flex flex-col items-center mt-10 justify-center rounded-lg w-1/2 pb-6 p-2 text-center text-slate-200">
 
             <motion.div
                 animate={{ y: [0, 15, 0] }}

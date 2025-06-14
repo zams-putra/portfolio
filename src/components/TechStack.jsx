@@ -13,7 +13,7 @@ export default function TechStack() {
       className="w-full min-h-screen flex flex-col justify-center items-center py-7 gap-4"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
-      viewport={{ amount: 0.8 }}
+      viewport={{ amount: 0.8, once: true }}
     >
       <motion.h1
         initial={{ y: 50, opacity: 0 }}
@@ -26,7 +26,7 @@ export default function TechStack() {
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 1 }}
-        viewport={{ amount: 0.8 }}
+        viewport={{ amount: 0.8, once: true }}
         whileTap={{ scaleX: 0 }}
         whileHover={{ filter: "contrast(200%)" }}
         className="bg-black/30 cursor-pointer backdrop-blur-md z-10 w-full border-2 border-indigo-500 rounded-lg md:h-full font-thin min-h-[40vh] flex flex-col gap-4  py-2 justify-between text-xs md:text-sm"
