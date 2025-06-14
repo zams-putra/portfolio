@@ -14,6 +14,9 @@ import Terminal from "./components/Terminal";
 
 import { SiGnometerminal } from "react-icons/si";
 
+import ScrollDown from "./components/ScrollDown";
+import ScrollUp from "./components/ScrollUp";
+
 
 
 
@@ -26,14 +29,18 @@ function App() {
   const { scrollYProgress } = useScroll()
 
   const handleDown = () => {
-    if (page < sesi.length - 1) {
-      setPage((bef) => bef + 1)
-    }
+    // if (page < sesi.length - 1) {
+    // setPage((bef) => bef + 1)
+    // }
+    setPage((bef) => bef + 1)
+
   }
   const handleUp = () => {
-    if (page > 0) {
-      setPage((bef) => bef - 1)
-    }
+    // if (page > 0) {
+    //   setPage((bef) => bef - 1)
+    // }
+    setPage((bef) => bef - 1)
+
   }
 
 
@@ -79,8 +86,8 @@ function App() {
                     transition={{ duration: 0.7 }}
 
                   >
-                    <section className="py-8 justify-center w-full items-center flex flex-col">
-                      <motion.div
+                    <section className="py-4 w-full gap-4 justify-between items-center flex flex-col">
+                      {/* <motion.div
                         initial={{ y: -200 }}
                         animate={{ y: 0 }}
                         transition={{ duration: 1 }}
@@ -91,8 +98,17 @@ function App() {
                         {page < sesi.length - 1 && (
                           <button onClick={handleDown} className="px-5 bg-slate-700 text-slate-100 rounded-md">Down</button>
                         )}
-                      </motion.div>
+                      </motion.div> */}
+
+
+                      {page > 0 && (
+                        <ScrollUp onUp={handleUp} />
+                      )}
+
                       <Curr />
+                      {page < sesi.length - 1 && (
+                        <ScrollDown onDown={handleDown} />
+                      )}
                     </section>
                   </AnimatePresence>
                   <motion.div
