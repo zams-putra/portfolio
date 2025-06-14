@@ -1,5 +1,5 @@
 import { AnimatePresence, motion, useScroll } from "motion/react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import SplashScreen from "./components/SplashScreen";
 import Hero from "./components/Hero";
@@ -44,6 +44,9 @@ function App() {
   }
 
 
+  const tengahWoiRef = useRef(null)
+
+
   const Curr = sesi[page]
 
   const [notSplash, setNotSplash] = useState(false);
@@ -68,6 +71,13 @@ function App() {
     return () => clearTimeout(timer);
   }, []);
 
+
+  useEffect(() => {
+    if (tengahWoiRef.current) {
+      tengahWoiRef.current.scrollIntoView({ behavior: 'smooth', top: '0' })
+    }
+  })
+
   return (
     <>
 
@@ -86,7 +96,7 @@ function App() {
                     transition={{ duration: 0.7 }}
 
                   >
-                    <section className="py-4 w-full gap-4 justify-between items-center flex flex-col">
+                    <section ref={tengahWoiRef} className="py-2 w-full gap-4 justify-between items-center flex flex-col">
                       {/* <motion.div
                         initial={{ y: -200 }}
                         animate={{ y: 0 }}
@@ -155,7 +165,7 @@ function App() {
                     ]
                   }}
                   transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                  className="mb-12 mr-4 md:right-3 md:bottom-3 fixed right-2 bottom-2 self-end bg-green-400 hover:bg-green-500 text-black px-4 py-2 rounded-lg font-semibold flex gap-1 justify-center items-center"
+                  className="mb-4 mr-4 md:right-3 md:bottom-3 fixed right-2 bottom-2 self-end bg-green-400 hover:bg-green-500 text-black px-4 py-2 rounded-lg font-semibold flex gap-1 justify-center items-center"
                 >
                   <span> <SiGnometerminal /> </span> <span>Launch Terminal</span>
                 </motion.button>

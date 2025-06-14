@@ -10,6 +10,7 @@ export default function AboutMe() {
       whileInView={{ opacity: 1 }}
       transition={{ duration: 1 }}
       viewport={{ amount: 0.5 }}
+
     >
       <motion.h1
         initial={{ y: 50, opacity: 0 }}
@@ -21,7 +22,7 @@ export default function AboutMe() {
       <motion.div
         whileTap={{ scaleY: 2 }}
         whileHover={{ scaleX: 1.1 }}
-        className="bg-black cursor-pointer w-full md:w-1/4 border-2 border-green-400 rounded-lg h-1/3 md:h-1/2 flex flex-col gap-4 p-8 text-sm md:text-base"
+        className="bg-black cursor-pointer w-full md:w-1/4 border-2 border-green-400 rounded-lg h-1/3 md:h-1/2 flex flex-col gap-4 p-8 text-xs md:text-sm"
       >
         <p>
           <span className="text-green-400">{`user@portfolio>`}</span> cat
@@ -48,7 +49,7 @@ hobbies: ['Game', 'Music', 'Gym']
       <motion.div
         whileTap={{ scaleY: 2 }}
         whileHover={{ scaleX: 1.1 }}
-        className="bg-black cursor-pointer w-full md:w-1/4 border-2 border-red-500 rounded-lg md:h-1/2 h-1/3 flex flex-col gap-4 p-8 text-sm md:text-base"
+        className="bg-black cursor-pointer w-full md:w-1/4 border-2 border-red-500 rounded-lg md:h-1/2 h-1/3 flex flex-col gap-4 p-8 text-xs md:text-sm"
       >
         <p>I{"'"}am happy with :</p>
         <motion.p
