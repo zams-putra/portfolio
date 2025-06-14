@@ -40,7 +40,7 @@ export default function End() {
                     <p className="text-xs md:text-xl bg-gradient-to-r from-slate-500 to-slate-200 bg-clip-text text-transparent">
                         Putro sedang mendengarkan ini
                     </p>
-                    <p className="text-xs md:text-xl bg-gradient-to-r from-slate-500 to-slate-200 bg-clip-text text-transparent">
+                    <p className="text-xs md:text-xl bg-gradient-to-r text-center from-slate-500 to-slate-200 bg-clip-text text-transparent">
                         {lagu.judul} - {lagu.artist}
                     </p>
                     <img

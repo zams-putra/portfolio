@@ -11,13 +11,17 @@ export default function AboutMe() {
       transition={{ duration: 1 }}
       viewport={{ amount: 0.5 }}
     >
-      <h1 className="md:text-4xl bg-gradient-to-r from-slate-500 to-slate-200 bg-clip-text text-transparent md:-rotate-90">
+      <motion.h1
+        initial={{ y: 50, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.7, ease: 'easeInOut' }}
+        className="md:text-5xl text-xl bg-gradient-to-r from-slate-500 to-slate-200 bg-clip-text text-transparent md:-rotate-90">
         About me
-      </h1>
+      </motion.h1>
       <motion.div
         whileTap={{ scaleY: 2 }}
         whileHover={{ scaleX: 1.1 }}
-        className="bg-black cursor-pointer w-full md:w-1/4 border-2 border-green-400 rounded-lg h-1/3 md:h-1/2 flex flex-col gap-4 p-8 text-xs md:text-sm"
+        className="bg-black cursor-pointer w-full md:w-1/4 border-2 border-green-400 rounded-lg h-1/3 md:h-1/2 flex flex-col gap-4 p-8 text-sm md:text-base"
       >
         <p>
           <span className="text-green-400">{`user@portfolio>`}</span> cat
@@ -44,7 +48,7 @@ hobbies: ['Game', 'Music', 'Gym']
       <motion.div
         whileTap={{ scaleY: 2 }}
         whileHover={{ scaleX: 1.1 }}
-        className="bg-black cursor-pointer w-full md:w-1/4 border-2 border-red-500 rounded-lg md:h-1/2 h-1/3 flex flex-col gap-4 p-8 text-xs md:text-sm"
+        className="bg-black cursor-pointer w-full md:w-1/4 border-2 border-red-500 rounded-lg md:h-1/2 h-1/3 flex flex-col gap-4 p-8 text-sm md:text-base"
       >
         <p>I{"'"}am happy with :</p>
         <motion.p

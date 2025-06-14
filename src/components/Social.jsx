@@ -65,12 +65,12 @@ export default function Social() {
   return (
     <section className="w-full min-h-screen justify-center overflow-y-hidden flex flex-col items-center gap-8 py-16">
       <motion.h1
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 0.2 }}
+        initial={{ y: 50, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.7, ease: 'easeInOut' }}
         className="text-2xl md:text-4xl bg-gradient-to-r from-slate-500 to-slate-200 bg-clip-text text-transparent"
       >
-        We can be friends
+        Let{"'"}s connect with me
       </motion.h1>
       <div className="w-full gap-10 items-center md:items-start min-h-screen flex p-8 flex-col md:flex-row flex-wrap">
 

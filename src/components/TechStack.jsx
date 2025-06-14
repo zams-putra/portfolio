@@ -1,4 +1,11 @@
 import { motion } from "motion/react";
+import { SiDocker, SiExpress, SiMongodb, SiReact } from "react-icons/si";
+
+
+
+
+// bakal di renov besar2 an
+
 
 export default function TechStack() {
   return (
@@ -8,9 +15,13 @@ export default function TechStack() {
       whileInView={{ opacity: 1 }}
       viewport={{ amount: 0.8 }}
     >
-      <h1 className="md:text-4xl bg-gradient-to-r from-slate-500 to-slate-200 bg-clip-text text-transparent">
+      <motion.h1
+        initial={{ y: 50, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.7, ease: 'easeInOut' }}
+        className="md:text-5xl text-xl bg-gradient-to-r from-slate-500 to-slate-200 bg-clip-text text-transparent">
         Tech Stack
-      </h1>
+      </motion.h1>
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
@@ -40,9 +51,9 @@ export default function TechStack() {
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ duration: 2.5, delay: 1, ease: "easeIn" }}
-              className="text-sky-600"
+              className="text-sky-600 flex gap-1 items-center justify-center"
             >
-              React
+              <SiReact /> React
             </motion.p>
           </div>
         </div>
@@ -60,17 +71,17 @@ export default function TechStack() {
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ duration: 1, delay: 1.2, ease: "easeIn" }}
-              className="text-gray-400"
+              className="text-gray-400 flex gap-1 items-center justify-center"
             >
-              Express
+              <SiExpress /> Express
             </motion.p>
             <motion.p
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ duration: 1.5, delay: 1.2, ease: "easeIn" }}
-              className="text-lime-500"
+              className="text-lime-500 flex gap-1 items-center justify-center"
             >
-              MongoDB
+              <SiMongodb /> MongoDB
             </motion.p>
           </div>
         </div>
@@ -88,15 +99,15 @@ export default function TechStack() {
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ duration: 1, delay: 1.4, ease: "easeIn" }}
-              className="text-blue-500"
+              className="text-blue-500 flex gap-1 items-center justify-center"
             >
-              Docker
+              <SiDocker /> Docker
             </motion.p>
             <motion.p
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ duration: 1.5, delay: 1.4, ease: "easeIn" }}
-              className="text-sky-300"
+              className="text-sky-300 flex gap-1 items-center justify-center"
             >
               Burpsuite
             </motion.p>

@@ -11,25 +11,27 @@ export default function Hero() {
     >
       <div className="flex items-center justify-center gap-8">
         <motion.p
-          className="md:text-5xl text-sm bg-gradient-to-r from-green-400  to-slate-200 bg-clip-text text-transparent"
+          className="md:text-5xl text-xl bg-gradient-to-r from-green-400  to-slate-200 bg-clip-text text-transparent"
           initial={{ y: -300 }}
           animate={{ y: 0 }}
-          transition={{ duration: 1.2, stiffness: 50, delay: 1.5 }}
+          transition={{ duration: 1.2, stiffness: 50, delay: 1.5, ease: 'easeInOut' }}
         >
-          Hello, i{"'"}am Zams Putra
+          Hello, i{"'"}m Zams Putra
         </motion.p>
         <motion.img
           className="w-14 h-14 cursor-pointer md:w-24 md:h-24 rounded-full border-2 border-yellow-400"
           src="/img/me.jpg"
           alt="me.jpg"
-          animate={{ y: [-30, 30, -30] }}
+          animate={{ y: [-80, 30, -80] }}
           transition={{ duration: 3, stiffness: 50, repeat: Infinity }}
         />
       </div>
       <div className="flex justify-center items-center gap-4">
         <motion.p
           className="text-sm md:text-2xl flex gap-4"
-          transition={{ delay: 1.5 }}
+          initial={{ y: 300 }}
+          animate={{ y: 0 }}
+          transition={{ duration: 1.2, delay: 1.5, ease: 'easeInOut' }}
         >
           I{"'"}am a
         </motion.p>
@@ -48,6 +50,8 @@ export default function Hero() {
           />
         </span>
       </div>
+
+
     </motion.header>
   );
 }

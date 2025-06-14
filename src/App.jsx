@@ -46,7 +46,7 @@ function App() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowBtnTerminal(true)
-    }, 9000)
+    }, 6000)
 
     return () => clearTimeout(timer)
   }, [])
@@ -57,7 +57,7 @@ function App() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setNotSplash(true);
-    }, 5000);
+    }, 3000);
     return () => clearTimeout(timer);
   }, []);
 
@@ -76,7 +76,7 @@ function App() {
                     initial={{ opacity: 0, y: 100 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -50 }}
-                    transition={{ duration: 2 }}
+                    transition={{ duration: 0.7 }}
 
                   >
                     <section className="py-8 justify-center w-full items-center flex flex-col">
@@ -97,7 +97,7 @@ function App() {
                   </AnimatePresence>
                   <motion.div
                     style={{
-                      scaleX: `${(page + 1) / sesi.length * 100}%`,
+                      scaleX: (page + 1) / sesi.length,
                     }}
                     className="fixed md:hidden top-0 w-full h-1 bg-green-400"
                   ></motion.div>
