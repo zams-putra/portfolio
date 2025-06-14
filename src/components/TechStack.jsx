@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { SiDocker, SiExpress, SiMongodb, SiReact } from "react-icons/si";
+import { SiBurpsuite, SiDocker, SiExpress, SiMongodb, SiReact } from "react-icons/si";
 
 
 
@@ -109,7 +109,7 @@ export default function TechStack() {
               transition={{ duration: 1.5, delay: 1.4, ease: "easeIn" }}
               className="text-sky-300 flex gap-1 items-center justify-center"
             >
-              Burpsuite
+              <SiBurpsuite /> Burpsuite
             </motion.p>
           </div>
         </div>
