@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { SiBurpsuite, SiDocker, SiEjs, SiExpress, SiGo, SiJavascript, SiMongodb, SiPostman, SiReact, SiTailwindcss } from "react-icons/si";
+import { SiBurpsuite, SiDocker, SiEjs, SiExpress, SiGo, SiJavascript, SiMongodb, SiMongoose, SiPostman, SiReact, SiTailwindcss } from "react-icons/si";
 
 
 
@@ -46,6 +46,12 @@ const stack = {
       description: 'NoSQL Database, for save my bad memories',
       logo: <SiMongodb />,
       color: '#00c93c'
+    },
+    {
+      name: 'Mongoose',
+      description: 'Object data modeling for mongodb and nodejs, useful for my query into mongodb',
+      logo: <SiMongoose />,
+      color: '#691515'
     },
     {
       name: 'EJS',
@@ -106,22 +112,24 @@ export default function TechStack() {
       sedangkan items itu value nya, section[0] = section, section[1] = items, frontend: items 
       */}
       {Object.entries(stack).map(([section, items]) => (
-        <div key={section} className="w-full p-4 flex flex-col gap-8 my-8 md:p-14">
-          <motion.h3 className="text-slate-200 text-sm md:text-2xl text-center" initial={{ x: 50, opacity: 0 }}
+        <div key={section} className="w-full p-4 flex flex-col gap-10 my-8 md:p-14">
+          <motion.h3 className="text-slate-200 text-xs whitespace-nowrap md:text-2xl text-left md:text-center" initial={{ x: 50, opacity: 0 }}
             transition={{ duration: 0.7, ease: 'easeInOut' }}
             animate={{ x: 0, opacity: 1 }} >
             {"["}
             <span className="text-yellow-400">user@</span>
             <span className="text-purple-400">portfolio </span>
             <span className="text-red-500">~/skills</span>
-            {"]"}$ ls /Web/{section}
+            {"]"}$ <span className="text-sky-400">cat</span> {section}
           </motion.h3>
           <div className="w-full p-1 grid grid-cols-1 md:grid-cols-3 gap-4">
             {items.map((tech, i) => {
               return (
-                <motion.div style={{ borderTop: `4px solid ${tech.color}` }} className="p-4 bg-slate-800 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 w-full flex flex-col gap-2 justify-center items-center text-left" initial={{ y: 150, opacity: 0 }}
+                <motion.div style={{ borderTop: `4px solid ${tech.color}` }} className="p-4 bg-slate-800 rounded-2xl shadow-md hover:shadow-xl cursor-pointer transition-all duration-300 w-full flex flex-col gap-2 justify-center items-center text-left" initial={{ y: 150, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
-                  transition={{ duration: 0.7, delay: i * 0.2, ease: 'easeInOut' }} key={i}>
+
+                  whileTap={{ marginBottom: 30 }}
+                  transition={{ duration: 0.5, delay: i * 0.2, ease: 'easeInOut', type: "spring", stiffness: 300 }} key={i}>
                   <h1 className="flex text-lg gap-3 text-left font-bold justify-center items-center" style={{ color: `${tech.color}` }}>{tech.name} <span className="text-4xl">{tech.logo}</span> </h1>
                   <p className="text-sm text-slate-400 text-center leading-relaxed">{tech.description}</p>
                 </motion.div>
@@ -129,7 +137,8 @@ export default function TechStack() {
             })}
           </div>
         </div>
-      ))}
+      ))
+      }
 
 
       {/* <div className="w-full p-4 flex flex-col md:flex-row gap-8">
@@ -156,6 +165,6 @@ export default function TechStack() {
         </div>
       </div> */}
 
-    </motion.section>
+    </motion.section >
   );
 }
