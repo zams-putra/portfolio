@@ -67,7 +67,7 @@ export default function Projects() {
             <div className="h-1/2 gap-2 items-end justify-between flex flex-col p-2 text-slate-900">
               <p>{project.title}</p>
               <small>{project.description}</small>
-              <div className="flex absolute top-0 right-5 z-50 items-end justify-end flex-wrap  gap-2">
+              <div className="flex absolute top-0 right-5 z-20 items-end justify-end flex-wrap  gap-2">
                 <motion.a
                   whileHover={{ scale: 1.2 }}
                   className="p-4 hover:bg-black duration-150 rounded-br-md rounded-bl-md bg-slate-900 text-slate-100"
@@ -77,7 +77,7 @@ export default function Projects() {
                   see
                 </motion.a>
               </div>
-              <div className="flex absolute top-0 left-5 z-50 items-end justify-end flex-wrap  gap-2">
+              <div className="flex absolute top-0 left-5 z-20 items-end justify-end flex-wrap  gap-2">
                 <motion.a
                   whileHover={{ scale: 1.2 }}
                   className="p-4 hover:bg-black duration-150 rounded-br-md rounded-bl-md bg-slate-900 text-slate-100"

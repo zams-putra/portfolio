@@ -13,10 +13,8 @@ import End from "./components/End";
 import Terminal from "./components/Terminal";
 
 import { SiGnometerminal } from "react-icons/si";
-
-import ScrollDown from "./components/ScrollDown";
-import ScrollUp from "./components/ScrollUp";
-
+import ScrollUp from "./helper/ScrollUp";
+import ScrollDown from "./helper/ScrollDown";
 
 
 
@@ -165,7 +163,7 @@ function App() {
                     ]
                   }}
                   transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                  className="mb-4 mr-4 md:right-3 md:bottom-3 fixed right-2 bottom-2 self-end bg-green-400 hover:bg-green-500 text-black px-4 py-2 rounded-lg font-semibold flex gap-1 justify-center items-center"
+                  className="mb-4 mr-4 z-30 md:right-3 md:bottom-3 fixed right-2 bottom-2 self-end bg-green-400 hover:bg-green-500 text-black px-4 py-2 rounded-lg font-semibold flex gap-1 justify-center items-center"
                 >
                   <span> <SiGnometerminal /> </span> <span>Launch Terminal</span>
                 </motion.button>
