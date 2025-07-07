@@ -1,28 +1,65 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion } from "motion/react";
+import BarDurationSong from "../helper/BarDurationSong";
 
 
 export default function End() {
 
     const [lagu, setLagu] = useState({});
+    const [duration, setDuration] = useState(0);
+    const [progress, setProgress] = useState(0);
+    const intervalRef = useRef(null)
+
+
+
+    const getLagu = async () => {
+        try {
+            const res = await axios.get(
+                "https://quizmaker-app-api.vercel.app/api/lagu_spotify"
+            );
+
+            const data = await res.data;
+            setLagu(data);
+            setDuration(data.duration_ms || 0);
+            setProgress(data.progress_ms || 0);
+
+
+
+            // clear interval kalo ada
+            if (intervalRef.current) {
+                clearInterval(intervalRef.current);
+            }
+
+            if (data.is_playing) {
+                const start = Date.now()
+
+
+                intervalRef.current = setInterval(() => {
+                    // update progress dari waktu yg berlalu
+                    const elapsed = Date.now() - start;
+                    setProgress(data.progress_ms + elapsed);
+                }, 1000)
+            }
+
+
+        } catch (err) {
+            console.log(err);
+        }
+    };
 
 
     useEffect(() => {
-        const getLagu = async () => {
-            try {
-                const res = await axios.get(
-                    "https://quizmaker-app-api.vercel.app/api/lagu_spotify"
-                );
-
-                const data = await res.data;
-                setLagu(data);
-            } catch (err) {
-                console.log(err);
-            }
-        };
-
         getLagu();
+
+        // tiap 30 detik fetch ini
+        const interval = setInterval(getLagu, 30000)
+        return () => {
+            clearInterval(interval)
+            if (intervalRef.current) {
+                clearInterval(intervalRef.current);
+            }
+        }
     }, []);
 
 
@@ -48,6 +85,13 @@ export default function End() {
                         src={lagu.imgLagu}
                         alt={lagu.judul}
                     />
+
+
+                    <BarDurationSong progress={progress} duration={duration} />
+
+
+
+
                 </motion.div>
             ) : (
                 <motion.p
