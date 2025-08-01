@@ -1,29 +1,22 @@
 import { motion } from "motion/react";
 
+const experienceData = [
+  {
+    company: "Medium",
+    position: "Blogger",
+    duration: "Oct 2024 - Now",
+    description: "Writing articles about ..... and sharing knowledge, sometimes i write this for myself to remember technical things that i forgot."
+  }
 
-// const exps = [
-//   {
-//     id: 1,
-//     title: "Web Dev",
-//     company: "Sebus Inc",
-//     description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut assumenda ea necessitatibus vitae nemo dolores quod, iure tenetur saepe ipsa nesciunt sequi distinctio dolorem molestiae cumque exercitationem, corporis mollitia!",
-//     duration: '1 Jan 2021 - 9 Aug 2022',
-//   },
-//   {
-//     id: 2,
-//     title: "CySec Analyst",
-//     company: "Monster Inc",
-//     description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut assumenda ea necessitatibus vitae nemo dolores quod, iure tenetur saepe ipsa nesciunt sequi distinctio dolorem molestiae cumque exercitationem, corporis mollitia!",
-//     duration: '9 Aug 2022 - 8 Des 2022',
-//   }
-// ]
+];
+
 
 export default function Experience() {
 
-  // const [idClick, setIdClick] = useState(null)
+
 
   return (
-    <section className="w-full min-h-screen overflow-y-hidden flex flex-col items-center gap-8 p-16">
+    <section className="w-full min-h-screen overflow-y-hidden flex flex-col items-center gap-8 p-4 md:p-16">
       <motion.h1
         initial={{ y: 50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -34,32 +27,22 @@ export default function Experience() {
 
       </motion.h1>
 
-      <motion.p
+      <motion.section className="grid grid-cols-1 p-8 my-4 gap-20 rounded-md justify-center items-center border-l-2 border-b-2 border-green-400" initial={{ y: 50, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.7, ease: 'easeInOut' }}>
+        {experienceData.map((exp, index) => (
+          <motion.div key={index} initial={{ y: 70, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.7, delay: index * 0.5, ease: 'easeInOut' }} className="flex flex-col gap-4  p-4 border-l-2 border-green-400 relative">
+            <span className="w-4 h-4 rounded-full bg-green-400 absolute -top-3 -left-2"></span>
+            <h2 className="text-xl font-semibold bg-gradient-to-r from-slate-500 to-slate-100 bg-clip-text text-transparent">{exp.position} on {exp.company}</h2>
+            <p className="text-sm bg-gradient-to-l from-slate-500 to-slate-100 bg-clip-text text-transparent">{exp.duration}</p>
+            <p className="text-xs  border-b-2 border-slate-600 py-4 bg-gradient-to-tr from-slate-500 to-slate-100 bg-clip-text text-transparent">{exp.description}</p>
+            <span className="w-4 h-4 rounded-full bg-green-400 absolute -bottom-3 -left-2"></span>
 
-        initial={{ x: 50, opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
-        transition={{ duration: 0.7, ease: 'easeInOut' }}
-
-      >Zero experience 😔 </motion.p>
-
-
-
-      {/* <div className="flex gap-2 w-full h-1/2 p-4">
-        {exps.map((exp) => (
-          <>
-            <motion.div className="w-1/4 min-h-full bg-slate-200 text-slate-800" onClick={() => setIdClick(exp.id)}>
-
-              <h1>{exp.title} - {exp.company}</h1>
-              <small>{exp.duration}</small>
-
-              {idClick === exp.id && (
-                <p>{exp.description}</p>
-              )}
-
-            </motion.div>
-          </>
+          </motion.div>
         ))}
-      </div> */}
+      </motion.section>
+
+
+
     </section>
   );
 }
