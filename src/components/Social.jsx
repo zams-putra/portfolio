@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { SiInstagram, SiGithub, SiLeetcode, SiTryhackme, SiMedium, SiCodewars, SiHackerrank, SiLinkedin } from "react-icons/si";
+import { SiInstagram, SiGithub, SiLeetcode, SiTryhackme, SiMedium, SiCodewars, SiHackerrank, SiLinkedin, SiHackthebox } from "react-icons/si";
 
 
 const socials = [
@@ -59,6 +59,14 @@ const socials = [
     name: 'LinkedIn',
     icon: <SiLinkedin />
   },
+  {
+    id: 9,
+    link: 'https://app.hackthebox.com/profile/1629597',
+    lay: 2.2,
+    name: 'HackTheBox',
+    icon: <SiHackthebox />
+  },
+
 ]
 
 export default function Social() {
