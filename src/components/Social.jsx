@@ -1,4 +1,5 @@
 import { motion } from "motion/react";
+import { FaShield } from "react-icons/fa6";
 import { SiInstagram, SiGithub, SiLeetcode, SiTryhackme, SiMedium, SiCodewars, SiHackerrank, SiLinkedin, SiHackthebox } from "react-icons/si";
 
 
@@ -65,6 +66,13 @@ const socials = [
     lay: 2.2,
     name: 'HackTheBox',
     icon: <SiHackthebox />
+  },
+  {
+    id: 10,
+    link: 'https://app.letsdefend.io/user/zsmith',
+    lay: 2.5,
+    name: 'LetsDefend',
+    icon: <FaShield />
   },
 
 ]
