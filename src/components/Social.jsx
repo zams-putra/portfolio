@@ -74,6 +74,13 @@ const socials = [
     name: 'LetsDefend',
     icon: <FaShield />
   },
+  {
+    id: 11,
+    link: 'https://blueteamlabs.online/public/user/27e77cbb06a8d0cd903e56',
+    lay: 2.8,
+    name: 'BTLO',
+    icon: <FaShield />
+  }
 
 ]
 
