@@ -15,8 +15,16 @@ export default function Projects() {
       description: "CTF Room on TryHackMe, boot2root machine",
       techStack: ["React", "Go", "TailwindCSS"],
       link: "https://tryhackme.com/jr/mynasgor",
-      repo: "https://tryhackme.com/jr/mynasgor",
+      repo: "https://github.com/zams-putra/my-boot2root/tree/main/my-nasgor",
       img: "https://tryhackme-images.s3.amazonaws.com/room-icons/63cde864013c24004999383d-1742438201376",
+    },
+    {
+      title: "Amja Semndiri",
+      description: "CTF Room on TryHackMe, boot2root machine",
+      techStack: ["NextJS", "TailwindCSS"],
+      link: "https://tryhackme.com/room/amjasemndiri",
+      repo: "https://github.com/zams-putra/my-boot2root/tree/main/amja-semndiri",
+      img: "https://tryhackme-images.s3.amazonaws.com/room-icons/63cde864013c24004999383d-1761964397411",
     },
     {
       title: "Other CTF Lab",
