@@ -2,7 +2,7 @@ import { motion } from "motion/react";
 import { useMemo } from "react";
 
 // eslint-disable-next-line react/prop-types
-export default function StarBackground({ count = 80 }) {
+export default function StarBackground({ count = 15 }) {
   const stars = useMemo(() => {
     return Array.from({ length: count }).map((_, i) => ({
       id: i,
