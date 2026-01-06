@@ -3,6 +3,14 @@ import { motion } from "motion/react";
 export default function Projects() {
   const projects = [
     {
+      title: "Portfolio",
+      description: "This web.",
+      techStack: ["ReactJS", "TailwindCSS", "Motion"],
+      link: "https://zamsprofile.netlify.app/",
+      repo: "https://github.com/zams-putra/portfolio",
+      img: "/img/porto.png",
+    },
+    {
       title: "QuizMaker App",
       description: "You can make some quiz and get their score with this app",
       techStack: ["MongoDB", "Express", "React", "NodeJS"],
