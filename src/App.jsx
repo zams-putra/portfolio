@@ -15,6 +15,7 @@ import Terminal from "./components/Terminal";
 import { SiGnometerminal } from "react-icons/si";
 import ScrollUp from "./helper/ScrollUp";
 import ScrollDown from "./helper/ScrollDown";
+import StarBackground from "./components/StarBackground";
 
 
 
@@ -81,7 +82,8 @@ function App() {
 
       <AnimatePresence mode="wait">
         {!isTerminal ? (
-          <motion.div key="main" initial={{ opacity: 0, y: 100 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 100 }} transition={{ duration: 0.2 }} className="bg-gradient-to-r from-slate-900 via-black to-slate-900 text-slate-100 min-h-screen flex flex-col items-center gap-20 overflow-hidden">
+          <motion.div key="main" initial={{ opacity: 0, y: 100 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 100 }} transition={{ duration: 0.2 }} className="relative bg-gradient-to-r from-slate-900 via-black to-slate-900 text-slate-100 min-h-screen flex flex-col items-center gap-20 overflow-hidden">
+            <StarBackground count={100} />
             <AnimatePresence>{!notSplash && <SplashScreen />}</AnimatePresence>
 
             {notSplash && (

@@ -33,15 +33,15 @@ export default function Hero() {
           animate={{ y: 0 }}
           transition={{ duration: 1.2, delay: 0.5, ease: 'easeInOut' }}
         >
-          I{"'"}am a
+          I{"'"}m a
         </motion.p>
         <span className="text-green-400 text-sm md:text-2xl">
           <TypewriterComponent
             options={{
               strings: [
-                "Web developer",
-                "Cyber Security Enthusiast",
-                "Graphic Designer",
+                "Web Developer",
+                "CTF & CySec Enthusiast",
+                "CTF Lab Builder"
               ],
               autoStart: true,
               loop: true,

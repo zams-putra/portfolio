@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { SiBurpsuite, SiDocker, SiEjs, SiExpress, SiGo, SiJavascript, SiMongodb, SiMongoose, SiPostman, SiReact, SiTailwindcss } from "react-icons/si";
+import { SiBurpsuite, SiDocker, SiEjs, SiExpress, SiGo, SiJavascript, SiLinux, SiMongodb, SiMongoose, SiPostman, SiReact, SiTailwindcss } from "react-icons/si";
 
 
 
@@ -78,6 +78,12 @@ const stack = {
       description: 'API testing tools, for testing my endpoint or API etc etc',
       logo: <SiPostman />,
       color: '#9e4b03'
+    },
+    {
+      name: 'Linux',
+      description: 'For develop my boot2root lab, Linux-based SysAdmin for servers, etc etc',
+      logo: <SiLinux />,
+      color: '#E5BA41'
     },
   ]
 

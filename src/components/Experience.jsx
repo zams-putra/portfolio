@@ -6,7 +6,25 @@ const experienceData = [
     position: "Blogger",
     duration: "Oct 2024 - Now",
     description: "Writing articles about ..... and sharing knowledge, sometimes i write this for myself to remember technical things that i forgot."
-  }
+  },
+  {
+    company: "Hacktrace Ranges",
+    position: "CTF Player",
+    duration: "Feb 2025 - Now",
+    description: "Recon to Exploit CVE / Bug and PrivEsc for a root flag (offensive) | Analyze log, file, and answering their questions (defensive)"
+  },
+  {
+    company: "TryHackMe",
+    position: "CTF Player",
+    duration: "Jan 2025 - Now",
+    description: "Completing some challenges in here, learned and hands on Pentest, SOC, Etc"
+  },
+  {
+    company: "LeetCode",
+    position: "Competitive Programming Player",
+    duration: "Jul 2024 - Now",
+    description: "Being problem solver and completing some challenges in here"
+  },
 
 ];
 
