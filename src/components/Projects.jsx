@@ -19,7 +19,7 @@ export default function Projects() {
       img: "/img/quizapp.png",
     },
     {
-      title: "mY Nasgor",
+      title: "mY Nasgor (OFF)",
       description: "Vulnerable lab, boot2root machine",
       techStack: ["React", "Go", "TailwindCSS"],
       link: "https://github.com/zams-putra/my-boot2root/tree/main/my-nasgor",
@@ -27,15 +27,15 @@ export default function Projects() {
       img: "https://tryhackme-images.s3.amazonaws.com/room-icons/63cde864013c24004999383d-1742438201376",
     },
     {
-      title: "Amja Semndiri",
+      title: "Amja Semndiri (ON)",
       description: "Vulnerable lab, boot2root machine",
       techStack: ["NextJS", "TailwindCSS", "NodeJS"],
-      link: "https://github.com/zams-putra/my-boot2root/tree/main/CVE-2025-29927",
+      link: "https://tryhackme.com/room/amjasemndiri",
       repo: "https://github.com/zams-putra/my-boot2root/tree/main/CVE-2025-29927",
       img: "https://tryhackme-images.s3.amazonaws.com/room-icons/63cde864013c24004999383d-1761964397411",
     },
     {
-      title: "Stickers Collection",
+      title: "Stickers Collection (OFF)",
       description: "Vulnerable lab, boot2root machine",
       techStack: ["Django", "Sqlite3", "Python"],
       link: "https://github.com/zams-putra/my-boot2root/tree/main/CVE-2025-64459",
@@ -43,7 +43,7 @@ export default function Projects() {
       img: "/img/stickers_collection.png",
     },
     {
-      title: "Karbit Enjoyer",
+      title: "Karbit Enjoyer (OFF)",
       description: "Vulnerable lab, boot2root machine",
       techStack: ["NextJS", "TailwindCSS", "NodeJS"],
       link: "https://github.com/zams-putra/my-boot2root/tree/main/CVE-2025-55182",
