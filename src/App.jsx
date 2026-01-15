@@ -79,7 +79,6 @@ function App() {
 
   return (
     <>
-      <FloatingMusic/>
       <AnimatePresence mode="wait">
         {!isTerminal ? (
           <motion.div key="main" initial={{ opacity: 0, y: 100 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 100 }} transition={{ duration: 0.2 }} className="relative bg-gradient-to-r from-slate-900 via-black to-slate-900 text-slate-100 min-h-screen flex flex-col items-center gap-20 overflow-hidden">
@@ -149,6 +148,7 @@ function App() {
 
             {showBtnTerminal && (
               <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }}>
+                <FloatingMusic/>
                 <motion.button
                   onClick={() => setIsTerminal(true)}
                   whileHover={{ scale: 1.05 }}
