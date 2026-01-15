@@ -16,6 +16,7 @@ import { SiGnometerminal } from "react-icons/si";
 import ScrollUp from "./helper/ScrollUp";
 import ScrollDown from "./helper/ScrollDown";
 import StarBackground from "./components/StarBackground";
+import FloatingMusic from "./helper/FloatingMusix";
 
 
 
@@ -62,7 +63,6 @@ function App() {
 
 
 
-
   useEffect(() => {
     const timer = setTimeout(() => {
       setNotSplash(true);
@@ -79,7 +79,7 @@ function App() {
 
   return (
     <>
-
+      <FloatingMusic/>
       <AnimatePresence mode="wait">
         {!isTerminal ? (
           <motion.div key="main" initial={{ opacity: 0, y: 100 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 100 }} transition={{ duration: 0.2 }} className="relative bg-gradient-to-r from-slate-900 via-black to-slate-900 text-slate-100 min-h-screen flex flex-col items-center gap-20 overflow-hidden">
