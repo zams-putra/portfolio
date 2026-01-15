@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { motion } from "motion/react";
 import BarDurationSong from "../helper/BarDurationSong";
 import FakeVisualizer from "../helper/Visualizer";
+import { useMusic } from "../context/MusicContext";
 
 
 export default function End() {
@@ -10,51 +11,11 @@ export default function End() {
     
     
     // not play spotify
+
+
+    const { currMusic, isPlaying, play, pause, next, prev } = useMusic();
     const audioRef = useRef(null)
-    const musics = [
-        {
-            title: '10C',
-            artist: 'Sharou',
-            link: "/music/sharou-10c.mp3",
-        },
-        {
-            title: 'You and Me',
-            artist: 'Sharou',
-            link:   "/music/sharou-you_and_me.mp3",
-        },
-        {
-            title: 'Turirip ip ip',
-            artist: 'NCS Symbolism',
-            link:  "/music/turipip.mp3",
-        },
-    ]
 
-    const [currTrack, setCurrTrack] = useState(0)
-    const [isPLaying, setIsPlaying] = useState(false)
-
-    const play = () => {
-        audioRef.current.play()
-        setIsPlaying(true)
-    }
-    const pause = () => {
-        audioRef.current.pause()
-        setIsPlaying(false)
-    }
-
-    const next = () => {
-        const nextTrack = (currTrack + 1) % musics.length
-        setCurrTrack(nextTrack)
-        setTimeout(play, 100)
-    }
-
-    const prev = () => {
-        const prevTrack = (currTrack - 1 + musics.length) % musics.length
-        setCurrTrack(prevTrack)
-        setTimeout(play, 100)
-    }
-
-    const currMusic = musics[currTrack]
-    
     
     // play spotify
     const [lagu, setLagu] = useState({});
@@ -145,7 +106,7 @@ export default function End() {
                 </motion.div>
             ) :(
                 <div className="flex flex-col items-center gap-4">
-                <FakeVisualizer isPlaying={isPLaying}/>
+                <FakeVisualizer isPlaying={isPlaying}/>
 
                     <motion.p
                         className="text-xs md:text-xl bg-gradient-to-r from-slate-500 to-slate-200 bg-clip-text text-transparent"
@@ -188,7 +149,7 @@ export default function End() {
                             ⏮
                         </motion.button>
 
-                        {isPLaying ? (
+                        {isPlaying ? (
                             <motion.button
                                 whileTap={{ scale: 0.9 }}
                                 onClick={pause}
