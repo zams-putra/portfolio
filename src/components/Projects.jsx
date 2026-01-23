@@ -32,7 +32,7 @@ export default function Projects() {
     {
       title: "mY Nasgor (OFF)",
       description: "Vulnerable lab, boot2root machine",
-      techStack: ["React", "Go", "TailwindCSS"],
+      techStack: ["React", "Go", "TailwindCSS", "Linux"],
       link: "https://github.com/zams-putra/my-boot2root/tree/main/my-nasgor",
       repo: "https://github.com/zams-putra/my-boot2root/tree/main/my-nasgor",
       img: "https://tryhackme-images.s3.amazonaws.com/room-icons/63cde864013c24004999383d-1742438201376",
@@ -40,7 +40,7 @@ export default function Projects() {
     {
       title: "Amja Semndiri (ON)",
       description: "Vulnerable lab, boot2root machine",
-      techStack: ["NextJS", "TailwindCSS", "NodeJS"],
+      techStack: ["NextJS", "TailwindCSS", "NodeJS", "Linux"],
       link: "https://tryhackme.com/room/amjasemndiri",
       repo: "https://github.com/zams-putra/my-boot2root/tree/main/CVE-2025-29927",
       img: "https://tryhackme-images.s3.amazonaws.com/room-icons/63cde864013c24004999383d-1761964397411",
@@ -48,7 +48,7 @@ export default function Projects() {
     {
       title: "Stickers Collection (OFF)",
       description: "Vulnerable lab, boot2root machine",
-      techStack: ["Django", "Sqlite3", "Python"],
+      techStack: ["Django", "Sqlite3", "Python", "Linux"],
       link: "https://github.com/zams-putra/my-boot2root/tree/main/CVE-2025-64459",
       repo: "https://github.com/zams-putra/my-boot2root/tree/main/CVE-2025-64459",
       img: "/img/stickers_collection.png",
@@ -56,10 +56,18 @@ export default function Projects() {
     {
       title: "Karbit Enjoyer (OFF)",
       description: "Vulnerable lab, boot2root machine",
-      techStack: ["NextJS", "TailwindCSS", "NodeJS"],
+      techStack: ["NextJS", "TailwindCSS", "NodeJS", "Linux"],
       link: "https://github.com/zams-putra/my-boot2root/tree/main/CVE-2025-55182",
       repo: "https://github.com/zams-putra/my-boot2root/tree/main/CVE-2025-55182",
       img: "/img/karbit_enjoyer.png",
+    },
+    {
+      title: "Abandoned (OFF)",
+      description: "Vulnerable lab, boot2root machine",
+      techStack: ["HTML", "CSS", "JS", "Windows", "Active Directory"],
+      link: "https://github.com/zams-putra/my-boot2root/tree/main/abandoned",
+      repo: "https://github.com/zams-putra/my-boot2root/tree/main/abandoned",
+      img: "/img/abandoned.png",
     },
     {
       title: "Other CTF Lab",
