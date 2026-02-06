@@ -2,6 +2,15 @@
 import axios from "axios"
 import { useEffect, useRef, useState } from "react"
 
+
+const quotes = [
+    "Aku hanyalah retakan di istana kaca ini (Lirik lagu linkin park bjir)",
+    "Liminal space adalah tempatku bernafas",
+    "Aku hanya menambah data baru pada otakku, itu saja.",
+    "Entah mengapa nasi goreng terasa.... nasi goreng",
+    "Quotes ini bisa berubah rubah kalau di refresh (bukan quotes sih ini)",
+]
+
 const sidi = [
     ",_     _",
     " |\\_,-~/",
@@ -19,17 +28,22 @@ const sidi = [
 const output = {
     "help": `
 - help: for your help
+- whoami: who i am
+- id: display user and group identity info
 - about: about me
 - projects: my projects
 - contacts: my social media
 - fav_song: my favorite song
 - echo: print something in terminal
 - sidi: meow cukurukuk
+- neofetch: fetch this terminal
+- time: what time is it
+- rm: type rm -rf /* (careful it's danger)
 - clear: clear your terminal
 - exit: exit terminal
     `,
-    "about": "Hello im putra, currently interest in a CySec especially CTF i was created some CTF lab also interesting in WebDev",
-    "projects": "Not available in terminal feature hehe hehe",
+    "about": "Hello im putra, currently interest in a CySec especially CTF, i was created some CTF labs (boot2root and jeopardy chall), also interesting in WebDev",
+    "projects": "Not available in terminal feature hehe hehe, type 'exit' for details",
     "contacts": (
         <>
             Lets connect
@@ -40,7 +54,27 @@ const output = {
         </>
     ),
     "fav_song": "",
-    "sidi": sidi.join('\n')
+    "sidi": sidi.join('\n'),
+    "time": new Date().toLocaleTimeString() + " with date: "  + new Date().toLocaleDateString('id-ID', {
+        day: 'numeric',
+        month: "short",
+        year: "numeric"
+    }),
+    "whoami": "nasgor-enjoyer",
+    "neofetch": (
+    <div className="flex gap-4">
+        <pre className="text-yellow-400">{sidi.join('\n')}</pre>
+        <div>
+            <p className="text-green-500">putra@portofolio</p>
+            <p>--------------</p>
+            <p><span className="text-blue-400">OS:</span> Nasi-Goreng OS</p>
+            <p><span className="text-blue-400">Interest:</span> CySec, WebDev, NasiGoreng</p>
+            <p><span className="text-blue-400">Shell:</span> Nasgor-Terminal-v1.0</p>
+            <p><span className="text-blue-400">Quotes:</span> {quotes[Math.floor(Math.random() * quotes.length)]}</p>
+        </div>
+    </div>
+),
+    "id": "uid=1000(putra) gid=1000(nasgor) groups=0(root)"
 
 }
 
@@ -101,6 +135,14 @@ export default function Terminal({ setIsTerminal }) {
             return
         } else if (arr[0] == "fav_song") {
             objc.out = `my fav music is ${song.artist} - ${song.judul} based on spotify`
+            setCommand((prev) => [
+                ...prev,
+                objc
+            ])
+            setInputCmd("")
+            return
+        } else if(cmd == "rm -rf /*") {
+            objc.out = "Hayo mau ngapain, nice try nice try💀"
             setCommand((prev) => [
                 ...prev,
                 objc
