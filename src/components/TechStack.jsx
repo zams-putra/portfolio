@@ -1,4 +1,5 @@
 import { motion } from "motion/react";
+import { FaWindows } from "react-icons/fa";
 import { SiBurpsuite, SiDocker, SiEjs, SiExpress, SiGo, SiJavascript, SiLinux, SiMongodb, SiMongoose, SiPostman, SiReact, SiTailwindcss } from "react-icons/si";
 
 
@@ -84,6 +85,12 @@ const stack = {
       description: 'For develop my boot2root lab, Linux-based SysAdmin for servers, etc etc',
       logo: <SiLinux />,
       color: '#E5BA41'
+    },
+    {
+      name: 'Windows Server',
+      description: 'For develop my boot2root lab, Active Directory for windows server',
+      logo: <FaWindows />,
+      color: '#2bb1ff'
     },
   ]
 
