@@ -88,7 +88,7 @@ const stack = {
     },
     {
       name: 'Windows Server',
-      description: 'For develop my boot2root lab, Active Directory for windows server',
+      description: 'For develop my boot2root lab, Active Directory / Standalone for windows server',
       logo: <FaWindows />,
       color: '#2bb1ff'
     },
