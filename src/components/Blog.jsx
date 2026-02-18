@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 import localPosts from "../data/posts";
 
+
 const CATEGORY_COLORS = {
   customlab: { border: "border-sky-400/50",  text: "text-sky-400",   bg: "hover:bg-sky-400/5 hover:border-sky-400" },
   default:   { border: "border-slate-700",   text: "text-slate-400", bg: "hover:bg-slate-800 hover:border-slate-500" },

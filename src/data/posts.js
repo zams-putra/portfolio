@@ -51,9 +51,9 @@ const localPosts = [
     tags: ["customlab", "writeup"],
     excerpt: "...",                          
     file: "/posts/hidden/secret.md",
-    password: "sebassebus123",         
+    password: import.meta.env.VITE_MY_PASSWORD,         
     alasan: "Mesin belum retired — available after retirement.",
-  },
+   },
 
 ];
 
