@@ -50,6 +50,19 @@ export default function Hero() {
           />
         </span>
       </div>
+      <motion.div
+        className="flex gap-4 mt-4"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 1.2, ease: "easeOut" }}
+      >
+        <a
+          href="/blog"
+          className="px-5 py-2 text-sm font-mono rounded-lg border border-slate-300 text-slate-300 hover:bg-slate-300 hover:text-black transition-all duration-200"
+        >
+          {`>`} Read Blog
+        </a>
+      </motion.div>
 
 
     </motion.header>
