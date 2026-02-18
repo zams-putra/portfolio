@@ -100,7 +100,7 @@ export default function AboutMe() {
               Hi! I am putra putro — I like to solve problems .
               Thats why i played
               <span className="text-green-400"> CTF</span> and {" "}
-              <span className="text-sky-400">Competitive</span>, etc.
+              <span className="text-sky-400">Competitive Programming</span>, etc.
             </p>
             <p className="mt-2">
               Furthermore, i loved sports, game, music, and explore the new positive things
@@ -226,7 +226,7 @@ export default function AboutMe() {
       >
         <span className="text-red-400 text-xs font-mono">{`> read my blog`}</span>
         <p className="text-white font-medium group-hover:text-red-300 transition-colors">Personal Blog (soon)</p>
-        <p className="text-slate-500 text-xs">HTB Writeups, etc</p>
+        <p className="text-slate-500 text-xs">HTB Writeups, Boot2root develop docs, etc</p>
       </a>
 
         <a

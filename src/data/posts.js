@@ -1,0 +1,50 @@
+const localPosts = [
+  {
+    id: "my-nasgor",
+    title: "Machine — My Nasgor (linux)",
+    date: "29-10-2025",
+    tags: ["boot2root", "customlab", "linux"],
+    excerpt: "My first custom boot2root labs with: [brute force vuln, sensitive data exposure, sudo misconfig, etc]",
+    file: "/posts/My_nasgor.md", 
+    source: "local",
+  },
+  {
+    id: "amja-semndiri",
+    title: "Machine — Amja Semndiri (linux)",
+    date: "3-11-2025",
+    tags: ["boot2root", "customlab", "linux"],
+    excerpt: "My second custom boot2root labs with: [CVE-2025-29927 vuln, sudo misconfig, etc]",
+    file: "/posts/Amja_semndiri.md", 
+    source: "local",
+  },
+  {
+    id: "sticker-collections",
+    title: "Machine - Sticker Collections (linux)",
+    date: "8-12-2025", 
+    tags: ["boot2root", "customlab", "linux"],
+    excerpt: "My third custom boot2root labs with: [CVE-2025-64459 vuln, Command injection, Misconfigured Cron, etc]",
+    file: "/posts/Sticker_collection.md",
+    source: "local",
+  },
+  {
+    id: "karbit-enjoyer",
+    title: "Machine - Karbit Enjoyer (linux)",
+    date: "21-12-2025",
+    tags: ["boot2root", "customlab", "linux"],
+    excerpt: "My 4th custom boot2root labs with: [CVE-2025-55182 vuln, RCE, sudo misconfig, etc]",
+    file: "/posts/Karbit_enjoyer.md",
+    source: "local",
+  },
+  {
+    id: "abandoned",
+    title: "Machine - Abandoned (windows)",
+    date: "22-1-2026", 
+    tags: ["boot2root", "customlab", "windows"],
+    excerpt: "My 5th custom boot2root labs with: [Active Directory, ACL Abuse]",
+    file: "/posts/Abandoned.md",
+    source: "local",
+  },
+
+];
+
+export default localPosts;
