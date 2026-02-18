@@ -2,7 +2,7 @@ const localPosts = [
   {
     id: "my-nasgor",
     title: "Machine — My Nasgor (linux)",
-    date: "10-29-2025",
+    date: "4-25-2025",
     tags: ["boot2root", "customlab", "linux"],
     excerpt: "My first custom boot2root labs with: [brute force vuln, sensitive data exposure, sudo misconfig, etc]",
     file: "/posts/My_nasgor.md", 
