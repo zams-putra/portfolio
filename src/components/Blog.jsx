@@ -4,9 +4,7 @@ import { motion, AnimatePresence } from "motion/react";
 import { Link } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 import localPosts from "../data/posts";
-import secretPosts from "../data/posts.secret";
 
-const allPosts = [...localPosts, ...secretPosts]
 
 const CATEGORY_COLORS = {
   customlab: { border: "border-sky-400/50",  text: "text-sky-400",   bg: "hover:bg-sky-400/5 hover:border-sky-400" },
@@ -234,7 +232,7 @@ export default function Blog() {
 
   const categories = ["all", "customlab"];
 
-  const filtered = allPosts.filter((p) =>
+  const filtered = localPosts.filter((p) =>
     filter === "all" ? true : getCategory(p.tags, p.title) === filter
   );
 

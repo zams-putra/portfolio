@@ -1,6 +1,7 @@
 # document rahasia
 public/posts/hidden/*
 src/data/posts.secret.js 
+.env
 
 # Logs
 logs
