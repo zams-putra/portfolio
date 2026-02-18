@@ -1,3 +1,7 @@
+# document rahasia
+public/posts/hidden/*
+src/data/posts.json
+
 # Logs
 logs
 *.log
