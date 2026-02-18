@@ -1,6 +1,6 @@
 # document rahasia
 public/posts/hidden/*
-src/data/posts.json
+src/data/posts.js
 
 # Logs
 logs
