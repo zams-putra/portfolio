@@ -18,6 +18,7 @@ import ScrollUp from "./helper/ScrollUp";
 import ScrollDown from "./helper/ScrollDown";
 import StarBackground from "./components/StarBackground";
 import FloatingMusic from "./helper/FloatingMusix";
+import PostPage from "./components/PostPage";
 
 
 const sesi = [Hero, AboutMe, TechStack, Projects, Experience, Social, End]
@@ -155,6 +156,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/blog" element={<Blog />} />
+      <Route path="/blog/:slug" element={<PostPage />} />
     </Routes>
   );
 }

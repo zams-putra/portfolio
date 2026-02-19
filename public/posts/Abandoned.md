@@ -4,6 +4,8 @@
 
 # Abandoned
 
+![img](https://raw.githubusercontent.com/zams-putra/portfolio/refs/heads/main/public/img/abandoned.png)
+
 # 1 - Specs and Details
 ## spek :
 
