@@ -5,6 +5,8 @@
 
 Boot2root (Linux)
 
+![img](https://tryhackme-images.s3.amazonaws.com/room-icons/63cde864013c24004999383d-1761964397411)
+
 # 1 - Services
 
 ## FTP

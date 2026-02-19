@@ -1,6 +1,5 @@
 # document rahasia
 public/posts/hidden/*
-src/data/posts.secret.js 
 .env
 
 # Logs
@@ -27,3 +26,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Local Netlify folder
+.netlify

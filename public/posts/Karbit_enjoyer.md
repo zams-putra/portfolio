@@ -1,9 +1,12 @@
 # Machine - Karbit Enjoyer
 
+![img](https://raw.githubusercontent.com/zams-putra/my-boot2root/refs/heads/main/CVE-2025-55182/img.png)
+
 # 1. Intro
 - ga sama kayak real case aslinya sih, cuman yaudahlah
 
-![img](https://raw.githubusercontent.com/zams-putra/my-boot2root/refs/heads/main/CVE-2025-55182/img.png)
+![img](https://raw.githubusercontent.com/zams-putra/portfolio/refs/heads/main/public/img/karbit_enjoyer.png)
+
 
 # 2. Creds
 ## User - 1

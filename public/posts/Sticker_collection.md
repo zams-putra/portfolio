@@ -1,8 +1,10 @@
 # Machine - Stickers Collection
 
+![img](https://raw.githubusercontent.com/zams-putra/my-boot2root/refs/heads/main/CVE-2025-64459/img.png)
+
 ---
 
-![img](https://raw.githubusercontent.com/zams-putra/my-boot2root/refs/heads/main/CVE-2025-64459/img.png)
+![img](https://raw.githubusercontent.com/zams-putra/portfolio/refs/heads/main/public/img/stickers_collection.png)
 
 # 1. Services
 

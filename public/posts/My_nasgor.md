@@ -4,6 +4,7 @@
 
 
 # 1. Specs and Details
+![img](https://raw.githubusercontent.com/zams-putra/portfolio/refs/heads/main/public/img/me.jpg)
 
 - ram: 1024mb
 - cpu: 1core
