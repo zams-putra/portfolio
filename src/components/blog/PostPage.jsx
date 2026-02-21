@@ -1,8 +1,8 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import localPosts from "../data/posts";
-import PasswordGate from "../helper/blog/PasswordGate";
-import { MarkdownContent } from "../helper/blog/MarkdownContent";
+import localPosts from "../../data/posts";
+import PasswordGate from "../../helper/blog/PasswordGate";
+import { MarkdownContent } from "../../helper/blog/MarkdownContent";
 
 export default function PostPage() {
   const { slug } = useParams();

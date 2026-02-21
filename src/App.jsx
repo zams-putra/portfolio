@@ -3,22 +3,22 @@ import { useEffect, useRef, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 
 import SplashScreen from "./components/SplashScreen";
-import Hero from "./components/Hero";
-import AboutMe from "./components/AboutMe";
-import TechStack from "./components/TechStack";
-import Projects from "./components/Projects";
-import Experience from "./components/Experience";
-import Social from "./components/Social";
-import End from "./components/End";
+import Hero from "./pages/Hero";
+import AboutMe from "./pages/AboutMe";
+import TechStack from "./pages/TechStack";
+import Projects from "./pages/Projects";
+import Experience from "./pages/Experience";
+import Social from "./pages/Social";
+import End from "./pages/End";
 import Terminal from "./components/Terminal";
-import Blog from "./components/Blog";  
+import Blog from "./pages/Blog";  
 
 import { SiGnometerminal } from "react-icons/si";
 import ScrollUp from "./helper/ScrollUp";
 import ScrollDown from "./helper/ScrollDown";
 import StarBackground from "./components/StarBackground";
 import FloatingMusic from "./helper/FloatingMusix";
-import PostPage from "./components/PostPage";
+import PostPage from "./components/blog/PostPage";
 
 
 const sesi = [Hero, AboutMe, TechStack, Projects, Experience, Social, End]
