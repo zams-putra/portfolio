@@ -2,6 +2,29 @@
 
 ![img](https://raw.githubusercontent.com/zams-putra/my-boot2root/refs/heads/main/CVE-2025-55182/img.png)
 
+# Attack Surfaces
+## Reconnaissance
+- Anonymous FTP Access Enabled
+- Wordlist Discovery via FTP (wl.txt) → SSH Brute Force
+
+## Web Application
+- CVE-2025-55182 - React Server Components Deserialization RCE (React2Shell)
+- Prototype Pollution via Malicious Flight Protocol Payload
+- Remote Code Execution via child_process.execSync through deserialized payload
+- Hidden Endpoint Discovery via Directory Bruteforce (/api, /api/secret)
+HTTP Method Enumeration (GET vs POST behavior berbeda di /api/secret)
+
+## Credential Based
+- Password Hash Leak via bingo.txt (SHA256)
+- Password Hash Cracking → bukankah2yaemangbukan
+- SSH Brute Force dengan wordlist dari FTP
+
+## Privilege Escalation
+- Sudo Misconfiguration (Unrestricted sudo on /usr/bin/neofetch)
+- GTFOBins Exploitation via neofetch --config flag → spawn shell as root
+
+# .
+
 # 1. Intro
 - ga sama kayak real case aslinya sih, cuman yaudahlah
 

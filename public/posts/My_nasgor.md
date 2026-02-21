@@ -1,7 +1,33 @@
 # Machine - My Nasgor
 ![img](https://raw.githubusercontent.com/zams-putra/my-boot2root/refs/heads/main/my-nasgor/img.png)
 
+# Attack Surfaces
+## Reconnaissance
+- Information Disclosure via robots.txt
+- Obfuscation via Base64 Encoding (Security through Obscurity)
 
+## FTP
+- Credential Brute Force (FTP)
+- Sensitive File Exposure via FTP
+
+## Web Application
+- Weak/Default Credentials
+- Hidden Directory Exposure
+- Password Wordlist Exposure via Accessible Directory
+
+## Information Disclosure
+- Username Enumeration via FTP Files
+- Password Hint Leakage via Static File
+- Plaintext Credential Exposure in Web Page Source
+
+## Privilege Escalation
+- Sudo Misconfiguration (Unrestricted sudo on /usr/bin/find)
+- GTFOBins Exploitation via find binary
+
+## Service Misconfiguration
+- Service Running as Root (Principle of Least Privilege Violation)
+
+# .
 
 # 1. Specs and Details
 ![img](https://raw.githubusercontent.com/zams-putra/portfolio/refs/heads/main/public/img/me.jpg)

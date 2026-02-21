@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import localPosts from "../data/posts";
 import PasswordGate from "../helper/blog/PasswordGate";
 import { MarkdownContent } from "../helper/blog/MarkdownContent";
-
+import ObrolanRPG from "../components/blog/ObrolanRPG";
 
 const CATEGORY_COLORS = {
   customlab: { border: "border-sky-400/50",  text: "text-sky-400",   bg: "hover:bg-sky-400/5 hover:border-sky-400" },
@@ -85,6 +85,7 @@ export default function Blog() {
   const [filter, setFilter] = useState("all");
   const [activePost, setActivePost] = useState(null);     
   const [unlockedPost, setUnlockedPost] = useState(null);   
+  const [showOpening, setShowOpening] = useState(true);
 
   const categories = ["all", "customlab", "writeup"];
 
@@ -111,6 +112,8 @@ export default function Blog() {
     setActivePost(null);
     setUnlockedPost(null);
   };
+
+  if (showOpening) return <ObrolanRPG onEnter={() => setShowOpening(false)} />;
 
   return (
     <>

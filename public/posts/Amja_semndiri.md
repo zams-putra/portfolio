@@ -7,6 +7,30 @@ Boot2root (Linux)
 
 ![img](https://tryhackme-images.s3.amazonaws.com/room-icons/63cde864013c24004999383d-1761964397411)
 
+# Attack Surfaces
+## Reconnaissance
+- Information Disclosure via robots.txt
+- Hidden Directory Exposure (/s3cr3t_d1r3ct0ry)
+- Security through Obscurity via Vigenere Cipher
+- Hidden Text in Web Page (invisible color)
+
+## FTP
+- Anonymous FTP Access Enabled
+- Sensitive File Exposure via FTP
+- Multi-layer Encoded Credential (Binary → Hex → Base64)
+
+## Web Application
+- CVE-2025-29927 - Next.js Middleware Authorization Bypass
+- Broken Access Control via x-middleware-subrequest Header Manipulation
+- Sensitive Endpoint Exposure (/api/secret, /api/my-secret)
+
+## Privilege Escalation
+- Sudo Misconfiguration (Unrestricted sudo on /usr/bin/vim)
+- GTFOBins Exploitation via vim binary (sudo vim -c ':!/bin/sh')
+
+# .
+
+
 # 1 - Services
 
 ## FTP

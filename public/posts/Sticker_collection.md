@@ -6,6 +6,29 @@
 
 ![img](https://raw.githubusercontent.com/zams-putra/portfolio/refs/heads/main/public/img/stickers_collection.png)
 
+# Attack Surfaces
+## Reconnaissance
+- Information Disclosure via /robots.txt (kalau ada)
+- Hidden Path Discovery via SQL Injection Result
+- Rabbit Hole via user.txt milik ubuntu (config.php in a Django app?)
+
+## Web Application
+- CVE-2025-64459 - Django Critical SQL Injection via ORM Q() filter
+- Unauthenticated Access to Hidden Endpoint (/hidden_secret_path)
+- Command Injection via cmd parameter di hidden page
+- SQLite3 Database Leak via Command Injection
+
+## Credential Based
+- Password Hash Cracking (SHA256) → sucipto_ganteng_123
+- Weak Credentials (admin:i_l1k3_s0me_sn4cks!)
+- Wordlist-assisted Password Cracking (.wordlist di home ubuntu)
+
+## Privilege Escalation
+- Misconfigured Cron Job (root-owned cron running writable script)
+- Writable Script Abuse → Reverse Shell via /opt/bonk.sh
+
+# .
+
 # 1. Services
 
 ## Setup
