@@ -11,6 +11,7 @@ import ObrolanRPG from "../components/blog/ObrolanRPG";
 const CATEGORY_COLORS = {
   customlab: { border: "border-sky-400/50",  text: "text-sky-400",   bg: "hover:bg-sky-400/5 hover:border-sky-400" },
   writeup: { border: "border-red-400/50",  text: "text-red-400",   bg: "hover:bg-red-400/5 hover:border-red-400" },
+  programming: { border: "border-purple-400/50",  text: "text-purple-400",   bg: "hover:bg-purple-400/5 hover:border-purple-400" },
   default:   { border: "border-slate-700",   text: "text-slate-400", bg: "hover:bg-slate-800 hover:border-slate-500" },
 };
 
@@ -18,6 +19,7 @@ function getCategory(tags = [], title = "") {
   const combined = [...tags, title].join(" ").toLowerCase();
   if (combined.includes("customlab") || combined.includes("dev")) return "customlab";
   if (combined.includes("writeup") || combined.includes("ctf")) return "writeup";
+  if (combined.includes("leetcode") || combined.includes("programming")) return "programming";
   return "default";
 }
 
@@ -87,7 +89,7 @@ export default function Blog() {
   const [unlockedPost, setUnlockedPost] = useState(null);   
   const [showOpening, setShowOpening] = useState(true);
 
-  const categories = ["all", "customlab", "writeup"];
+  const categories = ["all", "customlab", "writeup", "programming"];
 
   const filtered = localPosts.filter((p) =>
     filter === "all" ? true : getCategory(p.tags, p.title) === filter
