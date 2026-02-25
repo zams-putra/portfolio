@@ -1,6 +1,8 @@
 import { motion } from "motion/react";
 import TypewriterComponent from "typewriter-effect";
 import { useState } from "react";
+import { FaDumbbell, FaGamepad, FaMusic} from 'react-icons/fa'
+import { GiFriedEggs } from 'react-icons/gi'
 
 const stats = [
   { label: "CTF Labs Built", value: "5+", color: "#4ade80" },
@@ -10,10 +12,10 @@ const stats = [
 ];
 
 const funFacts = [
-  { icon: "🎮", label: "Gamer", desc: "Mostly survival & adventure stories" },
-  { icon: "🎵", label: "Music", desc: "Nu Metal, EDM, Classic, etc" },
-  { icon: "🏋️", label: "Gym", desc: "Weight training, martial arts" },
-  { icon: "🍳", label: "Nasgor Enjoyer", desc: "Long live nasgor your majesty" },
+  { icon: <FaGamepad className="text-red-400"/>, label: "Game", desc: "Mostly game stories, MOBALOG, etc" },
+  { icon: <FaMusic className="text-purple-500"/>, label: "Music", desc: "Nu Metal, EDM, Classic, etc" },
+  { icon: <FaDumbbell className="text-gray-400"/>, label: "Gym", desc: "Weight training, martial arts" },
+  { icon: <GiFriedEggs className="text-yellow-300"/>, label: "Nasgor Enjoyer", desc: "Long live nasgor your majesty" },
 ];
 
 export default function AboutMe() {
@@ -59,7 +61,7 @@ export default function AboutMe() {
             </div>
           
             <div className="p-5 font-mono text-xs md:text-sm">
-              <p className="text-slate-500 mb-3">{`// who am i?`}</p>
+              <p className="text-slate-500 mb-3">{`// who am i`}</p>
               <pre className="text-white whitespace-pre-wrap leading-relaxed">
                 <TypewriterComponent
                   options={{
@@ -185,7 +187,7 @@ export default function AboutMe() {
             { label: "Penetration Testing", color: "border-red-400 text-red-400" },
             { label: "CTF Labs Building", color: "border-green-400 text-green-400" },
             { label: "SOC / Blue Team", color: "border-blue-400 text-blue-400" },
-            { label: "Security Research", color: "border-purple-400 text-purple-400" },
+   
           ].map((item, i) => (
             <motion.div
               key={i}
@@ -225,7 +227,7 @@ export default function AboutMe() {
         className="flex-1 flex flex-col gap-2 p-5 rounded-xl border border-red-500/40 bg-[#0d0d0d] hover:border-red-400 hover:bg-red-500/5 transition-all group"
       >
         <span className="text-red-400 text-xs font-mono">{`> read my blog`}</span>
-        <p className="text-white font-medium group-hover:text-red-300 transition-colors">Personal Blog (soon)</p>
+        <p className="text-white font-medium group-hover:text-red-300 transition-colors">Personal Blog</p>
         <p className="text-slate-500 text-xs">HTB Writeups, Boot2root develop docs, etc</p>
       </a>
 
