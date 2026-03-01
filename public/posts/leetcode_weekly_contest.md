@@ -160,3 +160,40 @@ func FindTheScoreDiffInAnGame(nums []int) int {
 - kalo dalam giliran, doi tambah skor sesuai nums[i]
 
 # ___________________________________________________________________________________________
+
+
+# Weekly Contest 491
+
+## Title: Trim Trailing Vowels
+### Difficult - Easy
+#### Link: https://leetcode.com/problems/trim-trailing-vowels/
+
+## Answer :
+
+```go
+func trimTrailingVowels(s string) string {
+	x, vows, m := 0, "aiueo", map[string]bool{}
+	for _, v := range vows {
+		m[string(v)] = true
+	}
+	for i := len(s) - 1; i >= 0; i-- {
+		if !m[string(s[i])] {
+			x = i
+			break
+		}
+		if i == 0 {
+			return ""
+		}
+	}
+	return string(s[0 : x+1])
+}
+```
+
+## Key Points
+- hilangkan vowels: a i u e o, di yang paling belakang
+- contoh 1: 
+- input: abceuiueiuie
+- output: abc -> hilangkan: abc [euiueiuie]
+- contoh 2: 
+- input: nasigorengia
+- output: nasigoreng -> hilangkan: nasigoreng [ia]

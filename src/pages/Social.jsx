@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { FaShield } from "react-icons/fa6";
+import { FaBug, FaShield } from "react-icons/fa6";
 import { SiInstagram, SiGithub, SiLeetcode, SiTryhackme, SiMedium, SiCodewars, SiHackerrank, SiLinkedin, SiHackthebox } from "react-icons/si";
 
 
@@ -80,6 +80,13 @@ const socials = [
     lay: 2.8,
     name: 'BTLO',
     icon: <FaShield />
+  },
+  {
+    id: 12,
+    link: 'https://pwn.college/hacker/150556',
+    lay: 3.1,
+    name: 'Pwn.College',
+    icon: <FaBug/>
   }
 
 ]

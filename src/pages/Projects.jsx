@@ -70,6 +70,14 @@ export default function Projects() {
       img: "/img/abandoned.png",
     },
     {
+      title: "Peak (OFF)",
+      description: "Vulnerable lab, boot2root machine",
+      techStack: ["ReactJS", "ReactRouter", "TailwindCSS", "Windows Standalone"],
+      link: "https://github.com/zams-putra/my-boot2root/tree/main/peak",
+      repo: "https://github.com/zams-putra/my-boot2root/tree/main/peak",
+      img: "/img/peak.png",
+    },
+    {
       title: "Other CTF Lab",
       description: "My simple Docker CTF lab, small version CTF lab with so many vuln",
       techStack: ["Docker", "Etc"],
