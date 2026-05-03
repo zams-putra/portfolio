@@ -7,9 +7,12 @@ import localPosts from "../data/posts";
 import PasswordGate from "../helper/blog/PasswordGate";
 import { MarkdownContent } from "../helper/blog/MarkdownContent";
 import ObrolanRPG from "../components/blog/ObrolanRPG";
+import DonationSection from "../helper/DonationSection";
+import { FaLock } from "react-icons/fa";
 
 const CATEGORY_COLORS = {
   customlab: { border: "border-sky-400/50",  text: "text-sky-400",   bg: "hover:bg-sky-400/5 hover:border-sky-400" },
+  catatan: { border: "border-yellow-400/50",  text: "text-yellow-400",   bg: "hover:bg-yellow-400/5 hover:border-yellow-400" },
   writeup: { border: "border-red-400/50",  text: "text-red-400",   bg: "hover:bg-red-400/5 hover:border-red-400" },
   programming: { border: "border-purple-400/50",  text: "text-purple-400",   bg: "hover:bg-purple-400/5 hover:border-purple-400" },
   default:   { border: "border-slate-700",   text: "text-slate-400", bg: "hover:bg-slate-800 hover:border-slate-500" },
@@ -17,9 +20,10 @@ const CATEGORY_COLORS = {
 
 function getCategory(tags = [], title = "") {
   const combined = [...tags, title].join(" ").toLowerCase();
-  if (combined.includes("customlab") || combined.includes("dev")) return "customlab";
+  if (combined.includes("customlab")) return "customlab";
   if (combined.includes("writeup") || combined.includes("ctf")) return "writeup";
   if (combined.includes("leetcode") || combined.includes("programming")) return "programming";
+  if (combined.includes("catatan")) return "catatan";
   return "default";
 }
 
@@ -34,13 +38,10 @@ const cardVariant = {
   visible: (i) => ({ opacity: 1, y: 0, transition: { delay: i * 0.07, duration: 0.45 } }),
 };
 
-
-
-
 function PostCard({ post, index, onClick }) {
   const cat = getCategory(post.tags, post.title);
   const style = CATEGORY_COLORS[cat];
-  const isLocked = !!post.password;
+  const isLocked = !!post.passwordHash; 
 
   return (
       <Link to={`/blog/${post.id}`}>
@@ -58,8 +59,9 @@ function PostCard({ post, index, onClick }) {
           <span className="text-slate-500 font-mono text-xs ml-2 truncate">{post.id}.md</span>
 
           {isLocked && (
-            <span className="ml-auto text-xs font-mono text-yellow-400 bg-yellow-400/10 border border-yellow-400/30 px-2 py-0.5 rounded-full shrink-0">
-              🔒 locked
+            
+            <span className="ml-auto text-xs flex gap-1 font-mono text-yellow-400 bg-yellow-400/10 border border-yellow-400/30 px-2 py-0.5 rounded-full shrink-0">
+              <FaLock className="text-yellow-200"/> locked
             </span>
           )}
         </div>
@@ -87,16 +89,22 @@ export default function Blog() {
   const [filter, setFilter] = useState("all");
   const [activePost, setActivePost] = useState(null);     
   const [unlockedPost, setUnlockedPost] = useState(null);   
-  const [showOpening, setShowOpening] = useState(true);
+  
 
-  const categories = ["all", "customlab", "writeup", "programming"];
+  // session si percakapan ada disini yh ngab :
+  //  - ini solusi biar doi kgk muncul lagi pas di refresh, ribet bjir
+  const [showOpening, setShowOpening] = useState(() => {
+    return !sessionStorage.getItem("percakapan");
+  });
+
+  const categories = ["all", "customlab", "writeup", "programming", "catatan"];
 
   const filtered = localPosts.filter((p) =>
     filter === "all" ? true : getCategory(p.tags, p.title) === filter
   );
 
   const handleCardClick = (post) => {
-    if (post.password) {
+    if (post.passwordHash) { // ← fix: cek passwordHash
       setActivePost(post);      
       setUnlockedPost(null);
     } else {
@@ -115,7 +123,15 @@ export default function Blog() {
     setUnlockedPost(null);
   };
 
-  if (showOpening) return <ObrolanRPG onEnter={() => setShowOpening(false)} />;
+  // yang ngatasin session percakapan rpg juga ini
+  const handleEnter = () => {
+    sessionStorage.setItem("percakapan", "1");
+    setShowOpening(false);
+  };
+
+  
+
+  if (showOpening) return <ObrolanRPG onEnter={handleEnter} />;
 
   return (
     <>
@@ -168,14 +184,13 @@ export default function Blog() {
             ))}
           </div>
         )}
+      <DonationSection/>
       </main>
 
       <AnimatePresence>
-     
         {activePost && !unlockedPost && (
           <PasswordGate key="gate" post={activePost} onUnlock={handleUnlock} onClose={handleClose} />
         )}
-  
         {unlockedPost && (
           <MarkdownContent key="modal" post={unlockedPost} onClose={handleClose} />
         )}

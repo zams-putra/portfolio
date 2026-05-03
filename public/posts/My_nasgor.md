@@ -2,6 +2,7 @@
 ![img](https://raw.githubusercontent.com/zams-putra/my-boot2root/refs/heads/main/my-nasgor/img.png)
 
 # Attack Surfaces
+
 ## Reconnaissance
 - Information Disclosure via robots.txt
 - Obfuscation via Base64 Encoding (Security through Obscurity)
@@ -27,7 +28,9 @@
 ## Service Misconfiguration
 - Service Running as Root (Principle of Least Privilege Violation)
 
-# .
+![img](../img/attack_chain/attack_chain1.svg)
+
+
 
 # 1. Specs and Details
 ![img](https://raw.githubusercontent.com/zams-putra/portfolio/refs/heads/main/public/img/me.jpg)

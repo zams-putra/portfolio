@@ -17,11 +17,11 @@
 ## Privilege Escalation
 - SeImpersonatePrivilege Abuse (via PrintSpoofer / GodPotato as spino)
 
-# .
+![img](../img/attack_chain/attack_chain6.svg)
 
-![img](https://raw.githubusercontent.com/zams-putra/portfolio/refs/heads/main/public/img/peak.png)
 
 # 1. Creds
+![img](https://raw.githubusercontent.com/zams-putra/portfolio/refs/heads/main/public/img/peak.png)
 Admin123:Admin123
 spino:ButWhy123
 

@@ -1,6 +1,7 @@
 import { motion } from "motion/react";
 import { FaWindows } from "react-icons/fa";
-import { SiBurpsuite, SiDocker, SiEjs, SiExpress, SiGo, SiJavascript, SiLinux, SiMongodb, SiMongoose, SiPostman, SiReact, SiTailwindcss } from "react-icons/si";
+import { GiSwordSlice } from "react-icons/gi";
+import { SiBurpsuite, SiDocker, SiEjs, SiExpress, SiGo, SiJavascript, SiLinux, SiMongodb, SiMongoose, SiPostman, SiReact, SiSqlite, SiTailwindcss, SiVite } from "react-icons/si";
 
 
 
@@ -34,6 +35,18 @@ const stack = {
       logo: <SiTailwindcss />,
       color: '#03999e'
     },
+    {
+      name: 'Vite',
+      description: 'Um, i started react with this',
+      logo: <SiVite />,
+      color: '#af2ff5'
+    },
+    {
+      name: 'Motion',
+      description: 'Made motion animate with this',
+      logo: <GiSwordSlice />,
+      color: '#f52fd7'
+    },
   ],
   Backend: [
     {
@@ -60,6 +73,13 @@ const stack = {
       logo: <SiEjs />,
       color: '#ba2204'
     },
+    {
+      name: 'SQLite3',
+      description: 'Usually use this for my boot2root lab DBs',
+      logo: <SiSqlite />,
+      color: '#7e729e'
+    },
+
   ],
   Tools: [
     {

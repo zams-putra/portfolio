@@ -27,7 +27,9 @@
 - Misconfigured Cron Job (root-owned cron running writable script)
 - Writable Script Abuse → Reverse Shell via /opt/bonk.sh
 
-# .
+![img](../img/attack_chain/attack_chain3.svg)
+
+
 
 # 1. Services
 

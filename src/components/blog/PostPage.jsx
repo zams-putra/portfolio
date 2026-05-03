@@ -9,9 +9,8 @@ export default function PostPage() {
   const navigate = useNavigate();
   const post = localPosts.find((p) => p.id === slug);
 
-  const [unlocked, setUnlocked] = useState(
-    () => sessionStorage.getItem(`unlocked_${slug}`) === "true"
-  );
+  const [unlocked, setUnlocked] = useState(false);
+  const [filePath, setFilePath] = useState(null);
 
   if (!post) return (
     <main className="min-h-screen bg-black flex items-center justify-center font-mono text-slate-500">
@@ -25,17 +24,17 @@ export default function PostPage() {
     </main>
   );
 
-  if (post.password && !unlocked) {
+  if (post.passwordHash && !unlocked) {
     return (
       <PasswordGate
         post={post}
-        onUnlock={() => {
-          sessionStorage.setItem(`unlocked_${slug}`, "true");
+        onUnlock={(decryptedPath) => {  
+          setFilePath(decryptedPath);
           setUnlocked(true);
         }}
       />
     );
   }
 
-  return <MarkdownContent post={post} />;
+  return <MarkdownContent post={post} filePath={filePath} />;
 }

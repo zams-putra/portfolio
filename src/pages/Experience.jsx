@@ -20,6 +20,12 @@ const experienceData = [
     description: "Completing some challenges in here, learned and hands on Pentest, SOC, Etc"
   },
   {
+    company: "HackTheBox",
+    position: "CTF Player",
+    duration: "Feb 2025 - Now",
+    description: "Completing some challenges in here, learned and hands on Pentest, CTF B2R"
+  },
+  {
     company: "LeetCode",
     position: "Competitive Programming Player",
     duration: "Jul 2024 - Now",
