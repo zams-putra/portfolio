@@ -3,6 +3,25 @@ import { motion } from "motion/react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+const hashInput = async (text) => {
+  const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(text));
+  return [...new Uint8Array(buf)].map((b) => b.toString(16).padStart(2, "0")).join("");
+};
+
+const decrypt = async (encryptedText, password) => {
+  const enc = new TextEncoder();
+  const raw = Uint8Array.from(atob(encryptedText), (c) => c.charCodeAt(0));
+  const iv = raw.slice(0, 12);
+  const data = raw.slice(12);
+  const keyMaterial = await crypto.subtle.importKey("raw", enc.encode(password), "PBKDF2", false, ["deriveKey"]);
+  const key = await crypto.subtle.deriveKey(
+    { name: "PBKDF2", salt: enc.encode("saltfix"), iterations: 100000, hash: "SHA-256" },
+    keyMaterial, { name: "AES-GCM", length: 256 }, false, ["decrypt"]
+  );
+  const decrypted = await crypto.subtle.decrypt({ name: "AES-GCM", iv }, key, data);
+  return new TextDecoder().decode(decrypted);
+};
+
 export default function PasswordGate({ post, onUnlock }) {
   const [input, setInput] = useState("");
   const [error, setError] = useState(false);
@@ -11,10 +30,12 @@ export default function PasswordGate({ post, onUnlock }) {
 
   const handleClose = () => navigate("/blog");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (input === post.password) {
-      onUnlock();
+    const hashed = await hashInput(input);
+    if (hashed === post.passwordHash) {
+      const filePath = await decrypt(post.encryptedFile, input);
+      onUnlock(filePath);
     } else {
       setError(true);
       setShake(true);
@@ -32,7 +53,6 @@ export default function PasswordGate({ post, onUnlock }) {
         exit={{ scale: 0.9, opacity: 0 }}
         transition={{ duration: 0.2 }}
       >
-      
         <div className="flex items-center justify-between px-6 py-4 border-b border-slate-800">
           <div className="flex gap-2">
             <span className="w-3 h-3 rounded-full bg-red-500" />
@@ -46,7 +66,6 @@ export default function PasswordGate({ post, onUnlock }) {
         </div>
 
         <div className="p-8 flex flex-col gap-5">
-      
           <div className="flex flex-col gap-2">
             <p className="text-yellow-400 font-mono text-xs">{`> cat ${post.id}.md`}</p>
             <p className="text-red-400 font-mono text-xs">{`Permission denied: document locked like my heart 🔒`}</p>
@@ -55,7 +74,6 @@ export default function PasswordGate({ post, onUnlock }) {
             </p>
           </div>
 
-         
           <form onSubmit={handleSubmit} className="flex flex-col gap-3">
             <div className="flex items-center gap-2 bg-slate-900 border border-slate-700 rounded-lg px-4 py-3 focus-within:border-purple-400 transition-colors">
               <span className="text-purple-400 font-mono text-xs shrink-0">{`>`}</span>

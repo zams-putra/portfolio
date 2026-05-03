@@ -27,11 +27,11 @@
 - ACL Abuse - GenericAll on Administrator object → full takeover
 
 
-# .
+![img](../img/attack_chain/attack_chain5.svg)
 
-![img](https://raw.githubusercontent.com/zams-putra/portfolio/refs/heads/main/public/img/abandoned.png)
 
 # 1 - Specs and Details
+![img](https://raw.githubusercontent.com/zams-putra/portfolio/refs/heads/main/public/img/abandoned.png)
 ## spek :
 
 - name: windows-server 2019

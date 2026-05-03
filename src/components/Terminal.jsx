@@ -134,7 +134,7 @@ export default function Terminal({ setIsTerminal }) {
             setInputCmd("")
             return
         } else if (arr[0] == "fav_song") {
-            objc.out = `my fav music is ${song.artist} - ${song.judul} based on spotify`
+            objc.out = `my fav music is ${song.artist} - ${song.judul} based on spotify | no longer this feature: https://developer.spotify.com/blog/2026-02-06-update-on-developer-access-and-platform-security`
             setCommand((prev) => [
                 ...prev,
                 objc
