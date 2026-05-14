@@ -12,7 +12,7 @@
 ## Web Application
 - XSS Stored via dangerouslySetInnerHTML pada roasting wall (r.comment tidak disanitasi)
 - Bot admin otomatis visit /roasting tiap 1 menit → cookie hijack via XSS
-- JWT Algorithm Confusion — jwt.ParseWithClaims tanpa validasi signing method → forge isAdmin:true
+- Cookie admin didapat → akses admin panel sebagai admin
 - LFI pada /api/admin/logs?file= (authenticated admin)
 - LFI hardening bypass: ....// → residual ../ setelah ReplaceAll
 - /etc/passwd leak → enumerate users (cave_man, tribe_leader)
@@ -32,10 +32,13 @@
 - bash_suid -p → root shell
 # .
 
-![img](https://raw.githubusercontent.com/zams-putra/portfolio/refs/heads/main/public/img/cave.png)
+![img](../img/attack_chain/attack_chain7.svg)
 
 
 # 1. Creds
+
+![img](https://raw.githubusercontent.com/zams-putra/portfolio/refs/heads/main/public/img/cave.png)
+
 ### SSH :
 - cave_man:cave123man
 - tribe_leader:rahasiainimah (ini yang deket root)
@@ -1000,6 +1003,10 @@ sudo deluser tribe_leader sudo
 ## Flags :
 - user.txt: FLAG{a323e8117e4fffd8f9c7db240eebf9ea}
 - root.txt: FLAG{6147e882471ffb950f0520bc028ca2c8}
+
 ## walkthrough - video
 
 - https://youtu.be/YJdd1gI92lk
+
+## Repository
+- https://github.com/zams-putra/my-boot2root/tree/main/cave

@@ -12,6 +12,7 @@ import { FaLock } from "react-icons/fa";
 
 const CATEGORY_COLORS = {
   customlab: { border: "border-sky-400/50",  text: "text-sky-400",   bg: "hover:bg-sky-400/5 hover:border-sky-400" },
+  develop: { border: "border-teal-400/50",  text: "text-teal-400",   bg: "hover:bg-teal-400/5 hover:border-teal-400" },
   catatan: { border: "border-yellow-400/50",  text: "text-yellow-400",   bg: "hover:bg-yellow-400/5 hover:border-yellow-400" },
   writeup: { border: "border-red-400/50",  text: "text-red-400",   bg: "hover:bg-red-400/5 hover:border-red-400" },
   programming: { border: "border-purple-400/50",  text: "text-purple-400",   bg: "hover:bg-purple-400/5 hover:border-purple-400" },
@@ -21,6 +22,7 @@ const CATEGORY_COLORS = {
 function getCategory(tags = [], title = "") {
   const combined = [...tags, title].join(" ").toLowerCase();
   if (combined.includes("customlab")) return "customlab";
+  if (combined.includes("develop")) return "develop";
   if (combined.includes("writeup") || combined.includes("ctf")) return "writeup";
   if (combined.includes("leetcode") || combined.includes("programming")) return "programming";
   if (combined.includes("catatan")) return "catatan";
@@ -97,7 +99,7 @@ export default function Blog() {
     return !sessionStorage.getItem("percakapan");
   });
 
-  const categories = ["all", "customlab", "writeup", "programming", "catatan"];
+  const categories = ["all", "customlab", "writeup", "programming", "catatan", "develop"];
 
   const filtered = localPosts.filter((p) =>
     filter === "all" ? true : getCategory(p.tags, p.title) === filter

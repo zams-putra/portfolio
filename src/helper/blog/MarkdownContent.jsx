@@ -346,7 +346,7 @@ export function MarkdownContent({ post, filePath }) {
                   style={{ boxShadow: "0 0 8px rgba(6,182,212,0.8)" }} />
               ))}
             </div>
-            <p className="text-cyan-400/60 font-mono text-xs animate-pulse">decrypting payload...</p>
+            <p className="text-cyan-400/60 font-mono text-xs animate-pulse">Loading...</p>
           </div>
         ) : (
           <div className="prose prose-invert prose-sm max-w-none">

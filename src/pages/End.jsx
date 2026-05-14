@@ -4,6 +4,7 @@ import { motion } from "motion/react";
 import BarDurationSong from "../helper/BarDurationSong";
 import FakeVisualizer from "../helper/Visualizer";
 import { useMusic } from "../context/MusicContext";
+import Lamp from "../components/design/Lamp";
 
 
 export default function End() {
@@ -181,6 +182,7 @@ export default function End() {
                 </div>
                 )}
 
+        <div className="flex flex-col md:flex-row gap-2 justify-center items-center">
             <motion.h1
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
@@ -189,6 +191,11 @@ export default function End() {
             >
                 Thank you :)
             </motion.h1>
+            <div className="flex flex-col justify-center items-center">
+                <Lamp classname="w-32 h-32 md:w-[420px] md:h-[420px]"/>
+                <p className="text-slate-500">{`// Turn on the lamp`}</p>
+            </div>
+        </div>
         </section>
     )
 }

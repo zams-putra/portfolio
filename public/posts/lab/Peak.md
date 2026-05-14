@@ -672,6 +672,8 @@ curl ip:8000/dump.txt
 - user.txt: FLAG{c2af72c547ed4b8ce60c423cdd62221f}
 - root.txt: FLAG{fe2548de40276c832a32ecb786028d02}
 
-# Walkthrough 
-## Video
+## Walkthrough - Video
 https://youtu.be/V7U28RYUHZ0
+
+## Repository
+- https://github.com/zams-putra/my-boot2root/tree/main/peak

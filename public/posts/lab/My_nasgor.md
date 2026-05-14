@@ -384,3 +384,6 @@ milkshake
 
 ## walkthrough - video
 - https://youtu.be/zJqAOJALdpE
+
+## Repository
+- https://github.com/zams-putra/my-boot2root/tree/main/my-nasgor

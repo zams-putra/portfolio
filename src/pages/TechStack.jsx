@@ -2,6 +2,13 @@ import { motion } from "motion/react";
 import { FaWindows } from "react-icons/fa";
 import { GiSwordSlice } from "react-icons/gi";
 import { SiBurpsuite, SiDocker, SiEjs, SiExpress, SiGo, SiJavascript, SiLinux, SiMongodb, SiMongoose, SiPostman, SiReact, SiSqlite, SiTailwindcss, SiVite } from "react-icons/si";
+import { UseLazyMount } from "../helper/UseLazyMount";
+
+import planetGambar from '/img/sidi.jpg'
+import { lazy, Suspense } from "react";
+
+const GlobeTemplate = lazy(() => import('../components/design/GlobeTemplate'))
+
 
 
 
@@ -117,13 +124,13 @@ const stack = {
 }
 
 
-
-
-
 // bakal di renov besar2 an
 
 
 export default function TechStack() {
+  const [ref, shouldRender] = UseLazyMount();
+  
+  
   return (
     <motion.section
       className="w-full min-h-screen flex flex-col justify-evenly items-center py-7 gap-4"
@@ -132,13 +139,28 @@ export default function TechStack() {
       transition={{ duration: 0.4, ease: 'easeInOut' }}
 
     >
-      <motion.h1
-        initial={{ y: 50, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.7, ease: 'easeInOut' }}
-        className="md:text-5xl text-xl bg-gradient-to-r from-slate-500 to-slate-200 bg-clip-text text-transparent">
-        Tech Stack
-      </motion.h1>
+
+      <div ref={ref} className="flex flex-col md:flex-row gap-2 justify-center items-center">
+        <motion.h1
+          initial={{ y: 50, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.7, ease: 'easeInOut' }}
+          className="md:text-5xl text-xl bg-gradient-to-r from-slate-500 to-slate-200 bg-clip-text text-transparent">
+          Tech Stack
+        </motion.h1>
+
+         {shouldRender && (
+            <Suspense fallback={<div className="w-32 h-32 rounded-full bg-slate-800 animate-pulse"/>}>
+              <GlobeTemplate textureURL={planetGambar} classname="w-32 h-32 md:w-[420px] md:h-[420px]"/>
+            </Suspense>
+          )}
+        
+        {/* <GlobeTemplate textureURL={planetGambar} classname="w-32 h-32 md:w-[420px] md:h-[420px]"/> */}
+
+
+      </div>
+
+   
 
       {/* 
       destructure assignment, stack dijadiin arr: front back tools, section[0] yaitu nama nya misal front

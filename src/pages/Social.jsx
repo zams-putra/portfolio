@@ -1,6 +1,12 @@
 import { motion } from "motion/react";
 import { FaBug, FaShield } from "react-icons/fa6";
 import { SiInstagram, SiGithub, SiLeetcode, SiTryhackme, SiMedium, SiCodewars, SiHackerrank, SiLinkedin, SiHackthebox, SiYoutube } from "react-icons/si";
+// import GlobeTemplate from "../components/design/GlobeTemplate";
+import planetGambar from '/img/burger.jpg'
+import { UseLazyMount } from "../helper/UseLazyMount";
+import { lazy, Suspense } from "react";
+
+const GlobeTemplate = lazy(() => import('../components/design/GlobeTemplate'))
 
 
 const socialCategories = [
@@ -104,16 +110,31 @@ const socialCategories = [
 ]
 
 export default function Social() {
+  const [ref, shouldRender] = UseLazyMount();
+  
   return (
     <section className="w-full min-h-screen justify-center overflow-y-hidden flex flex-col items-center gap-12 py-16 px-4">
-      <motion.h1
-        initial={{ y: 50, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.7, ease: 'easeInOut' }}
-        className="text-2xl md:text-5xl text-center bg-gradient-to-r from-slate-500 to-slate-200 bg-clip-text text-transparent font-bold"
-      >
-        Let{"'"}s connect with me
-      </motion.h1>
+
+      <div ref={ref} className="flex flex-col md:flex-row gap-2 justify-center items-center">
+        <motion.h1
+          initial={{ y: 50, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.7, ease: 'easeInOut' }}
+          className="text-2xl md:text-5xl text-center bg-gradient-to-r from-slate-500 to-slate-200 bg-clip-text text-transparent font-bold"
+        >
+          Let{"'"}s connect with me
+        </motion.h1>
+           {shouldRender && (
+              <Suspense fallback={<div className="w-32 h-32 rounded-full bg-slate-800 animate-pulse"/>}>
+                <GlobeTemplate textureURL={planetGambar} classname="w-32 h-32 md:w-[420px] md:h-[420px]"/>
+              </Suspense>
+            )}
+        
+        {/* <GlobeTemplate textureURL={planetGambar} classname="w-32 h-32 md:w-[420px] md:h-[420px]"/> */}
+
+      </div>
+
+  
 
       <div className="w-full max-w-6xl flex flex-col gap-12">
         {socialCategories.map((categoryData, categoryIndex) => (
