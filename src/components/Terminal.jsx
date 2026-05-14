@@ -28,6 +28,7 @@ const sidi = [
 const output = {
     "help": `
 - help: for your help
+- chatbot: for chat with my Ey Ay
 - whoami: who i am
 - id: display user and group identity info
 - about: about me
@@ -74,7 +75,8 @@ const output = {
         </div>
     </div>
 ),
-    "id": "uid=1000(putra) gid=1000(nasgor) groups=0(root)"
+    "id": "uid=1000(putra) gid=1000(nasgor) groups=0(root)",
+    "chatbot":""
 
 }
 
@@ -84,6 +86,11 @@ export default function Terminal({ setIsTerminal }) {
 
 
     const [song, setSong] = useState({})
+
+
+    const [isChatMode, setIsChatMode] = useState(false)
+    const [chatHistory, setChatHistory] = useState([])
+    const [isLoading, setIsLoading] = useState(false)
 
 
     const inputRef = useRef(null)
@@ -119,6 +126,37 @@ export default function Terminal({ setIsTerminal }) {
 
         const arr = cmd.split(" ")
 
+
+        if (isChatMode) {
+            if (cmd === "exit") {
+                setIsChatMode(false)
+                setChatHistory([])
+                objc.out = "Understandable have a great day."
+                setCommand(prev => [...prev, objc])
+                setInputCmd("")
+                return
+            }
+
+            setIsLoading(true)
+            setInputCmd("")
+
+            const newHistory = [...chatHistory, { role: "user", content: cmd }]
+            setChatHistory(newHistory)
+            setCommand(prev => [...prev, { in: cmd, out: "thinking..." }])
+
+            askChatbot(newHistory).then(reply => {
+                setChatHistory(prev => [...prev, { role: "assistant", content: reply }])
+                setCommand(prev => {
+                    const updated = [...prev]
+                    updated[updated.length - 1].out = reply
+                    return updated
+                })
+                setIsLoading(false)
+            })
+            return
+        }
+
+
         if (arr[0] == "exit") {
             return setIsTerminal(false)
         } else if (arr[0] == "echo") {
@@ -147,6 +185,12 @@ export default function Terminal({ setIsTerminal }) {
                 ...prev,
                 objc
             ])
+            setInputCmd("")
+            return
+        } else if (arr[0] === "chatbot") {
+            setIsChatMode(true)
+            objc.out = "Chat mode  noh. Type 'exit' to quit.\nAsk me anything about Putro jangan aneh aneh"
+            setCommand(prev => [...prev, objc])
             setInputCmd("")
             return
         }
@@ -191,14 +235,34 @@ export default function Terminal({ setIsTerminal }) {
                 }
             </section>
 
-            <form onSubmit={(e) => commandHandler(e, inputCmd)} className="p-4">
-                <span className="text-green-500">
-                    <span className="text-yellow-400">user</span>
-                    <span className="text-purple-400">@</span>
-                    <span className="text-red-400">portofolio</span>
-                    <span className="text-red-400">{"> "}</span>
-                </span> <input ref={inputRef} value={inputCmd} onChange={(e) => setInputCmd(e.target.value)} className="bg-black text-white outline-none" type="text" autoFocus />
+          <form onSubmit={(e) => commandHandler(e, inputCmd)} className="p-4">
+            <span className="text-green-500">
+                <span className="text-yellow-400">user</span>
+                <span className="text-purple-400">@</span>
+                <span className="text-red-400">portofolio</span>
+                {isChatMode && <span className="text-blue-400">[chat]</span>}
+                <span className="text-red-400">{"> "}</span>
+            </span>
+            <input
+                ref={inputRef}
+                value={inputCmd}
+                onChange={(e) => setInputCmd(e.target.value)}
+                disabled={isLoading}
+                className="bg-black text-white outline-none disabled:opacity-50"
+                type="text"
+                autoFocus
+            />
             </form>
         </main>
     )
+}
+
+async function askChatbot(messages) {
+  const res = await fetch("https://quizmaker-app-api.vercel.app/api/chat", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ messages })
+  })
+  const data = await res.json()
+  return data.reply
 }

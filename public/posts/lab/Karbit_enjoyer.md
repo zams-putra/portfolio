@@ -483,6 +483,9 @@ python3 react2shell.py
 ## Walkthrough - video
 - https://youtu.be/CuE1X4f4STk
 
+## Repository
+- https://github.com/zams-putra/my-boot2root/tree/main/CVE-2025-55182
+
 
 # Revisi - Real Case for simple POC 
 

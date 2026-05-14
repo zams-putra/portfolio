@@ -593,9 +593,9 @@ systemctl status nextjs-lab
 
 - https://tryhackme.com/room/amjasemndiri (udah gada / its no longer working)
 
-## Repo Link
-
-- https://github.com/zams-putra/my-boot2root
 
 ## walkthrough - video
 - https://youtu.be/s5h99y3fN0E
+
+## Repository
+- https://github.com/zams-putra/my-boot2root/tree/main/CVE-2025-29927

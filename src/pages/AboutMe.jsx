@@ -1,8 +1,13 @@
 import { motion } from "motion/react";
 import TypewriterComponent from "typewriter-effect";
-import { useState } from "react";
+import { useState, lazy, Suspense } from "react";
 import { FaDumbbell, FaGamepad, FaMusic} from 'react-icons/fa'
 import { GiFriedEggs } from 'react-icons/gi'
+import planetGambar from '/img/me.jpg'
+import { UseLazyMount } from "../helper/UseLazyMount";
+
+// biar ga lag, close terminal
+const GlobeTemplate = lazy(() => import('../components/design/GlobeTemplate'))
 
 const stats = [
   { label: "CTF Labs Built", value: "5+", color: "#4ade80" },
@@ -21,23 +26,35 @@ const funFacts = [
 export default function AboutMe() {
   const [hoveredFact, setHoveredFact] = useState(null);
 
+
+   const [ref, shouldRender] = UseLazyMount();
+  
+
   return (
     <section className="min-h-screen w-full flex flex-col items-center gap-16 p-8 md:p-16 py-24">
 
-      <motion.div
-        className="text-center"
-        initial={{ opacity: 0, y: -30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7, ease: "easeOut" }}
-        viewport={{ once: true }}
-      >
-        <p className="text-slate-300 text-xs md:text-sm font-mono mb-2">
-          {`[user@portfolio ~]$ cat about_me.txt`}
-        </p>
-        <h1 className="text-3xl md:text-5xl font-bold bg-gradient-to-r from-green-400 via-slate-200 to-slate-400 bg-clip-text text-transparent">
-          About Me
-        </h1>
-      </motion.div>
+      <div ref={ref} className="flex flex-col md:flex-row gap-2 justify-center items-center">
+        <motion.div
+          className="text-center"
+          initial={{ opacity: 0, y: -30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+          viewport={{ once: true }}
+        >
+          <p className="text-slate-300 text-xs md:text-sm font-mono mb-2">
+            {`[user@portfolio ~]$ cat about_me.txt`}
+          </p>
+          <h1 className="text-3xl md:text-5xl font-bold bg-gradient-to-r from-green-400 via-slate-200 to-slate-400 bg-clip-text text-transparent">
+            About Me
+          </h1>
+        </motion.div>
+        {shouldRender && (
+          <Suspense fallback={<div className="w-32 h-32 rounded-full bg-slate-800 animate-pulse"/>}>
+            <GlobeTemplate textureURL={planetGambar} classname="w-32 h-32 md:w-[420px] md:h-[420px]"/>
+          </Suspense>
+        )}
+
+      </div>
 
    
       <div className="w-full max-w-5xl grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -172,37 +189,7 @@ export default function AboutMe() {
       </div>
 
      
-      <motion.div
-        className="w-full max-w-5xl"
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7 }}
-        viewport={{ once: true }}
-      >
-        <p className="text-slate-500 font-mono text-xs mb-4 text-center">{`[user@portfolio]$ ls /interests`}</p>
-        <div className="flex flex-wrap justify-center gap-4">
-          {[
-            { label: "Competitive Programming", color: "border-yellow-400 text-yellow-400" },
-            { label: "Web Development", color: "border-sky-400 text-sky-400" },
-            { label: "Penetration Testing", color: "border-red-400 text-red-400" },
-            { label: "CTF Labs Building", color: "border-green-400 text-green-400" },
-            { label: "SOC / Blue Team", color: "border-blue-400 text-blue-400" },
-   
-          ].map((item, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              whileHover={{ y: -4 }}
-              transition={{ delay: i * 0.07, duration: 0.3 }}
-              viewport={{ once: true }}
-              className={`px-4 py-2 rounded-full border text-xs font-mono cursor-default ${item.color} bg-transparent hover:bg-white/5 transition-all`}
-            >
-              {`> ${item.label}`}
-            </motion.div>
-          ))}
-        </div>
-      </motion.div>
+
 
 
       <motion.div

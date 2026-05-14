@@ -718,6 +718,9 @@ sudo deluser sucipto sudo
 ## walkthrough - video
 - https://youtu.be/SQxWSKTFCis
 
+## Repository
+- https://github.com/zams-putra/my-boot2root/tree/main/CVE-2025-64459
+
 # 5. Flag :
 
 - user.txt: THM{640d58cad737c5606fa12a13d3281557}

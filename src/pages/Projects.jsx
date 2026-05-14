@@ -1,4 +1,12 @@
 import { motion } from "motion/react";
+import { UseLazyMount } from "../helper/UseLazyMount";
+// import GlobeTemplate from "../components/design/GlobeTemplate";
+import planetGambar from '/img/eskrim.jpg'
+import { lazy, Suspense } from "react";
+
+
+const GlobeTemplate = lazy(() => import('../components/design/GlobeTemplate'))
+
 
 export default function Projects() {
 
@@ -87,6 +95,14 @@ export default function Projects() {
           img: "/img/peak.png",
         },
         {
+          title: "Cave (OFF)",
+          description: "Vulnerable lab, boot2root machine",
+          techStack: ["ReactJS", "Go", "Pivoting"],
+          link: "https://github.com/zams-putra/my-boot2root/tree/main/cave",
+          repo: "https://github.com/zams-putra/my-boot2root/tree/main/cave",
+          img: "/img/cave.png",
+        },
+        {
           title: "Other CTF Lab",
           description: "My simple Docker CTF lab, small version CTF lab with so many vuln",
           techStack: ["Docker", "Etc"],
@@ -98,16 +114,33 @@ export default function Projects() {
     }
   ];
 
+    const [ref, shouldRender] = UseLazyMount();
+  
+
    return (
     <section className="min-h-screen px-6 md:px-16 py-20">
-      <motion.h1
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="text-3xl md:text-5xl font-bold text-center bg-gradient-to-r from-slate-400 to-white bg-clip-text text-transparent"
-      >
-        Projects
-      </motion.h1>
+
+      <div ref={ref} className="flex flex-col md:flex-row gap-2 justify-center items-center">
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-3xl md:text-5xl font-bold text-center bg-gradient-to-r from-slate-400 to-white bg-clip-text text-transparent"
+        >
+          Projects
+        </motion.h1>
+
+          {shouldRender && (
+            <Suspense fallback={<div className="w-32 h-32 rounded-full bg-slate-800 animate-pulse"/>}>
+              <GlobeTemplate textureURL={planetGambar} classname="w-32 h-32 md:w-[420px] md:h-[420px]"/>
+            </Suspense>
+          )}
+        
+        {/* <GlobeTemplate textureURL={planetGambar} classname="w-32 h-32 md:w-[420px] md:h-[420px]"/> */}
+        {/* <p className="text-slate-600 text-xs">{`// planet rusak: too many active webgl contexts`}</p> */}
+    
+      </div>
+      
 
       <div className="mt-16 space-y-16">
         {projectCategories.map((categoryData, categoryIndex) => (

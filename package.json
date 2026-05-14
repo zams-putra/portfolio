@@ -10,6 +10,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@react-spring/three": "^10.0.3",
+    "@react-three/drei": "^9.122.0",
+    "@react-three/fiber": "^8.18.0",
     "@tailwindcss/typography": "^0.5.19",
     "@use-gesture/react": "^10.3.1",
     "autoprefixer": "^10.4.20",
@@ -25,6 +28,7 @@
     "react-syntax-highlighter": "^16.1.0",
     "remark-gfm": "^4.0.1",
     "tailwindcss": "^3.4.16",
+    "three": "^0.184.0",
     "typewriter-effect": "^2.21.0"
   },
   "devDependencies": {

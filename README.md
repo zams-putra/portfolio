@@ -13,3 +13,14 @@ netlify link
 npm run build
 netlify deploy --prod --dir=dist
 ```
+
+
+
+## Features
+- Terminal
+- Blog
+- Music player
+- 3D Objects
+- Motion Animation
+- Pagination
+- AI chatbot

@@ -300,3 +300,6 @@ evil-winrm -i [ip] -u emptyplace_svc@abandoned.local -p darkness
 
 ## walkthrough - video
 https://youtu.be/L3biN-8lEgw
+
+## Repository
+- https://github.com/zams-putra/my-boot2root/tree/main/abandoned
