@@ -26,6 +26,7 @@ func concatWithReverse(nums []int) (r []int) {
 - atau misal -> nasgor -> output: nasgorrogsan
 ```
 
+<<<<<<< HEAD
 
 
 # ___________________________________________________________________________________________
@@ -160,3 +161,5 @@ func passwordStrength(password string) (r int) {
 
 
 ```
+=======
+>>>>>>> d318c43740deb669f43c56289d57e0d978d52f21
