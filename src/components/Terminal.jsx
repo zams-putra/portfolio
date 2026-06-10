@@ -1,6 +1,5 @@
 
-import axios from "axios"
-import { useEffect, useRef, useState } from "react"
+import {  useRef, useState } from "react"
 
 
 const quotes = [
@@ -54,7 +53,7 @@ const output = {
             - <a href="https://instagram.com/username.gw.itu.jir" target="_blank" className="text-green-500">instagram</a>
         </>
     ),
-    "fav_song": "",
+    "fav_song": "dulu ada fitur API spotify lagu yg sering diputar sekarang dah gada",
     "sidi": sidi.join('\n'),
     "time": new Date().toLocaleTimeString() + " with date: "  + new Date().toLocaleDateString('id-ID', {
         day: 'numeric',
@@ -85,7 +84,7 @@ const output = {
 export default function Terminal({ setIsTerminal }) {
 
 
-    const [song, setSong] = useState({})
+    // const [song, setSong] = useState({})
 
 
     const [isChatMode, setIsChatMode] = useState(false)
@@ -98,23 +97,23 @@ export default function Terminal({ setIsTerminal }) {
     const [commands, setCommand] = useState([])
     const [inputCmd, setInputCmd] = useState("")
 
-    useEffect(() => {
+    // useEffect(() => {
 
-        const getSong = async () => {
-            try {
-                const res = await axios.get('https://quizmaker-app-api.vercel.app/api/fav_song')
-                console.log(res)
-                const data = await res.data
-                console.log(data)
-                setSong(data)
-            } catch (err) {
-                console.log(err)
-            }
-        }
+    //     const getSong = async () => {
+    //         try {
+    //             const res = await axios.get('https://quizmaker-app-api.vercel.app/api/fav_song')
+    //             console.log(res)
+    //             const data = await res.data
+    //             console.log(data)
+    //             setSong(data)
+    //         } catch (err) {
+    //             console.log(err)
+    //         }
+    //     }
 
 
-        getSong()
-    }, [])
+    //     getSong()
+    // }, [])
 
     const commandHandler = (e, cmd) => {
 
@@ -156,6 +155,16 @@ export default function Terminal({ setIsTerminal }) {
             return
         }
 
+        // else if (arr[0] == "fav_song") {
+        // //     objc.out = `my fav music is ${song.artist} - ${song.judul} based on spotify | no longer this feature: https://developer.spotify.com/blog/2026-02-06-update-on-developer-access-and-platform-security`
+        // //     setCommand((prev) => [
+        // //         ...prev,
+        // //         objc
+        // //     ])
+        // //     setInputCmd("")
+        // //     return
+        // // }
+
 
         if (arr[0] == "exit") {
             return setIsTerminal(false)
@@ -171,15 +180,7 @@ export default function Terminal({ setIsTerminal }) {
             setCommand([])
             setInputCmd("")
             return
-        } else if (arr[0] == "fav_song") {
-            objc.out = `my fav music is ${song.artist} - ${song.judul} based on spotify | no longer this feature: https://developer.spotify.com/blog/2026-02-06-update-on-developer-access-and-platform-security`
-            setCommand((prev) => [
-                ...prev,
-                objc
-            ])
-            setInputCmd("")
-            return
-        } else if(cmd == "rm -rf /*") {
+        }  else if(cmd == "rm -rf /*") {
             objc.out = "Hayo mau ngapain, nice try nice try💀"
             setCommand((prev) => [
                 ...prev,

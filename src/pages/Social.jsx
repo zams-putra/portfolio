@@ -115,24 +115,44 @@ export default function Social() {
   return (
     <section className="w-full min-h-screen justify-center overflow-y-hidden flex flex-col items-center gap-12 py-16 px-4">
 
-      <div ref={ref} className="flex flex-col md:flex-row gap-2 justify-center items-center">
-        <motion.h1
-          initial={{ y: 50, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.7, ease: 'easeInOut' }}
-          className="text-2xl md:text-5xl text-center bg-gradient-to-r from-slate-500 to-slate-200 bg-clip-text text-transparent font-bold"
-        >
-          Let{"'"}s connect with me
-        </motion.h1>
-           {shouldRender && (
-              <Suspense fallback={<div className="w-32 h-32 rounded-full bg-slate-800 animate-pulse"/>}>
-                <GlobeTemplate textureURL={planetGambar} classname="w-32 h-32 md:w-[420px] md:h-[420px]"/>
-              </Suspense>
-            )}
+       <div ref={ref} className="flex flex-col md:flex-row gap-2 justify-center items-center ">
         
-        {/* <GlobeTemplate textureURL={planetGambar} classname="w-32 h-32 md:w-[420px] md:h-[420px]"/> */}
-
-      </div>
+              <div className="w-full md:w-auto text-center flex-1">
+                <motion.h1 className="text-4xl md:text-7xl font-black tracking-tighter whitespace-nowrap relative min-h-[1.2em] flex justify-center items-center">      
+                  <motion.span 
+                    initial={{ scale: 3, opacity: 0 }}
+                    whileInView={{ scale: 1, opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ type: "spring", stiffness: 400, damping: 15 }}
+                    className="absolute text-transparent select-none"
+                    style={{ WebkitTextStroke: '1px #B1FC0A', zIndex: 0 }}
+                  >
+                    Lets Connect with Me
+                  </motion.span>
+                  
+                  <motion.span 
+                    initial={{ scale: 4, opacity: 0, x: 0, y: 0 }}
+                    whileInView={{ scale: 1, opacity: 1, x: '-1rem', y: '1rem' }}
+                    viewport={{ once: true }}
+                    transition={{ type: "spring", stiffness: 300, damping: 12, delay: 0.15 }}
+                    className="text-[#B1FC0A]" 
+                    style={{ zIndex: 10 }}
+                  >
+                    Lets Connect with Me
+                  </motion.span>
+                </motion.h1>
+              </div>
+      
+        
+              {shouldRender && (
+                <div className="flex-1 flex justify-center items-center">
+                  <Suspense fallback={<div className="w-32 h-32 rounded-full bg-slate-800 animate-pulse"/>}>
+                    <GlobeTemplate textureURL={planetGambar} classname="w-32 h-32 md:w-[420px] md:h-[420px]"/>
+                  </Suspense>
+                </div>
+              )}
+                
+            </div>
 
   
 
@@ -147,12 +167,19 @@ export default function Social() {
             className="flex flex-col gap-4"
           >
          
-            <div className="flex items-center gap-3">
-              <div className={`h-1 w-12 bg-gradient-to-r ${categoryData.color}`}></div>
-              <h2 className={`text-2xl md:text-3xl font-bold bg-gradient-to-r ${categoryData.color} bg-clip-text text-transparent`}>
-                {categoryData.category}
-              </h2>
-            </div>
+            <motion.h1
+                initial={{ y: 50, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.7, ease: 'easeInOut' }}
+                className="text-4xl md:text-7xl font-black tracking-tighter whitespace-nowrap  min-h-[1.2em] w-full text-center flex justify-center items-center"
+                >
+                <span 
+                    className=" text-transparent select-none"
+                    style={{ WebkitTextStroke: '1px #B1FC0A', zIndex: 0 }}
+                >
+                    {categoryData.category}
+                </span>
+                </motion.h1>
 
      
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
@@ -163,7 +190,7 @@ export default function Social() {
                   whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.4, delay: itemIndex * 0.05 }}
                   viewport={{ once: true }}
-                  className="p-4 px-6 duration-300 hover:shadow-lg hover:scale-105 hover:bg-slate-800 hover:text-slate-100 rounded-lg flex items-center justify-center gap-2 bg-slate-100 text-slate-900 font-medium border-2 border-transparent hover:border-slate-600"
+                  className="p-4 px-6 duration-300 hover:shadow-lg hover:scale-105 hover:bg-slate-800 hover:text-[#B1FC0A] rounded-lg flex items-center justify-center gap-2 bg-transparent text-slate-200 font-medium border-2 border-[#484BB1] hover:border-slate-600"
                   href={social.link}
                   target="_blank"
                   rel="noopener noreferrer"

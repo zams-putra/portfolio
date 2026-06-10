@@ -1,10 +1,11 @@
-import axios from "axios";
-import { useEffect, useRef, useState } from "react";
+
 import { motion } from "motion/react";
-import BarDurationSong from "../helper/BarDurationSong";
+// import BarDurationSong from "../helper/BarDurationSong";
 import FakeVisualizer from "../helper/Visualizer";
 import { useMusic } from "../context/MusicContext";
 import Lamp from "../components/design/Lamp";
+import { useRef } from "react";
+import { FaPause, FaPlay } from "react-icons/fa";
 
 
 export default function End() {
@@ -19,67 +20,67 @@ export default function End() {
 
     
     // play spotify
-    const [lagu, setLagu] = useState({});
-    const [duration, setDuration] = useState(0);
-    const [progress, setProgress] = useState(0);
-    const intervalRef = useRef(null)
+    // const [lagu, setLagu] = useState({});
+    // const [duration, setDuration] = useState(0);
+    // const [progress, setProgress] = useState(0);
+    // const intervalRef = useRef(null)
 
 
 
-    const getLagu = async () => {
-        try {
-            const res = await axios.get(
-                "https://quizmaker-app-api.vercel.app/api/lagu_spotify"
-            );
+    // const getLagu = async () => {
+    //     try {
+    //         const res = await axios.get(
+    //             "https://quizmaker-app-api.vercel.app/api/lagu_spotify"
+    //         );
 
-            const data = await res.data;
-            setLagu(data);
-            setDuration(data.duration_ms || 0);
-            setProgress(data.progress_ms || 0);
-
-
-
-            // clear interval kalo ada
-            if (intervalRef.current) {
-                clearInterval(intervalRef.current);
-            }
-
-            if (data.is_playing) {
-                const start = Date.now()
+    //         const data = await res.data;
+    //         setLagu(data);
+    //         setDuration(data.duration_ms || 0);
+    //         setProgress(data.progress_ms || 0);
 
 
-                intervalRef.current = setInterval(() => {
-                    // update progress dari waktu yg berlalu
-                    const elapsed = Date.now() - start;
-                    setProgress(data.progress_ms + elapsed);
-                }, 1000)
-            }
+
+    //         // clear interval kalo ada
+    //         if (intervalRef.current) {
+    //             clearInterval(intervalRef.current);
+    //         }
+
+    //         if (data.is_playing) {
+    //             const start = Date.now()
 
 
-        } catch (err) {
-            console.log(err);
-        }
-    };
+    //             intervalRef.current = setInterval(() => {
+    //                 // update progress dari waktu yg berlalu
+    //                 const elapsed = Date.now() - start;
+    //                 setProgress(data.progress_ms + elapsed);
+    //             }, 1000)
+    //         }
 
 
-    useEffect(() => {
-        getLagu();
+    //     } catch (err) {
+    //         console.log(err);
+    //     }
+    // };
 
-        // tiap 30 detik fetch ini
-        const interval = setInterval(getLagu, 30000)
-        return () => {
-            clearInterval(interval)
-            if (intervalRef.current) {
-                clearInterval(intervalRef.current);
-            }
-        }
-    }, []);
+
+    // useEffect(() => {
+    //     getLagu();
+
+    //     // tiap 30 detik fetch ini
+    //     const interval = setInterval(getLagu, 30000)
+    //     return () => {
+    //         clearInterval(interval)
+    //         if (intervalRef.current) {
+    //             clearInterval(intervalRef.current);
+    //         }
+    //     }
+    // }, []);
 
 
     return (
         <section className="w-full h-screen flex p-16 flex-col justify-center items-center">
 
-            {lagu.artist ? (
+            {/* {lagu.artist ? (
                 <motion.div
                     initial={{ x: 300 }}
                     whileInView={{ x: 0 }}
@@ -93,7 +94,7 @@ export default function End() {
                         {lagu.judul} - {lagu.artist}
                     </p>
                     <img
-                        className="w-32 h-32 rounded-md border-green-400 border-2"
+                        className="w-32 h-32 rounded-md border-[#B1FC0A] border-2"
                         src={lagu.imgLagu}
                         alt={lagu.judul}
                     />
@@ -106,7 +107,10 @@ export default function End() {
 
                 </motion.div>
             ) :(
-                <div className="flex flex-col items-center gap-4">
+              
+                )} */}
+
+                  <div className="flex flex-col items-center gap-4">
                 <FakeVisualizer isPlaying={isPlaying}/>
 
                     <motion.p
@@ -115,7 +119,7 @@ export default function End() {
                         whileInView={{ x: 0 }}
                         transition={{ duration: 2 }}
                     >
-                        Putro tidak sedang memutar spotifynya 🗣️, nih setel sendiri kalau mau
+                        Dulu ada fitur API spotify dah gada noh 🗣️
                     </motion.p>
 
        
@@ -125,7 +129,7 @@ export default function End() {
                         transition={{ delay: 0.3 }}
                         className="text-center"
                     >
-                        <p className="text-sm md:text-lg bg-gradient-to-r from-green-400 to-green-200 bg-clip-text text-transparent">
+                        <p className="text-sm md:text-lg bg-gradient-to-r from-[#B1FC0A] to-green-200 bg-clip-text text-transparent">
                             {currMusic.title}
                         </p>
                         <p className="text-xs md:text-sm text-slate-400">
@@ -154,17 +158,17 @@ export default function End() {
                             <motion.button
                                 whileTap={{ scale: 0.9 }}
                                 onClick={pause}
-                                className="px-6 py-2 border border-green-400 rounded-md hover:bg-slate-800"
+                                className="px-6 py-2 border border-[#B1FC0A] rounded-md hover:bg-slate-800 flex gap-1 justify-center items-center"
                             >
-                                ⏸ Pause
+                                <FaPause/> Pause
                             </motion.button>
                         ) : (
                             <motion.button
                                 whileTap={{ scale: 0.9 }}
                                 onClick={play}
-                                className="px-6 py-2 border border-green-400 rounded-md hover:bg-slate-800"
+                                className="px-6 py-2 border border-[#B1FC0A] rounded-md hover:bg-slate-800 flex gap-1 justify-center items-center"
                             >
-                                ▶ Play
+                               <FaPlay/> Play
                             </motion.button>
                         )}
 
@@ -180,17 +184,21 @@ export default function End() {
 
                     </div>
                 </div>
-                )}
 
         <div className="flex flex-col md:flex-row gap-2 justify-center items-center">
-            <motion.h1
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                transition={{ duration: 1, delay: 0.2 }}
-                className="text-2xl mt-20 h-1/2 md:text-4xl bg-gradient-to-r from-slate-500 to-slate-200 bg-clip-text text-transparent"
-            >
-                Thank you :)
-            </motion.h1>
+             <motion.h1
+                initial={{ y: 50, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.7, ease: 'easeInOut' }}
+                className="text-4xl md:text-7xl font-black tracking-tighter whitespace-nowrap  min-h-[1.2em] w-full text-center flex justify-center items-center"
+                >
+                <span 
+                    className=" text-transparent select-none"
+                    style={{ WebkitTextStroke: '1px #B1FC0A', zIndex: 0 }}
+                >
+                    Thankyou
+                </span>
+                </motion.h1>
             <div className="flex flex-col justify-center items-center">
                 <Lamp classname="w-32 h-32 md:w-[420px] md:h-[420px]"/>
                 <p className="text-slate-500">{`// Turn on the lamp`}</p>

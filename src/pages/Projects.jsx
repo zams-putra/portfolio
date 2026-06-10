@@ -22,7 +22,6 @@ export default function Projects() {
   const projectCategories = [
     {
       category: "WebDev",
-      color: "from-blue-400 to-cyan-400",
       projects: [
         {
           title: "Portfolio",
@@ -40,11 +39,19 @@ export default function Projects() {
           repo: "https://github.com/zams-putra/quizmaker-app",
           img: "/img/quizapp.png",
         },
+        {
+          title: "Boot to Root Framework",
+          description: "My B2R CTF Framework me usually doing with these framework, anyway i build this project with AI often (i need to learn D3 JS first)",
+          techStack: ["React", "Vite", "D3 Js"],
+          link: "https://b2r-framework.vercel.app/",
+          repo: "https://github.com/zams-putra/b2r-framework",
+          img: "/img/project/b2r_fw.png",
+        },
       ]
     },
     {
       category: "CyberSec",
-      color: "from-red-400 to-orange-400",
+
       projects: [
         {
           title: "mY Nasgor (OFF)",
@@ -110,6 +117,22 @@ export default function Projects() {
           repo: "https://github.com/zams-putra/ctf-vuln-lab",
           img: "https://miro.medium.com/v2/resize:fit:1100/format:webp/1*5zGYbY_1DqXWcEb1wHD4Yg.png",
         },
+        {
+          title: "RahasiaSidi",
+          description: "Android pentest lab for security research and CTF challenges",
+          techStack: ["Kotlin", "XML"],
+          link: "https://github.com/zams-putra/android-lab/tree/main/RahasiaSidi",
+          repo: "https://github.com/zams-putra/android-lab/tree/main/RahasiaSidi",
+          img: "/img/project/androlab1.png",
+        },
+        {
+          title: "DarkMemories",
+          description: "Android pentest lab for security research and CTF challenges",
+          techStack: ["Kotlin", "Go", "XML"],
+          link: "https://github.com/zams-putra/android-lab/tree/main/DarkMemories",
+          repo: "https://github.com/zams-putra/android-lab/tree/main/DarkMemories",
+          img: "/img/project/androlab2.png",
+        },
       ]
     }
   ];
@@ -118,28 +141,46 @@ export default function Projects() {
   
 
    return (
-    <section className="min-h-screen px-6 md:px-16 py-20">
+    <section className="min-h-screen px-6 md:px-16 py-20 flex flex-col justify-center items-center">
 
-      <div ref={ref} className="flex flex-col md:flex-row gap-2 justify-center items-center">
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-3xl md:text-5xl font-bold text-center bg-gradient-to-r from-slate-400 to-white bg-clip-text text-transparent"
-        >
-          Projects
-        </motion.h1>
-
-          {shouldRender && (
-            <Suspense fallback={<div className="w-32 h-32 rounded-full bg-slate-800 animate-pulse"/>}>
-              <GlobeTemplate textureURL={planetGambar} classname="w-32 h-32 md:w-[420px] md:h-[420px]"/>
-            </Suspense>
-          )}
+       <div ref={ref} className="flex flex-col md:flex-row gap-2 justify-center items-center ">
         
-        {/* <GlobeTemplate textureURL={planetGambar} classname="w-32 h-32 md:w-[420px] md:h-[420px]"/> */}
-        {/* <p className="text-slate-600 text-xs">{`// planet rusak: too many active webgl contexts`}</p> */}
-    
-      </div>
+              <div className="w-full md:w-auto text-center flex-1">
+                <motion.h1 className="text-4xl md:text-7xl font-black tracking-tighter whitespace-nowrap relative min-h-[1.2em] flex justify-center items-center">      
+                  <motion.span 
+                    initial={{ scale: 3, opacity: 0 }}
+                    whileInView={{ scale: 1, opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ type: "spring", stiffness: 400, damping: 15 }}
+                    className="absolute text-transparent select-none"
+                    style={{ WebkitTextStroke: '1px #B1FC0A', zIndex: 0 }}
+                  >
+                    Projects
+                  </motion.span>
+                  
+                  <motion.span 
+                    initial={{ scale: 4, opacity: 0, x: 0, y: 0 }}
+                    whileInView={{ scale: 1, opacity: 1, x: '-1rem', y: '1rem' }}
+                    viewport={{ once: true }}
+                    transition={{ type: "spring", stiffness: 300, damping: 12, delay: 0.15 }}
+                    className="text-[#B1FC0A]" 
+                    style={{ zIndex: 10 }}
+                  >
+                    Projects
+                  </motion.span>
+                </motion.h1>
+              </div>
+      
+        
+              {shouldRender && (
+                <div className="flex-1 flex justify-center items-center">
+                  <Suspense fallback={<div className="w-32 h-32 rounded-full bg-slate-800 animate-pulse"/>}>
+                    <GlobeTemplate textureURL={planetGambar} classname="w-32 h-32 md:w-[420px] md:h-[420px]"/>
+                  </Suspense>
+                </div>
+              )}
+                
+            </div>
       
 
       <div className="mt-16 space-y-16">
@@ -153,12 +194,19 @@ export default function Projects() {
             className="flex flex-col gap-6"
           >
             {/* Category Header */}
-            <div className="flex items-center gap-3">
-              <div className={`h-1 w-12 bg-gradient-to-r ${categoryData.color}`}></div>
-              <h2 className={`text-2xl md:text-3xl font-bold bg-gradient-to-r ${categoryData.color} bg-clip-text text-transparent`}>
-                {categoryData.category}
-              </h2>
-            </div>
+            <motion.h1
+                initial={{ y: 50, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.7, ease: 'easeInOut' }}
+                className="text-4xl md:text-7xl font-black tracking-tighter whitespace-nowrap  min-h-[1.2em] w-full text-center flex justify-center items-center"
+                >
+                <span 
+                    className=" text-transparent select-none"
+                    style={{ WebkitTextStroke: '1px #B1FC0A', zIndex: 0 }}
+                >
+                    {categoryData.category}
+                </span>
+                </motion.h1>
 
             {/* Projects Grid */}
             <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
@@ -171,7 +219,7 @@ export default function Projects() {
                   whileInView="visible"
                   viewport={{ once: true }}
                   whileHover={{ y: -6 }}
-                  className="group rounded-xl border border-slate-700 bg-slate-900/40 backdrop-blur overflow-hidden shadow-lg hover:shadow-xl duration-300"
+                  className="group rounded-xl border border-[#484BB1] bg-transparent overflow-hidden shadow-lg hover:shadow-xl duration-300"
                 >
                   <div className="h-44 overflow-hidden">
                     <img

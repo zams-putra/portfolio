@@ -35,7 +35,7 @@ export default function Globe({classname = ""}){
 
         const geometry = new THREE.SphereGeometry(30, 24, 24)
         const material = new THREE.MeshStandardMaterial({
-            color: 0x4e9df2,
+            color: 0x484BB1,
             wireframe: true
         })
         const bulet = new THREE.Mesh(geometry, material)
@@ -117,7 +117,7 @@ export default function Globe({classname = ""}){
     animate={{scale: 1}} 
     transition={{ duration: 1, delay: 0.7, ease: "easeIn" }} 
     ref={containerdRef} 
-    className={`rounded-full z-0 ${classname}`}
+    className={`rounded-full  ${classname}`}
     onClick={() => {
         isLight.current = !isLight.current
     }} >

@@ -105,12 +105,12 @@ function Home() {
                   </AnimatePresence>
                   <motion.div
                     style={{ scaleX: (page + 1) / sesi.length }}
-                    className="fixed md:hidden top-0 w-full h-1 bg-green-400"
+                    className="fixed md:hidden top-0 w-full h-1 bg-[#B1FC0A]"
                   />
                 </main>
 
             
-                <main className="flex-col gap-2 hidden lg:flex">
+                <main className="flex-col gap-2 hidden md:flex">
                   <Hero />
                   <LazySection><AboutMe /></LazySection>
                   <LazySection><TechStack /></LazySection>
@@ -121,7 +121,7 @@ function Home() {
                   
                   <motion.div
                     style={{ scaleX: scrollYProgress }}
-                    className="fixed hidden md:block top-0 w-full h-1 bg-green-400"
+                    className="fixed hidden md:block top-0 w-full h-1 bg-[#B1FC0A]"
                   />
                 </main>
               </>
@@ -134,18 +134,18 @@ function Home() {
                   onClick={() => setIsTerminal(true)}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  initial={{ boxShadow: "0 0 0px #efb100" }}
+                  initial={{ boxShadow: "0 0 0px #B1FC0A" }}
                   animate={{
                     boxShadow: [
-                      "0 0 0px #efb100",
-                      "0 0 16px #efb100",
-                      "0 0 32px #efb100",
-                      "0 0 16px #efb100",
-                      "0 0 0px #efb100"
+                      "0 0 0px #B1FC0A",
+                      "0 0 16px #B1FC0A",
+                      "0 0 32px #B1FC0A",
+                      "0 0 16px #B1FC0A",
+                      "0 0 0px #B1FC0A"
                     ]
                   }}
                   transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                  className="mb-4 mr-4 z-30 md:right-3 md:bottom-3 fixed right-2 bottom-2 self-end bg-green-400 hover:bg-green-500 text-black px-4 py-2 rounded-lg font-semibold flex gap-1 justify-center items-center"
+                  className="mb-4 mr-4 z-30 md:right-3 md:bottom-3 fixed right-2 bottom-2 self-end bg-[#B1FC0A] hover:bg-[#484BB1] text-black px-4 py-2 rounded-lg font-semibold flex gap-1 justify-center items-center"
                 >
                   <span><SiGnometerminal /></span>
                   <span>Launch Terminal</span>

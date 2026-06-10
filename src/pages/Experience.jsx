@@ -79,24 +79,44 @@ export default function Experience() {
   return (
     <section className="w-full min-h-screen  flex flex-col items-center gap-10 p-4 md:p-16">
 
-      <div ref={ref} className="flex flex-col md:flex-row gap-2 justify-center items-center">
-         <motion.h1
-          initial={{ y: 50, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.7, ease: 'easeInOut' }}
-          className="text-2xl md:text-4xl bg-gradient-to-r mb-16 from-slate-500 to-slate-200 bg-clip-text text-transparent"
-        >
-          My Experience
-        </motion.h1>
-        {/* <GlobeTemplate textureURL={planetGambar} classname="w-32 h-32 md:w-[420px] md:h-[420px]"/> */}
-           {shouldRender && (
-              <Suspense fallback={<div className="w-32 h-32 rounded-full bg-slate-800 animate-pulse"/>}>
-                <GlobeTemplate textureURL={planetGambar} classname="w-32 h-32 md:w-[420px] md:h-[420px]"/>
-              </Suspense>
-            )}
-
+       <div ref={ref} className="flex flex-col md:flex-row gap-2 justify-center items-center ">
         
-      </div>
+              <div className="w-full md:w-auto text-center flex-1">
+                <motion.h1 className="text-4xl md:text-7xl font-black tracking-tighter whitespace-nowrap relative min-h-[1.2em] flex justify-center items-center">      
+                  <motion.span 
+                    initial={{ scale: 3, opacity: 0 }}
+                    whileInView={{ scale: 1, opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ type: "spring", stiffness: 400, damping: 15 }}
+                    className="absolute text-transparent select-none"
+                    style={{ WebkitTextStroke: '1px #B1FC0A', zIndex: 0 }}
+                  >
+                    Experience
+                  </motion.span>
+                  
+                  <motion.span 
+                    initial={{ scale: 4, opacity: 0, x: 0, y: 0 }}
+                    whileInView={{ scale: 1, opacity: 1, x: '-1rem', y: '1rem' }}
+                    viewport={{ once: true }}
+                    transition={{ type: "spring", stiffness: 300, damping: 12, delay: 0.15 }}
+                    className="text-[#B1FC0A]" 
+                    style={{ zIndex: 10 }}
+                  >
+                    Experience
+                  </motion.span>
+                </motion.h1>
+              </div>
+      
+        
+              {shouldRender && (
+                <div className="flex-1 flex justify-center items-center">
+                  <Suspense fallback={<div className="w-32 h-32 rounded-full bg-slate-800 animate-pulse"/>}>
+                    <GlobeTemplate textureURL={planetGambar} classname="w-32 h-32 md:w-[420px] md:h-[420px]"/>
+                  </Suspense>
+                </div>
+              )}
+                
+            </div>
      
 
       <motion.main ref={containerRef} className="flex gap-2 justify-between items-center relative">
@@ -105,7 +125,7 @@ export default function Experience() {
           <div className="absolute left-[calc(50%-1px)] top-0 w-0.5 h-full bg-slate-700" />
           {/* garis ijo sesuai mouse ini */}
           <motion.div
-            className="absolute left-[calc(50%-1px)] top-0 w-0.5 bg-green-400 origin-top"
+            className="absolute left-[calc(50%-1px)] top-0 w-0.5 bg-[#B1FC0A] origin-top"
             style={{ height: lineheight }}
           />
 
@@ -135,7 +155,7 @@ export default function Experience() {
                   {/* dots */}
                   <div className="flex items-start justify-center pt-1 z-10">
                     <span className={`w-3 h-3 rounded-full border-2 transition-colors duration-300
-                      ${isActive ? 'bg-green-400 border-green-400' : 'bg-slate-900 border-slate-600'}`}
+                      ${isActive ? 'bg-[#B1FC0A] border-[#B1FC0A]' : 'bg-slate-900 border-slate-600'}`}
                     />
                   </div>
                   
@@ -147,9 +167,9 @@ export default function Experience() {
                 viewport={{once: true}}
                 transition={{ duration: 0.7, delay: index * 0.3, ease: 'easeInOut' }}
                 className="flex flex-col gap-4 pl-6 min-w-0">
-                      <h2 className="text-md md:text-2xl font-semibold bg-gradient-to-r from-slate-500 to-slate-100 bg-clip-text text-transparent">{exp.position} at {exp.company}</h2>
+                      <h2 className="text-md md:text-2xl font-semibold bg-gradient-to-r from-[#B1FC0A] to-[#484BB1] bg-clip-text text-transparent">{exp.position} at {exp.company}</h2>
                       <p className="text-xs md:text-sm bg-gradient-to-l from-slate-500 to-slate-100 bg-clip-text text-transparent">{exp.duration}</p>
-                      <p className="text-xs  border-b-2 border-slate-600 py-4 bg-gradient-to-tr from-slate-500 to-slate-100 bg-clip-text text-transparent">{exp.description}</p>
+                      <p className="text-xs  border-b-2 border-[#484BB1] py-4 bg-gradient-to-tr from-slate-500 to-slate-100 bg-clip-text text-transparent">{exp.description}</p>
                 </motion.div>
               </Fragment>
         )

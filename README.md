@@ -24,3 +24,4 @@ netlify deploy --prod --dir=dist
 - Motion Animation
 - Pagination
 - AI chatbot
+- Visitor Tracking (google analytic)

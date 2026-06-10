@@ -7,7 +7,7 @@ export default function FakeVisualizer({ isPlaying, bars = 24 }) {
             {Array.from({ length: bars }).map((_, i) => (
                 <motion.div
                     key={i}
-                    className="w-1 bg-green-400 rounded-sm"
+                    className="w-1 bg-[#B1FC0A] rounded-sm"
                     animate={{
                         height: isPlaying
                             ? [`20%`, `${Math.random() * 100}%`, `30%`]

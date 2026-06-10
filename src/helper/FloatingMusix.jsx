@@ -14,17 +14,17 @@ export default function FloatingMusic() {
       animate={{
         boxShadow: isPlaying
           ? [
-              "0 0 0px #22c55e",
-              "0 0 16px #22c55e",
-              "0 0 32px #22c55e",
-              "0 0 16px #22c55e",
-              "0 0 0px #22c55e",
+              "0 0 0px #B1FC0A",
+              "0 0 16px #B1FC0A",
+              "0 0 32px #B1FC0A",
+              "0 0 16px #B1FC0A",
+              "0 0 0px #B1FC0A",
             ]
           : "0 0 0px #22c55e",
       }}
       transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
       className="fixed top-2 left-2 z-40
-                 bg-green-400 hover:bg-green-500 text-black
+                 bg-[#B1FC0A] hover:bg-[#484BB1] text-black
                  px-4 py-2 rounded-lg font-semibold
                  flex items-center gap-2"
     >

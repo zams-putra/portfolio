@@ -43,8 +43,8 @@ export default function Lamp({classname = ""}){
 
         const geometry = new THREE.SphereGeometry(30, 24, 24)
         const material = new THREE.MeshStandardMaterial({
-            color: 0xfcff57,
-            emissive: 0xfcff57,
+            color: 0xB1FC0A,
+            emissive: 0xB1FC0A,
             emissiveIntensity: 0, 
             roughness: 0.5,
             metalness: 0.0,

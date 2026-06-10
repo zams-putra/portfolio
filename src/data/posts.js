@@ -269,6 +269,26 @@ const localPosts = [
     passwordHash: "9f5226325450fa074da6fbfddb09189677c389da6237415e118ffddd4f91e6b5",         
     alasan: "Mesin belum retired — available after retirement.",
    },
+  {
+    id: "htb-medium-devhub",
+    title: "HTB - DevHub (S11)",
+    date: "5-31-2026",
+    tags: ["writeup"],
+    excerpt: "HTB seasonal machines - medium",                          
+    encryptedFile: "OFMk2hZfNFn0IX7aotW4uLxf2d6zdNwGYMKoBwFcC84OULvWhEt0QDH6oDhuZkau8Lv4xi0tcg==",
+    passwordHash: "9f5226325450fa074da6fbfddb09189677c389da6237415e118ffddd4f91e6b5",         
+    alasan: "Mesin belum retired — available after retirement.",
+   },
+  {
+    id: "htb-easy-connected",
+    title: "HTB - Connected (S11)",
+    date: "6-7-2026",
+    tags: ["writeup"],
+    excerpt: "HTB seasonal machines - easy",                          
+    encryptedFile: "qq5s8Bh+KL6wQ2/QFJR7WzV64hjas3xAsslyJbpCwPLa3pLZH4n/CLoEuOpOwFG2i/pUYu0afDql9A==",
+    passwordHash: "9f5226325450fa074da6fbfddb09189677c389da6237415e118ffddd4f91e6b5",         
+    alasan: "Mesin belum retired — available after retirement.",
+   },
 
 ];
 

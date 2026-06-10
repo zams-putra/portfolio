@@ -26,7 +26,6 @@ func concatWithReverse(nums []int) (r []int) {
 - atau misal -> nasgor -> output: nasgorrogsan
 ```
 
-<<<<<<< HEAD
 
 
 # ___________________________________________________________________________________________
@@ -157,9 +156,79 @@ func passwordStrength(password string) (r int) {
 - kita cek nih disitu karakter begitu ada berapa: [!] -> 1 -> 1 * 5 = 5 point
 - so di jumlah point output jadi = 6 + 2 + 6 + 5 = 19
 - return 19
+```
+
+# ___________________________________________________________________________________________
 
 
+# Weekly Contest 504
+
+## Title: Digit Frequency Score
+### Difficult - Easy
+#### Link: https://leetcode.com/problems/digit-frequency-score/description/
+
+## Answer :
+
+```go
+func digitFrequencyScore(n int) (r int) {
+	s, m := strconv.Itoa(n), map[string]int{}
+	for _, v := range s {
+		m[string(v)]++
+	}
+	for k, v := range m {
+		intK, _ := strconv.Atoi(string(k))
+		r += intK * v
+	}
+	return
+}
+```
+
+## Key Points
+```bash
+- tinggal itung ae sih frekuensi dari angka n ini
+- misal nih inputnya: 53523233
+- kan angka 5 ada 2, jadi ya kalikan aja 5 * 2 = 10
+- angka 2 ada 2, 2 * 2 = 4
+- angka 3 ada 4, 3 * 4 = 12 
+- then jumlahin aja cuy, 10 + 4 + 12 = 26, return 26
+```
+
+# ___________________________________________________________________________________________
+
+
+# Weekly Contest 505
+
+## Title: Sum of Compatible Numbers in Range I
+### Difficult - Easy
+#### Link: https://leetcode.com/problems/sum-of-compatible-numbers-in-range-i/description/
+
+## Answer :
+
+```go
+func sumOfGoodIntegers(n int, k int) (r int) {
+	x := max(1, n-k)
+	for i := x; i <= n+k; i++ {
+		if abs(n-i) <= k && n&i == 0 {
+			r += i
+		}
+	}
+	return
+}
+
+func abs(n int) int {
+	if n < 0 {
+		return -n
+	}
+	return n
+}
 
 ```
-=======
->>>>>>> d318c43740deb669f43c56289d57e0d978d52f21
+
+## Key Points
+```bash
+- jadi nanti start dari either 1 atau ga n - k
+- kalau n - k hasilnya minus nanti mulainya dari 1 -> x = 1
+- kalau n - k hasilnya plus, nanti mulai dari n - k -> x = n - k
+- nah nanti tinggal iterasi aja, x ke n + k
+- di setiap iterasi cek, apakah absolute(n - i) <= dan n & i == 0, kalau iya counting += i
+```
