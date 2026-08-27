@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
 import { FaBug, FaShield } from "react-icons/fa6";
-import { SiInstagram, SiGithub, SiLeetcode, SiTryhackme, SiMedium, SiCodewars, SiHackerrank, SiLinkedin, SiHackthebox, SiYoutube } from "react-icons/si";
+import { SiInstagram, SiGithub, SiLeetcode, SiTryhackme, SiMedium, SiCodewars, SiHackerrank, SiLinkedin, SiHackthebox, SiYoutube, SiDocker } from "react-icons/si";
 // import GlobeTemplate from "../components/design/GlobeTemplate";
 import planetGambar from '/img/burger.jpg'
 import { UseLazyMount } from "../helper/UseLazyMount";
@@ -22,7 +22,7 @@ const socialCategories = [
       },
       {
         id: 2,
-        link: 'https://linkedin.com/in/zams-putro-49466527a/',
+        link: 'https://linkedin.com/in/zamhari-mirza-saputra-49466527a',
         name: 'LinkedIn',
         icon: <SiLinkedin />
       },
@@ -43,7 +43,13 @@ const socialCategories = [
         link: 'https://medium.com/@sirsebasers',
         name: 'Medium',
         icon: <SiMedium />
-      }
+      },
+      {
+        id: 6,
+        link: 'https://hub.docker.com/u/hopkinserstomba',
+        name: 'DockerHub',
+        icon: <SiDocker />
+      },
     ]
   },
   {

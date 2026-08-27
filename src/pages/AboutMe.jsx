@@ -19,6 +19,8 @@ export default function AboutMe() {
 
    const tulisans = useMemo(() => {
       const arr = []
+      const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+      const gapStep = isMobile ? 2.5 : 4; 
       let rems = 0
       let zs = 1
       for(let i = 0; i < 12; i++){
@@ -26,7 +28,7 @@ export default function AboutMe() {
           topRem: rems,
           zndex: zs,
         })
-        rems += 4
+        rems += gapStep
         zs++
       }
       return arr
@@ -91,7 +93,7 @@ export default function AboutMe() {
 
       {/* gambar brutalism design2 baju noh */}
       <section className="w-full p-4 my-7 relative justify-center flex items-center overflow-hidden">
-        <img src="/img/brutalism/about_brutalism.png" alt="about" style={{zIndex: tulisans.length + 1}} />
+        <img src="/img/brutalism/about_brutalism.png" alt="about" className="transform -translate-y-10" style={{zIndex: tulisans.length + 1}} />
           {tulisans.map((e, index) => {
             return (
               <motion.span key={index}
@@ -144,7 +146,7 @@ export default function AboutMe() {
           </p>
           <p className="text-white">
              Hi! I am <span className="text-[#B1FC0A]">putra putro</span> I like to solve problems .
-              Thats why i played CTF and <span className="text-[#B1FC0A]">Competitive Programming</span> Furthermore, i loved sports, game, music, and explore the new positive things
+              Thats why i played CTF and <span className="text-[#B1FC0A]">Competitive Programming</span>, Furthermore i loved sports, game, music, and explore the new positive things
           </p>
 
           
@@ -180,7 +182,7 @@ export default function AboutMe() {
           <p className="text-slate-500 text-xs">Tips · Writeup · Dev Notes</p>
         </a>
         <a
-        href="/blog"
+         href="https://blog.zamsputra.my.id"
         className="flex-1 flex flex-col gap-2 p-5 rounded-xl border-2 border-[#484BB1] bg-transparent hover:bg-[#484BB1]/5 transition-all group"
       >
         <span className="text-[#B1FC0A] text-xs font-mono">{`> read this`}</span>

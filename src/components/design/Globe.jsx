@@ -4,7 +4,7 @@ import * as THREE from 'three'
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { motion } from "motion/react";
 
-export default function Globe({classname = ""}){
+export default function Globe({className = ""}){
 
     const containerdRef = useRef(null)
     const renderedRef = useRef(null)
@@ -117,7 +117,7 @@ export default function Globe({classname = ""}){
     animate={{scale: 1}} 
     transition={{ duration: 1, delay: 0.7, ease: "easeIn" }} 
     ref={containerdRef} 
-    className={`rounded-full  ${classname}`}
+    className={`rounded-full  ${className}`}
     onClick={() => {
         isLight.current = !isLight.current
     }} >

@@ -12,18 +12,20 @@ import Experience from "./pages/Experience";
 import Social from "./pages/Social";
 import End from "./pages/End";
 import Terminal from "./components/Terminal";
-import Blog from "./pages/Blog";  
+import Chatbot from "./components/Chatbot";
 
 import { SiGnometerminal } from "react-icons/si";
+import { FiMessageSquare } from "react-icons/fi";
+import FooterNav from "./components/FooterNav";
 import ScrollUp from "./helper/ScrollUp";
 import ScrollDown from "./helper/ScrollDown";
 import StarBackground from "./components/design/StarBackground";
 import FloatingMusic from "./helper/FloatingMusix";
-import PostPage from "./components/blog/PostPage";
 import { UseLazyMount } from "./helper/UseLazyMount";
 
 
 const sesi = [Hero, AboutMe, TechStack, Projects, Experience, Social, End]
+// kudu sama urutannya kek di components/FooterNav.jsx
 
 
 // biar ga berat kalau close terminal
@@ -43,12 +45,15 @@ function Home() {
 
   const handleDown = () => setPage((bef) => bef + 1)
   const handleUp = () => setPage((bef) => bef - 1)
+  const handleJump = (i) => setPage(i) // dipake footernav buat direct jump antar section page
 
   const tengahWoiRef = useRef(null)
   const Curr = sesi[page]
 
   const [notSplash, setNotSplash] = useState(false);
-  const [isTerminal, setIsTerminal] = useState(false)
+
+
+  const [overlay, setOverlay] = useState(null)
   const [showBtnTerminal, setShowBtnTerminal] = useState(false)
 
   useEffect(() => {
@@ -74,7 +79,7 @@ function Home() {
       <div className="fixed inset-0 bg-gradient-to-r from-slate-900 via-black to-slate-900 -z-10" />
       <AnimatePresence mode="wait">
 
-        {!isTerminal ? (
+        {overlay === null ? (
           <motion.div
             key="main"
             initial={{ opacity: 0, y: 100 }}
@@ -87,8 +92,9 @@ function Home() {
 
             {notSplash && (
               <>
-            
-                <main className="md:hidden">
+
+                <main className="md:hidden pb-20">
+          
                   <AnimatePresence
                     mode="wait"
                     key={page}
@@ -107,9 +113,17 @@ function Home() {
                     style={{ scaleX: (page + 1) / sesi.length }}
                     className="fixed md:hidden top-0 w-full h-1 bg-[#B1FC0A]"
                   />
+
+                  <FooterNav
+                    page={page}
+                    onNavigate={handleJump}
+                    onLaunchTerminal={() => setOverlay("terminal")}
+                    onLaunchChatbot={() => setOverlay("chatbot")}
+                    musicSlot={<FloatingMusic compact />}
+                  />
                 </main>
 
-            
+
                 <main className="flex-col gap-2 hidden md:flex">
                   <Hero />
                   <LazySection><AboutMe /></LazySection>
@@ -117,8 +131,8 @@ function Home() {
                   <LazySection><Projects /></LazySection>
                   <LazySection><Experience /></LazySection>
                   <LazySection><Social /></LazySection>
-                  <LazySection><End /></LazySection>            
-                  
+                  <LazySection><End /></LazySection>
+
                   <motion.div
                     style={{ scaleX: scrollYProgress }}
                     className="fixed hidden md:block top-0 w-full h-1 bg-[#B1FC0A]"
@@ -128,10 +142,25 @@ function Home() {
             )}
 
             {showBtnTerminal && (
-              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }}>
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1 }}
+                className="hidden md:flex flex-col gap-3 items-end"
+              >
+      
                 <FloatingMusic />
                 <motion.button
-                  onClick={() => setIsTerminal(true)}
+                  onClick={() => setOverlay("chatbot")}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="z-30 md:right-3 md:bottom-20 fixed self-end bg-transparent border-2 border-[#B1FC0A] hover:bg-[#B1FC0A]/10 text-[#B1FC0A] px-4 py-2 rounded-lg font-semibold flex gap-1 justify-center items-center"
+                >
+                  <span><FiMessageSquare /></span>
+                  <span>SidiBot</span>
+                </motion.button>
+                <motion.button
+                  onClick={() => setOverlay("terminal")}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   initial={{ boxShadow: "0 0 0px #B1FC0A" }}
@@ -153,8 +182,8 @@ function Home() {
               </motion.div>
             )}
           </motion.div>
-        ) : (
-          
+        ) : overlay === "terminal" ? (
+
           <motion.div
             key="terminal"
             initial={{ opacity: 0, scale: 0 }}
@@ -162,8 +191,20 @@ function Home() {
             exit={{ opacity: 0, scale: 0 }}
             transition={{ duration: 0.2 }}
           >
-            
-            <Terminal setIsTerminal={setIsTerminal} />
+
+            <Terminal setIsTerminal={() => setOverlay(null)} />
+          </motion.div>
+        ) : (
+
+          <motion.div
+            key="chatbot"
+            initial={{ opacity: 0, scale: 0 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0 }}
+            transition={{ duration: 0.2 }}
+          >
+
+            <Chatbot setIsChatbot={() => setOverlay(null)} />
           </motion.div>
         )}
       </AnimatePresence>
@@ -176,8 +217,6 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/blog" element={<Blog />} />
-      <Route path="/blog/:slug" element={<PostPage />} />
     </Routes>
   );
 }

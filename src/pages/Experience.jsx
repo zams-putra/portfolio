@@ -3,6 +3,7 @@ import { Fragment, lazy, Suspense } from "react";
 import { useEffect, useRef, useState } from "react";
 import planetGambar from '/img/salad.jpg'
 import { UseLazyMount } from "../helper/UseLazyMount";
+import { FiAward, FiExternalLink } from "react-icons/fi";
 
 const GlobeTemplate = lazy(() => import('../components/design/GlobeTemplate'))
 
@@ -45,6 +46,117 @@ const experienceData = [
   },
 
 ];
+
+
+const certifications = [
+  {
+    title: "Certified Red Team Analyst (CRTA)",
+    issuer: "CyberWarFare Labs",
+    date: "Aug 2026",
+    credentialUrl: "https://labs.cyberwarfare.live/credential/achievement/6a71dabd345e0a58161cbfed",
+    image: "/img/cert/crta.png",
+    description: "Completed final practical exam covering Red Teaming, AD pentesting, Web Exploit and Pivoting across Internal and External Server Networks",
+  },
+  {
+    title: "CyberSentinelSecure - Web Pentest Bootcamp",
+    issuer: "Xcode (PT. Teknologi Server Indonesia)",
+    date: "Sep 2025",
+    credentialUrl: "https://xcode.co.id/cekkodesertifikat/",
+    image: "/img/cert/css.png",
+    description: "Completed 6 practical exams in this hands-on web application pentest bootcamp, covering common vulnerabilities and exploitation techniques.",
+  },
+  {
+    title: "Introduction to Security Operation Center (SOC)",
+    issuer: "Jadi Hacker",
+    date: "Oct 2023 (Expired Oct 2024)",
+    credentialUrl: "https://jadihacker.id/certificate/jh-soc-03-0001/",
+    image: "/img/cert/jh.png",
+    description: "Completed the final practical exam covering SOC analyst fundamentals - log analysis, SIEM-based monitoring, incident detection, and reporting. Scored a perfect 100 (20 quiz, 40 daily report, 40 incident report) and earned the best report in the batch.",
+  },
+];
+
+const certCardVariant = {
+  hidden: { opacity: 0, y: 30 },
+  visible: (i) => ({
+    opacity: 1,
+    y: 0,
+    transition: { delay: i * 0.08, duration: 0.5, ease: "easeOut" },
+  }),
+};
+
+function CertGrid() {
+  return (
+    <div className="w-full max-w-5xl grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {certifications.map((cert, i) => {
+        const meta = [cert.issuer, cert.date].filter(Boolean).join(" · ");
+
+        const CardInner = (
+          <>
+
+            <div className="h-40 w-full overflow-hidden bg-slate-900/60 flex items-center justify-center shrink-0">
+              {cert.image ? (
+                <img
+                  src={cert.image}
+                  alt={cert.title}
+                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+              ) : (
+                <FiAward className="text-[#484BB1]" size={40} />
+              )}
+            </div>
+
+            <div className="p-5 flex flex-col gap-2 flex-1">
+              <div className="flex items-start justify-between gap-2">
+                <p className="text-white font-medium group-hover:text-[#B1FC0A] transition-colors">
+                  {cert.title}
+                </p>
+                {cert.credentialUrl && (
+                  <FiExternalLink className="text-slate-500 group-hover:text-[#B1FC0A] transition-colors shrink-0 mt-1" size={14} />
+                )}
+              </div>
+
+              {meta && <p className="text-slate-500 text-xs">{meta}</p>}
+
+
+              {cert.description && (
+                <p className="text-slate-300 text-xs leading-relaxed mt-1 font-mono">
+                  {cert.description}
+                </p>
+              )}
+
+              {cert.note && (
+                <span className="text-[10px] font-mono text-slate-600 mt-1">{cert.note}</span>
+              )}
+            </div>
+          </>
+        );
+
+        const cardClass =
+          "group flex flex-col rounded-xl border-2 border-[#484BB1] bg-transparent hover:bg-[#484BB1]/5 transition-all overflow-hidden h-full";
+
+        return (
+          <motion.article
+            key={cert.title}
+            custom={i}
+            variants={certCardVariant}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            whileHover={{ y: -4 }}
+          >
+            {cert.credentialUrl ? (
+              <a href={cert.credentialUrl} target="_blank" rel="noopener noreferrer" className={cardClass}>
+                {CardInner}
+              </a>
+            ) : (
+              <div className={cardClass}>{CardInner}</div>
+            )}
+          </motion.article>
+        );
+      })}
+    </div>
+  );
+}
 
 
 export default function Experience() {
@@ -178,8 +290,44 @@ export default function Experience() {
       </motion.main>
 
 
-   
 
+      <div className="w-full flex flex-col items-center gap-10 mt-16">
+               <motion.h1 className="text-4xl md:text-7xl font-black tracking-tighter whitespace-nowrap relative min-h-[1.2em] w-full text-center flex justify-center items-center">      
+          <span 
+            className="absolute text-transparent select-none"
+            style={{ WebkitTextStroke: '1px #B1FC0A', zIndex: 0 }}
+          >
+            ✧Cert<span className="text-[#B1FC0A]">ification✧</span>
+          </span>  
+        </motion.h1>
+
+  
+        <motion.div
+          className="w-full max-w-5xl mt-16 font-mono text-sm leading-loose border-t-2 border-[#484BB1]  bg-transparent p-6"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          viewport={{ once: true }}
+        >
+       
+          <p>
+            <span className="text-[#B1FC0A]">putra@nasgor</span>
+            <span className="text-slate-300">:~$ ./cert</span>
+          </p>
+          <p className="text-white">
+             So these just my <span className="text-[#B1FC0A]">Certifications</span> for achieving something in <span className="text-[#B1FC0A]">My Life</span>, i put several in here
+          </p>
+
+          
+          <p className="mt-4">
+            <span className="text-[#B1FC0A]">putra@nasgor</span>
+            <span className="text-slate-300">:~$ </span>
+            <span className="text-[#B1FC0A] animate-pulse">_</span>
+          </p>
+        </motion.div>
+
+        <CertGrid />
+      </div>
 
 
     </section>

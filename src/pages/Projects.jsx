@@ -47,6 +47,14 @@ export default function Projects() {
           repo: "https://github.com/zams-putra/b2r-framework",
           img: "/img/project/b2r_fw.png",
         },
+        {
+          title: "My Dreams",
+          description: "Replication from my dream last night",
+          techStack: ["ThreeJS", "HTML", "CSS"],
+          link: "https://dream.zamsputra.my.id/",
+          repo: "https://github.com/zams-putra/liminal-dreams",
+          img: "/img/project/dream.png",
+        },
       ]
     },
     {
@@ -132,6 +140,14 @@ export default function Projects() {
           link: "https://github.com/zams-putra/android-lab/tree/main/DarkMemories",
           repo: "https://github.com/zams-putra/android-lab/tree/main/DarkMemories",
           img: "/img/project/androlab2.png",
+        },
+        {
+          title: "MasterChef",
+          description: "API pentest lab for security research and CTF challenges",
+          techStack: ["ExpressJS", "SQLite"],
+          link: "https://github.com/zams-putra/API-pentest-lab/tree/main/masterchef",
+          repo: "https://github.com/zams-putra/API-pentest-lab/tree/main/masterchef",
+          img: "/img/project/apilab1.png",
         },
       ]
     }
