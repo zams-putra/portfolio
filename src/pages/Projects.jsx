@@ -142,6 +142,14 @@ export default function Projects() {
           img: "/img/project/androlab2.png",
         },
         {
+          title: "CringeMoment",
+          description: "Android pentest lab for security research and CTF challenges",
+          techStack: ["Kotlin", "XML"],
+          link: "https://github.com/zams-putra/android-lab/tree/main/CringeMoment",
+          repo: "https://github.com/zams-putra/android-lab/tree/main/CringeMoment",
+          img: "/img/project/androlab3.png",
+        },
+        {
           title: "MasterChef",
           description: "API pentest lab for security research and CTF challenges",
           techStack: ["ExpressJS", "SQLite"],
